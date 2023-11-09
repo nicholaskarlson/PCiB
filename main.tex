@@ -999,6 +999,86 @@ Here are the answers to the example problems provided:
 
 \textit{Note: The answers provided are meant to guide students in understanding the concepts. Instructors should verify all computations and explanations before use.}
 
+% \subsection{Tangent and Cotangent}
+% \label{subsec:tangent_cotangent}
+% These functions are the ratios of sine to cosine and cosine to sine, respectively, and they play a significant role in slope calculations in calculus.
+
+% \usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+
+\subsection{Tangent and Cotangent}
+\label{subsec:tangent_cotangent}
+
+The tangent of an angle in a right-angled triangle is the ratio of the length of the opposite side to the length of the adjacent side. In the unit circle, tangent is the y-coordinate divided by the x-coordinate when the line made by the angle intersects the circle. Symbolically, for an angle \(\theta\), this is expressed as:
+\[
+\tan(\theta) = \frac{\sin(\theta)}{\cos(\theta)}
+\]
+
+Conversely, the cotangent is the reciprocal of the tangent function. It represents the ratio of the length of the adjacent side to the length of the opposite side, or using the unit circle, the x-coordinate divided by the y-coordinate:
+\[
+\cot(\theta) = \frac{1}{\tan(\theta)} = \frac{\cos(\theta)}{\sin(\theta)}
+\]
+
+These functions are undefined when their denominators are zero (i.e., when \(\cos(\theta) = 0\) for tangent, and when \(\sin(\theta) = 0\) for cotangent). This occurs at odd multiples of \(\frac{\pi}{2}\) for tangent and at integer multiples of \(\pi\) for cotangent.
+
+The graphs of these functions illustrate their periodic nature and the locations of their asymptotes, which correspond to the angles where the functions are undefined.
+
+% Graph for Tangent
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+  axis lines = middle,
+  xlabel = \(\theta\),
+  ylabel = {\(\tan(\theta)\)},
+  xmin=-2*pi, xmax=2*pi,
+  ymin=-5, ymax=5,
+  xtick={-1.5708, 0, 1.5708, 3.14159, 4.71239},
+  xticklabels={\(-\frac{\pi}{2}\), \(0\), \(\frac{\pi}{2}\), \(\pi\), \(\frac{3\pi}{2}\)},
+  ytick=\empty,
+  axis on top
+]
+\addplot+[mark=none, samples=200, domain=-1.45*pi:-1.05*pi] {tan(deg(x))};
+\addplot+[mark=none, samples=200, domain=-0.95*pi:-0.05*pi] {tan(deg(x))};
+\addplot+[mark=none, samples=200, domain=0.05*pi:0.95*pi] {tan(deg(x))};
+\addplot+[mark=none, samples=200, domain=1.05*pi:1.45*pi] {tan(deg(x))};
+% Add vertical asymptotes
+\draw[dashed,red] (axis cs:-1.5708,-5) -- (axis cs:-1.5708,5);
+\draw[dashed,red] (axis cs:1.5708,-5) -- (axis cs:1.5708,5);
+\end{axis}
+\end{tikzpicture}
+\caption{Tangent function graph showing asymptotes.}
+\end{figure}
+
+% Graph for Cotangent
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+  axis lines = middle,
+  xlabel = \(\theta\),
+  ylabel = {\(\cot(\theta)\)},
+  xmin=-2*pi, xmax=2*pi,
+  ymin=-5, ymax=5,
+  xtick={0, 3.14159},
+  xticklabels={\(0\), \(\pi\)},
+  ytick=\empty,
+  axis on top
+]
+\addplot+[mark=none, samples=200, domain=-1.95*pi:-1.05*pi] {cot(deg(x))};
+\addplot+[mark=none, samples=200, domain=-0.95*pi:0.95*pi] {cot(deg(x))};
+\addplot+[mark=none, samples=200, domain=1.05*pi:1.95*pi] {cot(deg(x))};
+% Add vertical asymptotes
+\draw[dashed,red] (axis cs:0,-5) -- (axis cs:0,5);
+\draw[dashed,red] (axis cs:3.14159,-5) -- (axis cs:3.14159,5);
+\end{axis}
+\end{tikzpicture}
+\caption{Cotangent function graph showing asymptotes.}
+\end{figure}
+
+In calculus, the tangent function is particularly important when it comes to determining the slope of a curve at a point, which is essential for understanding the concept of derivatives. Cotangent can similarly be used, especially when dealing with the slope of reciprocal functions.
+
+
 
 % Concluding remarks for the chapter
 \section*{Conclusion}

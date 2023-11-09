@@ -19,6 +19,16 @@
 }
 
 
+\newenvironment{exercise}[1][]
+  {\par\medskip\noindent\textbf{Exercise #1} \rmfamily}
+  {\medskip}
+
+\newenvironment{solution}[1][]
+  {\par\noindent\textbf{Solution #1} \rmfamily}
+  {\medskip}
+
+
+
 \begin{document}
 
 % --- Book Cover ---
@@ -1077,6 +1087,68 @@ The graphs of these functions illustrate their periodic nature and the locations
 \end{figure}
 
 In calculus, the tangent function is particularly important when it comes to determining the slope of a curve at a point, which is essential for understanding the concept of derivatives. Cotangent can similarly be used, especially when dealing with the slope of reciprocal functions.
+
+\subsection{Exercises on Tangent and Cotangent Functions}
+\label{subsec:exercises_tangent_cotangent}
+
+In this section, we provide some example problems involving the tangent and cotangent functions. These exercises are designed to reinforce the concepts discussed and help students gain a deeper understanding of these trigonometric functions.
+
+% \begin{exercise}[1]
+%   Prove that \(a^2 + b^2 = c^2\) for a right triangle with legs of length \(a\) and \(b\), and hypotenuse of length \(c\).
+% \end{exercise}
+
+% \begin{solution}
+%   (Write your solution here)
+% \end{solution}
+
+% Numbering is optional, i.e.
+% \begin{exercise}[1]
+% \begin{exercise}[2]
+
+
+\begin{exercise}
+Calculate the tangent of \(\frac{\pi}{4}\) and verify that it equals 1.
+\end{exercise}
+\begin{solution}
+Using the unit circle or the definition of the tangent function, we have:
+\[
+\tan\left(\frac{\pi}{4}\right) = \frac{\sin\left(\frac{\pi}{4}\right)}{\cos\left(\frac{\pi}{4}\right)} = \frac{\frac{\sqrt{2}}{2}}{\frac{\sqrt{2}}{2}} = 1
+\]
+\end{solution}
+
+\begin{exercise}
+Find all solutions in the interval \([0, 2\pi)\) for the equation \(\tan(\theta) = \sqrt{3}\).
+\end{exercise}
+\begin{solution}
+We know that \(\tan(\theta) = \sqrt{3}\) when \(\theta = \frac{\pi}{3}\), but since tangent has a period of \(\pi\), the other solution in the given interval is \(\theta = \frac{\pi}{3} + \pi = \frac{4\pi}{3}\).
+\end{solution}
+
+\begin{exercise}
+Evaluate \(\cot(\pi)\) and explain why it takes its particular value.
+\end{exercise}
+\begin{solution}
+Cotangent is the reciprocal of the tangent function. Since \(\tan(\pi) = 0\), and since the cotangent is undefined when its sine component is 0 (which it is at \(\pi\)), \(\cot(\pi)\) is undefined. This reflects the asymptote of the cotangent graph at \(\pi\).
+\end{solution}
+
+\begin{exercise}
+Determine the exact value of \(\cot\left(-\frac{\pi}{6}\right)\) using the cotangent definition.
+\end{exercise}
+\begin{solution}
+Using the cotangent definition and known values of sine and cosine for \(\frac{\pi}{6}\), we get:
+\[
+\cot\left(-\frac{\pi}{6}\right) = \frac{\cos\left(-\frac{\pi}{6}\right)}{\sin\left(-\frac{\pi}{6}\right)} = \frac{\frac{\sqrt{3}}{2}}{-\frac{1}{2}} = -\sqrt{3}
+\]
+\end{solution}
+
+\begin{exercise}
+Sketch the graph of \(\tan(\theta)\) and \(\cot(\theta)\) from \(\theta = -\frac{\pi}{2}\) to \(\theta = \frac{3\pi}{2}\) and label the asymptotes.
+\end{exercise}
+\begin{solution}
+Students should refer to the graphs provided in the section above and reproduce them by hand, marking the asymptotes at \(\theta = -\frac{\pi}{2}\), \(\theta = \frac{\pi}{2}\) for the tangent function and at \(\theta = 0\), \(\theta = \pi\) for the cotangent function.
+\end{solution}
+
+These exercises require students to apply their understanding of the unit circle, the definitions of tangent and cotangent, and the properties of these functions such as periodicity and asymptotes. Students should attempt these exercises without a calculator to improve their understanding of the trigonometric functions.
+
 
 
 

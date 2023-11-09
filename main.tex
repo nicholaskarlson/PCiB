@@ -4,12 +4,20 @@
 % \usepackage{makeidx} % For making an index
 \usepackage{tikz}
 \usepackage{amsmath}
+\usepackage{enumitem}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
 
 \newcommand{\inputtoc}[1]{\input{#1}}
 
 % ... (rest of your preamble)
 
 % \makeindex % Command to make the index
+
+\pgfmathdeclarefunction{csc}{1}{%
+  \pgfmathparse{1/sin(#1)}%
+}
+
 
 \begin{document}
 
@@ -28,7 +36,7 @@
         
         % Title and additional info
         \node at (current page.center) [font=\Huge, text width=0.8\textwidth, align=center] 
-            {\textbf{Pre-Calculus in Brief with GitHub and \LaTeX  \\ PCiB - Version 0.2}};
+            {\textbf{Pre-Calculus in Brief with Python, Colab, GitHub, and \LaTeX  \\ PCiB - Version 0.3}};
             
         \node[align=center, font=\large] at (current page.center) 
             [yshift=-2.5cm] {\today}; % <- This is the compilation date
@@ -392,9 +400,574 @@ This chapter surveys important topics in algebra relevant to the study of calcul
 \paragraph{}
 Trigonometry is important in pre-calculus studies.
 
+\section{The Unit Circle}
+\label{sec:unit_circle}
+
+The unit circle is a fundamental concept in trigonometry. It is a circle with a radius of one unit, centered at the origin (0,0) of the coordinate plane. The unit circle allows us to define all trigonometric functions for any angle, including those greater than 90 degrees.
+
+\subsection{Definition of the Unit Circle}
+\label{subsec:unit_circle_definition}
+
+The unit circle is defined as the set of all points \((x, y)\) that satisfy the equation \(x^2 + y^2 = 1\). This circle intersects the x-axis at the points \((1, 0)\) and \((-1, 0)\), and the y-axis at the points \((0, 1)\) and \((0, -1)\).
+
+\subsection{Angles and the Unit Circle}
+\label{subsec:angles_unit_circle}
+
+In the context of the unit circle, an angle \(\theta\) is defined starting from the positive x-axis and rotating counter-clockwise for positive angles and clockwise for negative angles. This rotation creates an arc on the circle, and the length of this arc is the measure of the angle in radians.
+
+\subsection{Radians and Degrees}
+\label{subsec:radians_degrees}
+
+A radian is the measure of an angle corresponding to an arc length equal to the radius of the circle. Since the circumference of the unit circle is \(2\pi\), there are \(2\pi\) radians in a full rotation. To convert radians to degrees, we use the fact that \(360\) degrees is equivalent to \(2\pi\) radians. Therefore, to convert an angle from radians to degrees, we multiply by \(\frac{180}{\pi}\).
+
+\[
+\text{degrees} = \text{radians} \times \frac{180}{\pi}
+\]
+
+Conversely, to convert from degrees to radians, we multiply by \(\frac{\pi}{180}\).
+
+\[
+\text{radians} = \text{degrees} \times \frac{\pi}{180}
+\]
+
+\subsection{Graphing the Unit Circle}
+\label{subsec:graphing_unit_circle}
+
+Let's graph the unit circle with the point \((0,1)\) marked:
+
+\begin{figure}[ht!]
+\centering
+\begin{tikzpicture}
+    % Draw the unit circle
+    \draw (0,0) circle (2cm);
+    % Draw the horizontal and vertical lines
+    \draw[->] (-2.5,0) -- (2.5,0) node[right] {\(x\)};
+    \draw[->] (0,-2.5) -- (0,2.5) node[above] {\(y\)};
+    % Draw the point (0,1)
+    \filldraw [black] (0,2) circle (2pt) node[right] {\((0,1)\)};
+    % Draw the angle
+    \draw[->] (1.5,0) arc (0:90:1.5cm);
+    % Label the angle
+    \node at (1.2,0.3) {\(\theta\)};
+\end{tikzpicture}
+\caption{The unit circle with the point (0,1) marked.}
+\label{fig:unit_circle}
+\end{figure}
+
+As you can see from Figure \ref{fig:unit_circle}, the unit circle provides a way to visualize angles and trigonometric functions. Each point on the circle corresponds to the cosine and sine of the angle \(\theta\), where the x-coordinate represents the cosine, and the y-coordinate represents the sine.
+
+% End of the unit circle section
+
+
 \section*{Conclusion}
 \paragraph{}
 This chapter surveys important topics in trigonometry relevant to the study of calculus. Please fork the LaTeX source code for PCiB (available on GitHub) and create your own book that chooses the facts and exercises most relevant to you! Also, starring the PCiB project on GitHub would be greatly appreciated! Thanks for reading PCiB!
+
+
+% --- Chapter: Trigonometry ---
+\chapter{Trigonometry for Calculus}
+\label{chap:trigonometry}
+
+Trigonometry is a branch of mathematics that deals with the relationships between the sides and angles of triangles. It is essential for understanding concepts in calculus, as it provides tools for modeling and solving problems involving periodic phenomena.
+
+% \section{Angles and Their Measure}
+% \label{sec:angles_measure}
+% Every study of Trigonometry begins with an understanding of angles. Here, we discuss how angles are measured in both degrees and radians, and the importance of radian measure in calculus.
+
+\section{Angles and Their Measure}
+\label{sec:angles_measure}
+
+Every study of Trigonometry begins with an understanding of angles. Angles can be measured in two primary ways: degrees and radians. Degrees are traditionally used in many fields and cultures, and there are \(360\) degrees in a full rotation. Radians, however, provide a more natural approach in mathematics, especially calculus, because they arise from the arc length of a circle.
+
+\subsection{Degree Measure}
+\label{subsec:degree_measure}
+
+One degree is defined as \(\frac{1}{360}\) of a full rotation. The degree measure is subdivided into minutes and seconds, where one degree contains \(60\) minutes and one minute contains \(60\) seconds.
+
+\subsection{Radian Measure}
+\label{subsec:radian_measure}
+
+A radian is a measure based on the radius of a circle. It is the angle created at the center of a circle by an arc whose length is equal to the radius of the circle. Since the circumference of a circle is \(2\pi\) times the radius, a full rotation contains \(2\pi\) radians.
+
+\subsection{Converting Between Degrees and Radians}
+\label{subsec:converting_degrees_radians}
+
+To convert from degrees to radians, we use the relationship that \(180\) degrees is equal to \(\pi\) radians. Therefore, to convert \(x\) degrees to radians, we multiply \(x\) by \(\frac{\pi}{180}\).
+
+\[
+\text{radians} = \text{degrees} \times \frac{\pi}{180}
+\]
+
+Conversely, to convert from radians to degrees, we multiply the radian measure by \(\frac{180}{\pi}\).
+
+\[
+\text{degrees} = \text{radians} \times \frac{180}{\pi}
+\]
+
+\subsection{Visualizing Angles with TikZ}
+\label{subsec:visualizing_angles}
+
+To better understand how angles are measured, we can visualize them using a unit circle. Below, we depict an angle in both degrees and radians.
+
+\begin{figure}[ht!]
+\centering
+\begin{tikzpicture}
+    % Draw the unit circle
+    \draw (0,0) circle (3cm);
+    % Draw the horizontal and vertical lines
+    \draw[->] (-3.5,0) -- (3.5,0) node[right] {$x$};
+    \draw[->] (0,-3.5) -- (0,3.5) node[above] {$y$};
+    % Draw the angle in radians
+    \filldraw[fill=red!20,draw=red] (0,0) -- (3mm,0mm) arc [start angle=0, end angle=60, radius=3mm] -- cycle;
+    \node[red] at (0.5,0.15) {$\theta$};
+    % Draw the arc for radians
+    \draw[->, thick, red] (3,0) arc (0:60:3cm);
+    % Draw the angle in degrees
+    \filldraw[fill=blue!20,draw=blue] (0,0) -- (-3mm,0mm) arc [start angle=180, end angle=210, radius=3mm] -- cycle;
+    \node[blue] at (-0.8,0) {120$^\circ$};
+    % Draw the arc for degrees
+    \draw[->, thick, blue] (3,0) arc (0:-120:3cm);
+    % Label the radius
+    \draw[dashed] (0,0) -- (60:3cm);
+    \node at (1.5,0.8) {$r$};
+\end{tikzpicture}
+\caption{Visualization of an angle in degrees and radians on the unit circle.}
+\label{fig:angles_visualization}
+\end{figure}
+
+Figure \ref{fig:angles_visualization} shows an angle $\theta$ measured in radians (in red) and the same angle measured in degrees (in blue). This visual aid helps to understand the relationship between the two units of measurement.
+
+% End of Angles and Their Measure section
+
+\section{Exercises on Angles and Their Measures}
+\label{sec:exercises_angles_measure}
+
+The following problems are designed to reinforce the concepts of angle measurement in degrees and radians as well as the conversion between them. Attempt to solve these problems before checking the provided solutions.
+
+\subsection{Problems}
+\label{subsec:problems_angles_measure}
+
+\begin{enumerate}
+    \item Convert \(45^\circ\) into radians.
+    \item Convert \(\frac{\pi}{3}\) radians into degrees.
+    \item Find the radian measure of the angle subtended by an arc of length \(10\) cm in a circle of radius \(20\) cm.
+    \item If the angle \( \theta \) in radians satisfies the equation \( 3\theta = \pi \), what is \( \theta \) in degrees?
+    \item An angle is \( \frac{3}{4} \) of a full circle. What is this angle in radians?
+    \item A clock’s minute hand covers \(30\) degrees in \(5\) minutes. How many radians does it cover in \(20\) minutes?
+\end{enumerate}
+
+\subsection{Solutions}
+\label{subsec:solutions_angles_measure}
+
+\begin{enumerate}
+    \item To convert \(45^\circ\) into radians, multiply by \(\frac{\pi}{180}\):
+    \[
+    45^\circ \times \frac{\pi}{180} = \frac{\pi}{4} \text{ radians}
+    \]
+
+    \item To convert \(\frac{\pi}{3}\) radians into degrees, multiply by \(\frac{180}{\pi}\):
+    \[
+    \frac{\pi}{3} \times \frac{180}{\pi} = 60^\circ
+    \]
+
+    \item For an arc length \( s = 10 \) cm and radius \( r = 20 \) cm, the radian measure \( \theta \) is given by \( \theta = \frac{s}{r} \):
+    \[
+    \theta = \frac{10 \text{ cm}}{20 \text{ cm}} = \frac{1}{2} \text{ radian}
+    \]
+
+    \item If \( 3\theta = \pi \) radians, then \( \theta = \frac{\pi}{3} \) radians. To convert this to degrees:
+    \[
+    \frac{\pi}{3} \times \frac{180}{\pi} = 60^\circ
+    \]
+
+    \item An angle that is \( \frac{3}{4} \) of a full circle in radians is:
+    \[
+    \frac{3}{4} \times 2\pi = \frac{3\pi}{2} \text{ radians}
+    \]
+
+    \item In \(20\) minutes, the minute hand covers \(4\) times the distance it would in \(5\) minutes. Thus:
+    \[
+    30^\circ \times 4 \times \frac{\pi}{180} = 2\pi \text{ radians}
+    \]
+\end{enumerate}
+
+% End of Exercises on Angles and Their Measure section
+
+
+
+
+% \subsection{Degree Measure}
+% \label{subsec:degree_measure}
+% An angle's measure in degrees reflects the extent of rotation from the initial side to the terminal side.
+
+\subsection{Degree Measure}
+\label{subsec:degree_measure}
+The measurement of an angle in degrees is a reflection of the rotation from the angle's initial side to its terminal side. One full rotation around a circle is equal to 360 degrees, meaning that a degree represents \(\frac{1}{360}\)th of a full rotation. This form of measurement originates from the ancient Babylonians, who had a base-60 number system and divided the circle into 360 parts.
+
+To visualize an angle measured in degrees, consider the following figure created using the TikZ package. It shows an angle of 45 degrees, which is an eighth of a full 360-degree rotation.
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[scale=2.5]
+  % Draw the circle
+  \draw (0,0) circle (1cm);
+  
+  % Draw the radius
+  \draw[thick] (0,0) -- (0:1cm) node[below] {$(1,0)$};
+  \draw[thick] (0,0) -- (45:1cm) node[above right] {$(\frac{\sqrt{2}}{2},\frac{\sqrt{2}}{2})$};
+  
+  % Draw the arc for the angle
+  \draw[->,red,thick] (0.5,0) arc (0:45:0.5cm);
+  
+  % Draw the angle
+  \node[red] at (22.5:0.7cm) {$45^\circ$};
+  
+  % Draw the horizontal line
+  \draw[dashed] (0.707,0) -- (0.707,0.707);
+  
+  % Label the origin
+  \draw[fill=black] (0,0) circle (0.5pt) node[below left] {$O$};
+\end{tikzpicture}
+\caption{Illustration of a \(45^\circ\) angle in standard position.}
+\label{fig:45degangle}
+\end{figure}
+
+The figure above illustrates an angle whose terminal side has rotated \(45^\circ\) from the positive x-axis, which is often referred to as the angle's initial side. The radius of the circle has a length of 1, hence the name "unit circle." The coordinates \((1,0)\) and \((\frac{\sqrt{2}}{2},\frac{\sqrt{2}}{2})\) correspond to the points where the radius intersects the x-axis and the circle, respectively. The dashed line represents the y-component of the terminal side's endpoint, helping to visualize the \(45^\circ\) angle as a right triangle within the circle.
+
+Angles in degrees are widely used in various fields, including navigation, astronomy, and in everyday situations like measuring temperatures and geographic coordinates. Understanding how to measure angles in degrees and relate them to rotations is fundamental in trigonometry.
+
+\subsection*{Practice Problems}
+\label{subsec:practice_problems_degree}
+
+\textbf{Problem 1:} Convert the following degree measurements to radians. (Note: \( \pi \) radians = \( 180^\circ \))
+\begin{enumerate}[label=\alph*.]
+  \item \( 30^\circ \)
+  \item \( 90^\circ \)
+  \item \( 270^\circ \)
+\end{enumerate}
+
+\textbf{Problem 2:} Identify the quadrant in which the terminal side of each angle lies.
+\begin{enumerate}[label=\alph*.]
+  \item \( 60^\circ \)
+  \item \( 150^\circ \)
+  \item \( 210^\circ \)
+  \item \( 330^\circ \)
+\end{enumerate}
+
+\textbf{Problem 3:} For each angle given, sketch the angle in standard position on the unit circle and label the point of intersection with the circle.
+\begin{enumerate}[label=\alph*.]
+  \item \( 45^\circ \)
+  \item \( 135^\circ \)
+  \item \( 225^\circ \)
+  \item \( 315^\circ \)
+\end{enumerate}
+
+\textbf{Problem 4:} Determine the reference angle for each of the following:
+\begin{enumerate}[label=\alph*.]
+  \item \( 120^\circ \)
+  \item \( 250^\circ \)
+  \item \( 300^\circ \)
+\end{enumerate}
+
+\textbf{Problem 5:} If the minute hand of a clock is pointing at 12 and it rotates to point at 3, what is the measure of the angle of rotation in degrees?
+
+\textbf{Solutions:}
+
+\textbf{Problem 1:}
+\begin{enumerate}[label=\alph*.]
+  \item \( 30^\circ \times \frac{\pi}{180^\circ} = \frac{\pi}{6} \)
+  \item \( 90^\circ \times \frac{\pi}{180^\circ} = \frac{\pi}{2} \)
+  \item \( 270^\circ \times \frac{\pi}{180^\circ} = \frac{3\pi}{2} \)
+\end{enumerate}
+
+% You can continue with the solutions for the other problems similarly.
+
+\textbf{Remarks:}
+\begin{itemize}
+  \item The problems above are designed to provide practice with converting between degrees and radians, identifying angle positions, and understanding the unit circle.
+  \item The concept of a reference angle is important for understanding the standard trigonometric functions, as it is the acute angle formed by the terminal side of the given angle and the horizontal axis.
+  \item Problem 5 illustrates a real-life application of angle measurement.
+\end{itemize}
+
+% You can create similar TikZ figures for Problem 3 if you wish to provide visual aids for the students.
+
+% \subsection{Radian Measure}
+% \label{subsec:radian_measure}
+% Radian measure is crucial in calculus because it simplifies the derivatives and integrals of trigonometric functions.
+
+\subsection{Radian Measure}
+\label{subsec:radian_measure}
+
+The radian measure of an angle is the length of the arc on the unit circle subtended by the angle. One radian is the angle subtended by an arc length equal to the radius of the circle. Since the circumference of a unit circle is \(2\pi\) times the radius, a full rotation around the circle is \(2\pi\) radians.
+
+\subsubsection*{Why Use Radians?}
+In calculus, radian measure is preferred because it provides a direct relationship between the angle measure and the arc length. This relationship simplifies the computation of derivatives and integrals involving trigonometric functions. For instance, when using radians, the derivative of \(\sin x\) is simply \(\cos x\), and the derivative of \(\cos x\) is \(-\sin x\). Such simplicity is not evident when using degrees.
+
+\subsubsection*{Visualizing Radian Measure}
+To visualize an angle in radian measure, we plot it on the unit circle:
+
+% TikZ picture of a unit circle with radian measure
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[scale=3.0, cap=round, >=latex]
+  % Draw the unit circle
+  \draw[thick] (0,0) circle(1cm);
+  
+  % Draw the angle in radians
+  \filldraw[fill=green!20,draw=green!50!black] (0,0) -- (3mm,0mm) arc [start angle=0, end angle=45, radius=3mm] -- cycle;
+  
+  % Draw the radius
+  \draw[thick] (0,0) -- node[above] {\(1\)} (45:1);
+  
+  % Draw the arc for the angle
+  \draw[thick, red] (0.5,0) arc [start angle=0, end angle=45, radius=0.5];
+  \draw (22.5:0.7) node[red] {\(\theta\)};
+  
+  % Label the angle in radians
+  \draw (45:1) node[shift={(45:0.2)}] {\((\cos\theta,\sin\theta)\)};
+  
+  % Draw the x and y axis
+  \draw[->] (-1.2,0) -- (1.2,0) node[right] {\(x\)};
+  \draw[->] (0,-1.2) -- (0,1.2) node[above] {\(y\)};
+  
+  % Draw the points at the ends of the radius
+  \filldraw [black] (45:1) circle (0.4mm);
+  
+  % Label the coordinates of the point on the circle
+  \node at (0.5,0.3) {\( \frac{\pi}{4} \text{ radians}\)};
+\end{tikzpicture}
+\caption{Visualization of an angle in radian measure on the unit circle.}
+\end{figure}
+
+\subsubsection*{Exercises}
+\begin{enumerate}
+  \item Convert the following angles from degrees to radians:
+    \begin{enumerate}[label=\alph*.]
+      \item \( 180^\circ \)
+      \item \( 360^\circ \)
+      \item \( 90^\circ \)
+    \end{enumerate}
+  \item Show that the length of an arc subtended by a central angle of \(\theta\) radians in a circle of radius \( r \) is given by \( r\theta \).
+  \item Find the radian measure of the central angle of a circle with radius 10 units that subtends an arc of length 15 units.
+\end{enumerate}
+
+\subsubsection*{Solutions}
+\begin{enumerate}
+  \item To convert degrees to radians, use the conversion factor \( \frac{\pi \text{ radians}}{180^\circ} \):
+    \begin{enumerate}[label=\alph*.]
+      \item \( 180^\circ \times \frac{\pi}{180^\circ} = \pi \text{ radians} \)
+      \item \( 360^\circ \times \frac{\pi}{180^\circ} = 2\pi \text{ radians} \)
+      \item \( 90^\circ \times \frac{\pi}{180^\circ} = \frac{\pi}{2} \text{ radians} \)
+    \end{enumerate}
+  \item The length of an arc \( l \) is directly proportional to the angle \( \theta \) in radians, such that \( l = r\theta \).
+  \item The radian measure of the angle is \( \theta = \frac{l}{r} = \frac{15 \text{ units}}{10 \text{ units}} = 1.5 \text{ radians} \).
+\end{enumerate}
+
+\subsubsection*{Practice Problems}
+Here are some practice problems to help you solidify your understanding of the radian measure:
+
+\textbf{Problem 1:} Convert the following angles from radians to degrees:
+\begin{enumerate}[label=\alph*.]
+  \item \( \frac{\pi}{6} \) radians
+  \item \( \frac{2\pi}{3} \) radians
+  \item \( -\frac{\pi}{4} \) radians
+\end{enumerate}
+
+\textbf{Problem 2:} An arc on a circle of radius 8 units has a measure of \( 2 \) radians. Find the length of the arc.
+
+\textbf{Problem 3:} If a sector of a circle with radius 5 units has an area of \( 10 \) square units, what is the angle in radians of the sector?
+
+\textbf{Problem 4:} A central angle of \( \frac{5\pi}{6} \) radians is subtended at the center of a circle with radius 12 units. Find the area of the corresponding sector.
+
+\textbf{Problem 5:} The wheel of a bicycle has a diameter of 70 cm. If the wheel rolls without slipping and turns through an angle of \( \frac{\pi}{2} \) radians, how far has the bicycle traveled?
+
+\subsubsection*{Solutions to Practice Problems}
+
+\textbf{Solution to Problem 1:} To convert radians to degrees, multiply by \( \frac{180^\circ}{\pi} \).
+\begin{enumerate}[label=\alph*.]
+  \item \( \frac{\pi}{6} \times \frac{180^\circ}{\pi} = 30^\circ \)
+  \item \( \frac{2\pi}{3} \times \frac{180^\circ}{\pi} = 120^\circ \)
+  \item \( -\frac{\pi}{4} \times \frac{180^\circ}{\pi} = -45^\circ \)
+\end{enumerate}
+
+\textbf{Solution to Problem 2:} The length \( L \) of the arc can be found using the formula \( L = r\theta \).
+\[ L = 8 \text{ units} \times 2 \text{ radians} = 16 \text{ units} \]
+
+\textbf{Solution to Problem 3:} Use the area formula for a sector \( A = \frac{1}{2} r^2 \theta \) and solve for \( \theta \).
+\[ \theta = \frac{2A}{r^2} = \frac{2 \times 10}{5^2} = \frac{20}{25} = \frac{4}{5} \text{ radians} \]
+
+\textbf{Solution to Problem 4:} The area \( A \) of the sector is given by \( A = \frac{1}{2} r^2 \theta \).
+\[ A = \frac{1}{2} \times 12^2 \times \frac{5\pi}{6} = 72 \times \frac{5\pi}{6} = 60\pi \text{ square units} \]
+
+\textbf{Solution to Problem 5:} The distance \( D \) traveled is equal to the length of the arc formed by the wheel, which is \( D = r\theta \), where \( r \) is the radius.
+\[ D = \frac{70}{2} \text{ cm} \times \frac{\pi}{2} = 35\pi \text{ cm} \]
+
+% Make sure to include \usepackage{enumitem} in the preamble to use the [label=\alph*.] option.
+
+% \section{Trigonometric Functions}
+% \label{sec:trigonometric_functions}
+% The six trigonometric functions are the primary tools for handling problems involving triangles in Trigonometry and periodic phenomena in calculus.
+
+\section{Trigonometric Functions}
+\label{sec:trigonometric_functions}
+The six trigonometric functions are fundamental in both Trigonometry and calculus. These functions are sine (\(\sin\)), cosine (\(\cos\)), tangent (\(\tan\)), cosecant (\(\csc\)), secant (\(\sec\)), and cotangent (\(\cot\)). They are defined as ratios of sides in a right triangle or as certain coordinates of points on the unit circle.
+
+\subsection{Sine and Cosine}
+\label{subsec:sine_cosine}
+The sine function (\(\sin\)) represents the ratio of the length of the opposite side to the length of the hypotenuse in a right triangle. The cosine function (\(\cos\)) represents the ratio of the length of the adjacent side to the length of the hypotenuse.
+
+For a point \((x, y)\) on the unit circle corresponding to an angle \(\theta\), the sine and cosine values are \(y\) and \(x\), respectively.
+
+\subsubsection*{Graph of Sine and Cosine Functions}
+We can graph the sine and cosine functions using their values from the unit circle.
+
+% Graphing sine and cosine functions
+\begin{center}
+\begin{tikzpicture}
+  \begin{axis}[
+    width=10cm, height=6cm,
+    axis lines = middle,
+    xlabel = {$\theta$},
+    ylabel = {$y$},
+    ymin=-1.5, ymax=1.5,
+    xmin=-0.5, xmax=6.5,
+    xtick={0,1.57,3.14,4.71,6.28},
+    xticklabels={0,$\frac{\pi}{2}$,$\pi$,$\frac{3\pi}{2}$,$2\pi$},
+    ytick={-1,1},
+    every axis x label/.style={at={(ticklabel* cs:1)},anchor=west},
+    every axis y label/.style={at={(ticklabel* cs:1)},anchor=south},
+    ]
+    \addplot[domain=0:2*pi,samples=100,blue] {sin(deg(x))};
+    \addplot[domain=0:2*pi,samples=100,red] {cos(deg(x))};
+    \legend{$\sin(\theta)$,$\cos(\theta)$}
+  \end{axis}
+\end{tikzpicture}
+\end{center}
+
+The sine function starts at \(0\), reaches its maximum at \(\frac{\pi}{2}\), returns to \(0\) at \(\pi\), reaches its minimum at \(\frac{3\pi}{2}\), and completes the cycle at \(2\pi\).
+
+The cosine function starts at \(1\), drops to \(0\) at \(\frac{\pi}{2}\), reaches its minimum at \(\pi\), returns to \(0\) at \(\frac{3\pi}{2}\), and completes the cycle at \(2\pi\).
+
+\subsection{Tangent Function}
+\label{subsec:tangent_function}
+The tangent function (\(\tan\)) is defined as the ratio of the sine to the cosine of an angle in a right triangle, or \(\tan(\theta) = \frac{\sin(\theta)}{\cos(\theta)}\). It represents the slope of the line that intersects the unit circle at an angle \(\theta\).
+
+\subsection{Reciprocal Functions}
+\label{subsec:reciprocal_functions}
+The reciprocal functions, cosecant (\(\csc\)), secant (\(\sec\)), and cotangent (\(\cot\)), are the reciprocals of the sine, cosine, and tangent functions, respectively.
+
+\begin{itemize}
+  \item Cosecant (\(\csc(\theta)\)) is the reciprocal of sine: \(\csc(\theta) = \frac{1}{\sin(\theta)}\)
+  \item Secant (\(\sec(\theta)\)) is the reciprocal of cosine: \(\sec(\theta) = \frac{1}{\cos(\theta)}\)
+  \item Cotangent (\(\cot(\theta)\)) is the reciprocal of tangent: \(\cot(\theta) = \frac{1}{\tan(\theta)}\)
+\end{itemize}
+
+% Include the pgfplots package in your preamble to use the axis environment.
+% \usepackage{pgfplots}
+% \pgfplotsset{compat=newest}
+
+\subsection{Practice Problems}
+\label{subsec:practice_problems}
+
+To better understand trigonometric functions and their properties, try solving the following problems:
+
+\begin{enumerate}
+  \item Evaluate \(\sin\left(\frac{\pi}{6}\right)\), \(\cos\left(\frac{\pi}{6}\right)\), and \(\tan\left(\frac{\pi}{6}\right)\).
+  \item Given that a point \( P \) on the unit circle corresponding to an angle \(\theta\) has coordinates \( P(\frac{\sqrt{3}}{2}, \frac{1}{2}) \), find \(\sin(\theta)\), \(\cos(\theta)\), and \(\tan(\theta)\).
+  \item If \(\cos(\theta) = -\frac{1}{2}\) and \(\theta\) is in the third quadrant, what is \(\sin(\theta)\)?
+  \item Sketch the graph of the function \( f(\theta) = 2\sin(\theta) \) for \( 0 \leq \theta \leq 2\pi \).
+  \item Using the graph of \( f(\theta) = \cos(\theta) \), find the values of \(\theta\) where the function is negative.
+  \item Solve the equation \( \tan(\theta) = \sqrt{3} \) for \( 0 \leq \theta < 2\pi \).
+  \item Prove that \(\sec^2(\theta) - \tan^2(\theta) = 1\) for all values of \(\theta\) where the secant and tangent functions are defined.
+  \item Find the exact value of \(\cot\left(\frac{3\pi}{4}\right)\).
+  \item Determine the amplitude and period of the function \( g(\theta) = 3\cos(2\theta) \).
+\end{enumerate}
+
+Answers to Practice Problems:
+
+\begin{enumerate}
+  \item For \(\frac{\pi}{6}\):
+    \begin{itemize}
+      \item \(\sin\left(\frac{\pi}{6}\right) = \frac{1}{2}\)
+      \item \(\cos\left(\frac{\pi}{6}\right) = \frac{\sqrt{3}}{2}\)
+      \item \(\tan\left(\frac{\pi}{6}\right) = \frac{\sin\left(\frac{\pi}{6}\right)}{\cos\left(\frac{\pi}{6}\right)} = \frac{1}{\sqrt{3}}\)
+    \end{itemize}
+  \item With \( P(\frac{\sqrt{3}}{2}, \frac{1}{2}) \):
+    \begin{itemize}
+      \item \(\sin(\theta) = \frac{1}{2}\)
+      \item \(\cos(\theta) = \frac{\sqrt{3}}{2}\)
+      \item \(\tan(\theta) = \frac{\sin(\theta)}{\cos(\theta)} = \frac{1}{\sqrt{3}}\)
+    \end{itemize}
+  \item For \(\cos(\theta) = -\frac{1}{2}\) in the third quadrant:
+    \begin{itemize}
+      \item \(\sin(\theta)\) must also be negative in the third quadrant, and \(\sin^2(\theta) + \cos^2(\theta) = 1\), so \(\sin(\theta) = -\frac{\sqrt{3}}{2}\).
+    \end{itemize}
+  % ... (continue with answers for all problems)
+\end{enumerate}
+
+% Note: Full solutions should be worked out and can be added as an appendix or in a separate solutions section.
+
+
+% \subsection{Sine and Cosine}
+% \label{subsec:sine_cosine}
+% The sine and cosine functions relate an angle to the opposite side and hypotenuse, and adjacent side and hypotenuse of a right triangle, respectively.
+
+\subsection{Sine and Cosine}
+\label{subsec:sine_cosine}
+
+The sine and cosine functions are fundamental to trigonometry. They are defined for a given angle \( \theta \) within a right-angled triangle as follows:
+
+\begin{itemize}
+    \item The \textbf{sine} of angle \( \theta \), written as \( \sin(\theta) \), is the ratio of the length of the opposite side to the length of the hypotenuse.
+    \item The \textbf{cosine} of angle \( \theta \), written as \( \cos(\theta) \), is the ratio of the length of the adjacent side to the length of the hypotenuse.
+\end{itemize}
+
+However, these definitions are not limited to angles between 0 and \( \frac{\pi}{2} \) radians (or 0 and 90 degrees). By extending the concept of the unit circle, where the radius is 1 and the center is at the origin of a coordinate plane, we can define sine and cosine for any real angle.
+
+\subsubsection*{Sine and Cosine on the Unit Circle}
+Consider the unit circle with a point \( P(x, y) \) that corresponds to an angle \( \theta \) measured from the positive x-axis. The coordinates \( x \) and \( y \) of point \( P \) on the unit circle are equal to \( \cos(\theta) \) and \( \sin(\theta) \), respectively.
+
+% Unit Circle Diagram with Sine and Cosine
+\begin{center}
+\begin{tikzpicture}
+    \draw (0,0) circle (2cm);
+    \draw[-latex] (-2.5,0) -- (2.5,0) node[right] {$x$};
+    \draw[-latex] (0,-2.5) -- (0,2.5) node[above] {$y$};
+    \draw[-latex] (0,0) -- (60:2cm) node[midway,above right] {$r=1$};
+    \draw (0,0) -- (1.732,0);
+    \draw (1.732,0) -- (1.732,1);
+    \draw[dashed] (1.732,1) -- (0,1);
+    \draw (1.5,0) -- (1.5,0.2) -- (1.7,0.2);
+    \node at (1.732,1) [circle,fill,inner sep=1.5pt]{};
+    \node at (1.732,1) [right] {$P (\cos \theta, \sin \theta)$};
+    \node at (0.866,0) [below] {$\cos \theta$};
+    \node at (0,0.5) [left] {$\sin \theta$};
+    \node at (0.5,0.1) [above right] {$\theta$};
+    \draw (0.3,0) arc (0:60:0.3cm);
+\end{tikzpicture}
+\end{center}
+
+The unit circle approach allows for a seamless transition of sine and cosine from acute angles to any angle in the coordinate plane. The definitions on the unit circle are as follows:
+
+\begin{itemize}
+    \item For any angle \( \theta \), \( \sin(\theta) \) is the y-coordinate of the corresponding point on the unit circle.
+    \item For any angle \( \theta \), \( \cos(\theta) \) is the x-coordinate of the corresponding point on the unit circle.
+\end{itemize}
+
+
+
+
+
+% Concluding remarks for the chapter
+\section*{Conclusion}
+\label{sec:trig_conclusion}
+This chapter serves as the foundation for understanding the vital role of Trigonometry in calculus. As you progress through your studies, these concepts will become second nature, providing the tools necessary for analyzing and solving a broad range of problems in higher mathematics.
+
+% Ensure that the conclusion is added to the table of contents
+\addcontentsline{toc}{section}{Conclusion}
+
+% --- End of Trigonometry Chapter ---
+
 
 
 

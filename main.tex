@@ -1918,6 +1918,226 @@ Solutions to Practice Problems:
 
 % HERE
 
+% \subsection{Sum and Difference Formulas}
+% \label{subsec:sum_difference_formulas}
+% These formulas allow the calculation of the sine, cosine, and tangent of the sum or difference of two angles.
+
+\subsection{Sum and Difference Formulas}
+\label{subsec:sum_difference_formulas}
+
+The sum and difference formulas are a cornerstone in trigonometry, allowing us to find the sine, cosine, and tangent of the sum or difference of two angles using the known values of these functions for the two angles. They can be stated as follows:
+
+\begin{align*}
+\sin(\alpha \pm \beta) &= \sin(\alpha)\cos(\beta) \pm \cos(\alpha)\sin(\beta) \\
+\cos(\alpha \pm \beta) &= \cos(\alpha)\cos(\beta) \mp \sin(\alpha)\sin(\beta) \\
+\tan(\alpha \pm \beta) &= \frac{\tan(\alpha) \pm \tan(\beta)}{1 \mp \tan(\alpha)\tan(\beta)}
+\end{align*}
+
+These identities are particularly useful in calculus for integrating products of sine and cosine functions and solving trigonometric equations.
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[scale=3.0]
+% Draw the unit circle
+\draw (0,0) circle (1);
+% Draw the two angles alpha and beta
+\filldraw[fill=green!20,draw=green!50!black] (0,0) -- (0.5,0) arc (0:30:0.5) -- cycle;
+\filldraw[fill=blue!20,draw=blue!50!black] (0,0) -- (0.3,0) arc (0:60:0.3) -- cycle;
+\node at (15:0.7) {$\alpha$};
+\node at (30:0.45) {$\beta$};
+% Draw the sum of angles
+\filldraw[fill=red!20,draw=red!50!black] (0,0) -- (0.7,0) arc (0:90:0.7) -- cycle;
+\node at (45:0.9) {$\alpha + \beta$};
+% Draw the corresponding points on the unit circle
+\draw[fill=black] (30:1) circle (0.5pt) node[above right] {$P(\cos\beta,\sin\beta)$};
+\draw[fill=black] (60:1) circle (0.5pt) node[above right] {$Q(\cos\alpha,\sin\alpha)$};
+\draw[fill=black] (90:1) circle (0.5pt) node[above] {$R(\cos(\alpha+\beta),\sin(\alpha+\beta))$};
+% Draw the lines for sine and cosine projections
+\draw[dashed] (90:1) -- (90:0) node[below] {$\cos(\alpha+\beta)$};
+\draw[dashed] (90:1) -- (0,1) node[left] {$\sin(\alpha+\beta)$};
+\end{tikzpicture}
+\caption{Geometric representation of sum of angles in a unit circle.}
+\label{fig:sum_of_angles}
+\end{figure}
+
+To gain a better understanding and reinforce these concepts, it is advised to work through some example problems:
+
+\begin{enumerate}
+    \item Given that $\sin(\pi/6) = 1/2$ and $\cos(\pi/3) = 1/2$, calculate $\sin(\pi/6 + \pi/3)$.
+    \item If $\cos(45^\circ) = \sin(45^\circ) = \frac{\sqrt{2}}{2}$, find the value of $\cos(45^\circ - 45^\circ)$.
+    \item Determine $\tan(75^\circ)$ using the tangent sum formula, given that $75^\circ = 45^\circ + 30^\circ$.
+\end{enumerate}
+
+The above figure aids in visualizing how the sum of angles is represented within the unit circle, which can further help in understanding how the sum and difference formulas are derived geometrically.
+
+\subsubsection{Practice Problems}
+\label{subsubsec:practice_problems_sum_difference}
+
+To ensure a solid grasp of the sum and difference formulas, practice the following problems:
+
+\begin{enumerate}
+    \item Evaluate $\sin(75^\circ)$ using the sum formula for sine with $\alpha = 45^\circ$ and $\beta = 30^\circ$.
+    \item If $\cos(60^\circ) = \frac{1}{2}$ and $\sin(45^\circ) = \frac{\sqrt{2}}{2}$, find the value of $\cos(60^\circ - 45^\circ)$.
+    \item Using the difference formula for tangent, calculate $\tan(15^\circ)$ knowing that $\tan(45^\circ) = 1$ and $\tan(30^\circ) = \frac{\sqrt{3}}{3}$.
+    \item Verify the identity $\sin(\alpha + \beta)\sin(\alpha - \beta) = \sin^2(\alpha) - \sin^2(\beta)$ for $\alpha = 60^\circ$ and $\beta = 45^\circ$.
+    \item A point P moves in such a way that the angle $\alpha$ it makes with the positive x-axis varies. If $\alpha$ increases at a constant rate of $30^\circ$ per second, express the $x$-coordinate of P, which is $\cos(\alpha)$, as a function of time $t$ in seconds.
+\end{enumerate}
+
+These problems combine the use of the sum and difference formulas with some algebraic manipulation and the fundamental trigonometric values for special angles. They serve as a good practice for students to apply these formulas in different contexts, which is a skill that will be beneficial in more advanced studies of mathematics, such as calculus.
+
+% \subsection{Double-Angle and Half-Angle Formulas}
+% \label{subsec:double_half_angle_formulas}
+% These formulas are useful for integrating powers of sine and cosine functions.
+
+\subsection{Double-Angle and Half-Angle Formulas}
+\label{subsec:double_half_angle_formulas}
+
+The double-angle formulas are derived from the sum formulas and provide the trigonometric functions of an angle that is double another. Similarly, the half-angle formulas give the functions of half of a given angle. These are particularly useful in integration and in solving trigonometric equations in calculus.
+
+In conclusion, these formulas are useful for integrating powers of sine and cosine functions.
+
+\subsubsection{Double-Angle Formulas}
+\label{subsubsec:double_angle_formulas}
+For any angle $\theta$, the double-angle formulas are as follows:
+
+\begin{itemize}
+    \item Sine: $\sin(2\theta) = 2\sin(\theta)\cos(\theta)$
+    \item Cosine: $\cos(2\theta) = \cos^2(\theta) - \sin^2(\theta) = 2\cos^2(\theta) - 1 = 1 - 2\sin^2(\theta)$
+    \item Tangent: $\tan(2\theta) = \frac{2\tan(\theta)}{1 - \tan^2(\theta)}$
+\end{itemize}
+
+The cosine double-angle formula has three variants, each useful depending on the context, especially in integration where one expression might be more convenient than the others.
+
+\subsubsection{Half-Angle Formulas}
+\label{subsubsec:half_angle_formulas}
+The half-angle formulas are derived using the double-angle formulas and the Pythagorean identity. They allow us to express trigonometric functions of $\frac{\theta}{2}$ in terms of $\theta$:
+
+\begin{itemize}
+    \item Sine: $\sin\left(\frac{\theta}{2}\right) = \pm\sqrt{\frac{1 - \cos(\theta)}{2}}$
+    \item Cosine: $\cos\left(\frac{\theta}{2}\right) = \pm\sqrt{\frac{1 + \cos(\theta)}{2}}$
+    \item Tangent: $\tan\left(\frac{\theta}{2}\right) = \pm\sqrt{\frac{1 - \cos(\theta)}{1 + \cos(\theta)}} = \frac{\sin(\theta)}{1 + \cos(\theta)} = \frac{1 - \cos(\theta)}{\sin(\theta)}$
+\end{itemize}
+
+The signs for the half-angle formulas depend on the quadrant in which the resulting half-angle lies. These formulas are essential in calculus for simplifying the integration of trigonometric functions and solving trigonometric equations.
+
+\subsubsection{Visualization of Double-Angle and Half-Angle}
+\label{subsubsec:visualization_double_half_angle}
+
+To better understand the double-angle and half-angle concepts, it is often helpful to visualize them on the unit circle and through their graphs.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    axis lines = middle,
+    xlabel = $\theta$,
+    ylabel = {$f(\theta)$},
+    legend pos = north west,
+    title = {Graphs of Double-Angle Formulas},
+    xmin = -2*pi, xmax = 2*pi,
+    ymin = -2, ymax = 2,
+    xtick = {-6.28318, -4.71239, -3.14159, -1.5708, 0, 1.5708, 3.14159, 4.71239, 6.28318},
+    xticklabels = {$-2\pi$, $-\frac{3\pi}{2}$, $-\pi$, $-\frac{\pi}{2}$, $0$, $\frac{\pi}{2}$, $\pi$, $\frac{3\pi}{2}$, $2\pi$},
+    ytick = {-1, 1},
+    yticklabels = {$-1$, $1$},
+    samples = 200,
+    domain = -2*pi:2*pi
+]
+
+% Add the sine double-angle plot
+\addplot[blue, thick] {sin(deg(2*x))};
+\addlegendentry{$\sin(2\theta)$}
+
+% Add the cosine double-angle plot
+\addplot[red, thick] {cos(deg(2*x))};
+\addlegendentry{$\cos(2\theta)$}
+
+\end{axis}
+\end{tikzpicture}
+\caption{Graphs of $\sin(2\theta)$ and $\cos(2\theta)$.}
+\end{figure}
+
+In the graph, we see the effect of doubling the angle on the sine and cosine functions, where the frequency of the waveforms is doubled, reflecting the periodic nature of these functions.
+
+\subsubsection{Problems for Reinforcement}
+\label{subsubsec:problems_double_half_angle}
+After reviewing the double-angle and half-angle formulas and observing their graphs, tackle the following problems to test your understanding:
+
+\begin{enumerate}
+    \item Simplify the expression $\sin(4\theta)$ using the double-angle formula for sine.
+    \item Given that $\cos(\theta) = \frac{3}{5}$ and $\theta$ is in the first quadrant, find the exact value of $\cos(2\theta)$.
+    \item Use the half-angle formula to determine $\sin\left(\frac{\pi}{8}\right)$, given the cosine and sine of $\frac{\pi}{4}$.
+    \item Derive the tangent half-angle formula starting from the sine and cosine half-angle formulas.
+    \item Solve the equation $2\sin^2(\theta) - \sin(\theta) - 1 = 0$ for $\theta$ in the interval $[0, 2\pi)$.
+\end{enumerate}
+
+\subsubsection{Problems for Reinforcement}
+\label{subsubsec:problems_double_half_angle}
+
+\textbf{Problem 1:} Prove that $\cos(4\theta) = 1 - 8\sin^2(\theta) + 8\sin^4(\theta)$ using double-angle formulas.
+
+\textbf{Solution:}
+\begin{align*}
+\cos(4\theta) &= \cos(2\cdot2\theta) \\
+&= 2\cos^2(2\theta) - 1 \quad \text{(Double-angle formula)} \\
+&= 2(2\cos^2(\theta) - 1)^2 - 1 \\
+&= 2(4\cos^4(\theta) - 4\cos^2(\theta) + 1) - 1 \\
+&= 8\cos^4(\theta) - 8\cos^2(\theta) + 1 \\
+&= 8(1 - \sin^2(\theta))^2 - 8(1 - \sin^2(\theta)) + 1 \\
+&= 1 - 8\sin^2(\theta) + 8\sin^4(\theta).
+\end{align*}
+
+\textbf{Problem 2:} If $\tan(\theta) = 3$, find the value of $\tan(2\theta)$.
+
+\textbf{Solution:}
+\begin{align*}
+\tan(2\theta) &= \frac{2\tan(\theta)}{1 - \tan^2(\theta)} \quad \text{(Tangent double-angle formula)} \\
+&= \frac{2\cdot 3}{1 - 3^2} \\
+&= \frac{6}{1 - 9} \\
+&= -\frac{2}{3}.
+\end{align*}
+
+\textbf{Problem 3:} Determine $\cos\left(\frac{\theta}{2}\right)$ if $\sin(\theta) = \frac{1}{2}$ and $\theta$ is in the first quadrant.
+
+\textbf{Solution:}
+\begin{align*}
+\cos\left(\frac{\theta}{2}\right) &= \pm\sqrt{\frac{1 + \cos(\theta)}{2}} \quad \text{(Cosine half-angle formula)} \\
+\text{Since } \sin^2(\theta) + \cos^2(\theta) &= 1, \\
+\cos(\theta) &= \sqrt{1 - \sin^2(\theta)} \\
+&= \sqrt{1 - \left(\frac{1}{2}\right)^2} \\
+&= \sqrt{1 - \frac{1}{4}} \\
+&= \sqrt{\frac{3}{4}} \\
+&= \frac{\sqrt{3}}{2}. \\
+\text{Then, } \cos\left(\frac{\theta}{2}\right) &= \sqrt{\frac{1 + \frac{\sqrt{3}}{2}}{2}} \\
+&= \sqrt{\frac{2 + \sqrt{3}}{4}} \\
+&= \frac{\sqrt{2 + \sqrt{3}}}{2}.
+\end{align*}
+
+\textbf{Problem 4:} Using the double-angle formulas, express $\sin^2(\theta)$ in terms of $\cos(2\theta)$.
+
+\textbf{Solution:}
+\begin{align*}
+\cos(2\theta) &= 1 - 2\sin^2(\theta) \quad \text{(Cosine double-angle formula)} \\
+\sin^2(\theta) &= \frac{1 - \cos(2\theta)}{2}.
+\end{align*}
+
+\textbf{Problem 5:} Solve for $\theta$ if $\sin(2\theta) = \sqrt{2}$, assuming $\theta$ is in the second quadrant.
+
+\textbf{Solution:}
+\begin{align*}
+\sin(2\theta) &= \sqrt{2} \\
+2\sin(\theta)\cos(\theta) &= \sqrt{2} \quad \text{(Sine double-angle formula)} \\
+\text{Since } \theta &\text{ is in the second quadrant, } \sin(\theta) > 0 \text{ and } \cos(\theta) < 0. \\
+\text{Let } \sin(\theta) &= \frac{\sqrt{2}}{2}, \text{ then } \cos(\theta) = -\frac{\sqrt{2}}{2}, \\
+\text{and } \theta &= \frac{3\pi}{4} \text{ or } \theta = \frac{5\pi}{4} \text{ to satisfy the quadrant condition.}
+\end{align*}
+
+% These problems can be included in the LaTeX document after the discussion of double-angle and half-angle formulas, offering a practical way for students to apply what they've learned. Remember to adjust the problems or solutions according to the level of your students and the specific focus of your course.
+
+% HERE
+
+
+
 % Concluding remarks for the chapter
 \section*{Conclusion}
 \label{sec:trig_conclusion}

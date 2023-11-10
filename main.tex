@@ -6,6 +6,7 @@
 \usepackage{tikz}
 \usepackage{amsmath}
 \usepackage{enumitem}
+\usepackage{amssymb}
 \usepackage{pgfplots}
 \pgfplotsset{compat=newest}
 
@@ -2136,7 +2137,163 @@ After reviewing the double-angle and half-angle formulas and observing their gra
 
 % HERE
 
+% \section{Solving Trigonometric Equations}
+% \label{sec:solving_trig_equations}
+% We discuss how to solve basic trigonometric equations and how these principles apply to more complex equations in calculus.
 
+\section{Solving Trigonometric Equations}
+\label{sec:solving_trig_equations}
+
+Solving trigonometric equations is a fundamental skill in calculus. These equations can often be solved by using algebraic techniques combined with trigonometric identities. In this section, we will explore various methods for solving trigonometric equations and apply these methods to more complex problems.
+
+In sum, this section looks at how to solve basic trigonometric equations and how these principles apply to more complex equations in calculus.
+
+\subsection{Algebraic Methods}
+\label{subsec:algebraic_methods}
+The first step in solving a trigonometric equation is to isolate the trigonometric function. This can be done through algebraic manipulation, such as adding or subtracting terms on both sides, factoring, or using the quadratic formula if applicable.
+
+\subsubsection{Example}
+Solve for \(\theta\) in the equation \(2\sin(\theta) + \sqrt{3} = 0\).
+
+\textbf{Solution:}
+\begin{align*}
+2\sin(\theta) &= -\sqrt{3} \\
+\sin(\theta) &= -\frac{\sqrt{3}}{2}.
+\end{align*}
+Now, we find the value of \(\theta\) within the desired interval, typically [0, 2\(\pi\)).
+
+\subsection{Using Identities}
+\label{subsec:using_identities}
+Trigonometric identities, such as the Pythagorean identities, sum and difference formulas, and double-angle formulas, can be used to transform complex equations into simpler forms that are easier to solve.
+
+\subsubsection{Example}
+Solve for \(x\) in the equation \(\cos^2(x) - \sin(x) = 0\).
+
+\textbf{Solution:}
+Using the Pythagorean identity \(\sin^2(x) + \cos^2(x) = 1\), we substitute \(\sin^2(x)\) with \(1 - \cos^2(x)\):
+\begin{align*}
+\cos^2(x) - \sin(x) &= 0 \\
+1 - \sin^2(x) - \sin(x) &= 0 \\
+\sin^2(x) + \sin(x) - 1 &= 0.
+\end{align*}
+Solving this quadratic equation in \(\sin(x)\), we find the values of \(x\) within the interval [0, 2\(\pi\)).
+
+\subsection{Inverse Trigonometric Functions}
+\label{subsec:inverse_trig_functions}
+When the trigonometric function is isolated, we can use inverse trigonometric functions to find the angle corresponding to a given trigonometric ratio.
+
+\subsubsection{Example}
+Solve for \(\alpha\) in the equation \(\tan(\alpha) = 1\).
+
+\textbf{Solution:}
+\begin{align*}
+\alpha &= \arctan(1) \\
+\alpha &= \frac{\pi}{4} + k\pi, \quad k \in \mathbb{Z}.
+\end{align*}
+Since tangent has a period of \(\pi\), we include \(k\pi\) in the solution.
+
+\subsection{Graphical Solutions}
+\label{subsec:graphical_solutions}
+Graphical methods can also be used to find solutions to trigonometric equations. By plotting the functions on both sides of the equation, the solutions are the x-coordinates of the intersection points.
+
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+    title={Graphical Solution of \(y = \sin(x)\) and \(y = \frac{1}{2}\)},
+    xlabel={\(x\)},
+    ylabel={\(y\)},
+    xmin=0, xmax=2*pi,
+    ymin=-1, ymax=1,
+    axis lines=center,
+    axis equal image,
+    grid=major,
+    grid style=dashed,
+]
+
+\addplot[
+    domain=0:2*pi,
+    samples=100,
+    color=blue,
+]
+{sin(deg(x))};
+
+\addplot[
+    domain=0:2*pi,
+    samples=100,
+    color=red,
+]
+{0.5};
+
+\addplot[
+    mark=*, 
+    only marks,
+    color=black,
+]
+coordinates {
+    (pi/6, 0.5) (5*pi/6, 0.5)
+};
+
+\node[pin=100:{\(\frac{\pi}{6}, \frac{1}{2}\)}] at (axis cs:pi/6,0.5) {};
+\node[pin=80:{\(\frac{5\pi}{6}, \frac{1}{2}\)}] at (axis cs:5*pi/6,0.5) {};
+
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+These graphical solutions correspond to the equation \(y = \sin(x)\) intersecting \(y = \frac{1}{2}\), indicating the solutions for \(x\) where \(\sin(x) = \frac{1}{2}\).
+
+\subsection{Challenges in Calculus}
+\label{subsec:challenges_calculus}
+In calculus, trigonometric equations often arise within the context of differential equations, integrals, or series. The principles of solving simple trigonometric equations are applied, but often with additional techniques from calculus.
+
+\subsubsection{Example}
+Solve for \(\theta\) in the equation \(\frac{d}{d\theta}\sin(\theta) + \cos(\theta) = 0\), assuming \(\theta\) is in radians.
+
+\textbf{Solution:}
+First, we find the derivative of \(\sin(\theta)\):
+\begin{align*}
+\frac{d}{d\theta}\sin(\theta) &= \cos(\theta) \\
+\cos(\theta) + \cos(\theta) &= 0 \\
+2\cos(\theta) &= 0.
+\end{align*}
+Solving for \(\theta\), we get \(\theta = \frac{\pi}{2} + k\pi\), where \(k\) is an integer.
+
+These are just introductory examples. More complex equations can be explored, including those involving multiple angles, products of trigonometric functions, and inverse trigonometric functions. Practice problems with varying difficulty should be provided to help students gain proficiency in solving trigonometric equations.
+
+\subsection{Practice Problems}
+\label{subsec:practice_problems}
+
+To solidify your understanding of solving trigonometric equations, try to solve the following practice problems. Remember to use algebraic manipulation, trigonometric identities, inverse functions, and graphical insights where appropriate.
+
+\begin{enumerate}
+    \item Solve for \( x \) in the equation \( 2\cos(x) - 1 = 0 \) for \( x \) in the interval \( [0, 2\pi) \).
+    \item Find all angles \( \theta \) that satisfy the equation \( \tan(\theta) + \sqrt{3} = 0 \) for \( \theta \) in the interval \( [-\pi, \pi) \).
+    \item Determine the solution set for \( \sin(2x) = \cos(x) \) within the interval \( [0, 2\pi) \).
+    \item Solve \( \sin^2(x) - \sin(x) - 6 = 0 \) for all \( x \) in the interval \( [0, 2\pi) \).
+    \item Using the double-angle formula, solve the equation \( \sin(x) - \cos(2x) = 0 \) for \( x \) in the interval \( [0, 2\pi) \).
+    \item Graphically determine the solutions to \( \cos(x) = \sin(x) \) using a plot. Hint: Consider the lines \( y = \cos(x) \) and \( y = \sin(x) \) and find their points of intersection.
+    \item For the differential equation \( \frac{d}{dx}\sin(x) + \sin(x) = 0 \), find the general solution.
+    \item If \( \cos(3x) = \frac{1}{2} \), find all solutions for \( x \) within the interval \( [0, 2\pi) \).
+    \item Prove that the equation \( \tan(x) = \cot(x) \) has no solutions for \( x \) in the interval \( (0, \pi) \).
+    \item Solve the equation \( 3\sin(x) + 4\cos(x) = 2 \) by expressing it in the form \( R\sin(x + \alpha) \), where \( R > 0 \) and \( 0 \leq \alpha < 2\pi \).
+\end{enumerate}
+
+% Include your solutions below each problem.
+% For example:
+\textbf{Solution to Problem 1:}
+\begin{align*}
+2\cos(x) - 1 &= 0 \\
+\cos(x) &= \frac{1}{2}.
+\end{align*}
+The solutions for \( x \) in the interval \( [0, 2\pi) \) are \( x = \frac{\pi}{3} \) and \( x = \frac{5\pi}{3} \).
+
+% Students can continue with solutions to other problems in a similar fashion.
+
+\textbf{Note:} It is beneficial to check your solutions with a graphing calculator or software that can plot trigonometric functions and their intersections.
+
+% End of practice problems section
+
+% HERE
 
 % Concluding remarks for the chapter
 \section*{Conclusion}

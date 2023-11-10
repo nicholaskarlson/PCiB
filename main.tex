@@ -4,6 +4,9 @@
 % \usepackage{makeidx} % For making an index
 \usepackage{float}
 \usepackage{tikz}
+% \usepackage{tikz}
+\usepackage{tkz-euclide} % Add this line to include the tkz-euclide package
+\usetikzlibrary{calc}
 \usepackage{amsmath}
 \usepackage{enumitem}
 \usepackage{amssymb}
@@ -2748,7 +2751,98 @@ Here you can provide the solutions for the above problems, or you may choose to 
 
 % HERE
 
+% \subsection{Trigonometric Substitution}
+% \label{subsec:trig_substitution}
+% This section will discuss how trigonometric substitution is used in integration, a technique that simplifies integrals involving square roots.
 
+\subsection{Trigonometric Substitution}
+\label{subsec:trig_substitution}
+This section will discuss how trigonometric substitution is used in integration, a technique that simplifies integrals involving square roots.
+Trigonometric substitution is a technique for evaluating integrals that enables us to simplify integrals involving square roots by exploiting trigonometric identities. This method is especially useful when dealing with expressions under the square root that resemble the Pythagorean theorem, such as \( a^2 - x^2 \), \( a^2 + x^2 \), or \( x^2 - a^2 \). By substituting \( x \) with a trigonometric expression involving \( \theta \), the integral can often be rewritten in a more manageable form.
+
+The basic idea is to substitute variables in the integral with trigonometric functions that transform the integrand into a trigonometric identity, which can be easily integrated. The three main forms of substitution are:
+\begin{itemize}
+    \item For integrands containing \( \sqrt{a^2 - x^2} \), use \( x = a \sin(\theta) \).
+    \item For integrands containing \( \sqrt{a^2 + x^2} \), use \( x = a \tan(\theta) \).
+    \item For integrands containing \( \sqrt{x^2 - a^2} \), use \( x = a \sec(\theta) \).
+\end{itemize}
+
+After substituting, the integral is typically in terms of \( \theta \), which can be integrated using standard trigonometric integrals. Finally, it's necessary to convert back to the original variable using the inverse trigonometric functions.
+
+\textbf{Example 1:}
+Evaluate the integral \( \int \frac{dx}{\sqrt{9 - x^2}} \).
+
+\textit{Solution:} Use the substitution \( x = 3\sin(\theta) \), hence \( dx = 3\cos(\theta)d\theta \) and \( \sqrt{9 - x^2} = 3\cos(\theta) \). The integral becomes
+\[ \int \frac{3\cos(\theta)d\theta}{3\cos(\theta)} = \int d\theta = \theta + C. \]
+To return to the variable \( x \), we use \( \sin^{-1}(\frac{x}{3}) = \theta \), so the solution is
+\[ \sin^{-1}\left(\frac{x}{3}\right) + C. \]
+
+\textbf{Example 2:}
+Determine the integral \( \int \frac{x^2}{\sqrt{x^2 + 4}} dx \).
+
+\textit{Solution:} Use the substitution \( x = 2\tan(\theta) \), which implies \( dx = 2\sec^2(\theta)d\theta \) and \( \sqrt{x^2 + 4} = 2\sec(\theta) \). The integral can then be written as
+\[ \int \frac{4\tan^2(\theta)2\sec^2(\theta)d\theta}{2\sec(\theta)} = 4\int \tan^2(\theta)\sec(\theta)d\theta. \]
+This can be integrated using trigonometric identities and the substitution method for integrals.
+
+\textit{Note:} For each trigonometric substitution, it's important to draw a right triangle to relate the substitution back to the original variable for finding the bounds of integration or for writing the final answer in terms of the original variable.
+
+% Including a diagram of a right triangle using TikZ
+\begin{center}
+\begin{tikzpicture}
+    \coordinate (O) at (0,0);
+    \coordinate (A) at (4,0);
+    \coordinate (B) at (0,3);
+    \draw (O)--(A)--(B)--cycle;
+
+    \tkzLabelSegment[below=2pt](O,A){$a$}
+    \tkzLabelSegment[left=2pt](O,B){$a \tan(\theta)$}
+    \tkzLabelSegment[above right=2pt](A,B){$a \sec(\theta)$}
+
+    \tkzMarkRightAngle[size=0.3](A,O,B)
+    \tkzLabelAngle[pos=0.6](A,O,B){$\theta$}
+
+    \tkzDrawPoints(O,A,B)
+\end{tikzpicture}
+\end{center}
+
+In these diagrams, the hypotenuse represents \( x \) after substitution, and the other two sides represent the expressions involved in the integral after substitution.
+
+\subsection{Practice Problems on Trigonometric Substitution}
+\label{subsec:practice_problems_trig_sub}
+
+The following practice problems will help reinforce the concept of trigonometric substitution in integrals. Solve the given integrals using appropriate trigonometric substitutions.
+
+\textbf{Problem 1:}
+Evaluate the integral \( \int \frac{dx}{x^2\sqrt{4x^2 - 1}} \).
+
+\textbf{Problem 2:}
+Determine the integral \( \int \frac{\sqrt{x^2 + 2x + 1}}{x} dx \). (Hint: Complete the square for the expression under the square root first.)
+
+\textbf{Problem 3:}
+Compute the integral \( \int \sqrt{25 - x^2} \, dx \).
+
+\textbf{Problem 4:}
+Calculate the integral \( \int \frac{dx}{(x^2 + 4)^{3/2}} \).
+
+\textbf{Problem 5:}
+Find the integral \( \int x^3\sqrt{x^2 + 9} \, dx \).
+
+Remember to use the trigonometric substitution rules outlined in Section \ref{subsec:trig_substitution}:
+\begin{itemize}
+    \item For \( \sqrt{a^2 - x^2} \), substitute \( x = a\sin(\theta) \).
+    \item For \( \sqrt{a^2 + x^2} \), substitute \( x = a\tan(\theta) \).
+    \item For \( \sqrt{x^2 - a^2} \), substitute \( x = a\sec(\theta) \).
+\end{itemize}
+
+For each problem, ensure that you:
+\begin{enumerate}
+    \item Identify the correct form of trigonometric substitution to use.
+    \item Draw a right triangle to relate trigonometric substitution back to the original variable if necessary.
+    \item Solve the integral in terms of \( \theta \).
+    \item Convert back to the original variable \( x \) using the appropriate inverse trigonometric function.
+\end{enumerate}
+
+\textit{Note:} You may need to use additional trigonometric identities or integration techniques to find the final solution.
 
 
 % Concluding remarks for the chapter

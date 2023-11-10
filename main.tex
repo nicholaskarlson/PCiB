@@ -2295,6 +2295,96 @@ The solutions for \( x \) in the interval \( [0, 2\pi) \) are \( x = \frac{\pi}{
 
 % HERE
 
+% \subsection{Linear Trigonometric Equations}
+% \label{subsec:linear_trig_equations}
+% Techniques for solving first-order trigonometric equations are outlined here.
+
+% \documentclass{article}
+% \usepackage{pgfplots}
+% \usepackage{amsmath}
+% \pgfplotsset{compat=1.17}
+
+% \begin{document}
+
+\subsection{Linear Trigonometric Equations}
+\label{subsec:linear_trig_equations}
+
+Techniques for solving first-order trigonometric equations are outlined here.
+
+Linear trigonometric equations are of the form \( A \cdot \text{trig\_function}(x) + B = 0 \), where \( A \) and \( B \) are constants, and the trig\_function can be \( \sin \), \( \cos \), or \( \tan \). To solve such equations, we isolate the trigonometric function and then find the angle \( x \) that satisfies the equation.
+
+For example, consider the equation \( 2\sin(x) + 1 = 0 \). To solve for \( x \), we first isolate \( \sin(x) \):
+
+\[
+2\sin(x) + 1 = 0 \Rightarrow \sin(x) = -\frac{1}{2}.
+\]
+
+We then look for all angles \( x \) that have a sine of \( -\frac{1}{2} \). In the interval \( [0, 2\pi) \), these angles would be \( \frac{7\pi}{6} \) and \( \frac{11\pi}{6} \).
+
+To visualize the solution, we can plot the equation \( y = 2\sin(x) + 1 \) and identify the points where the graph intersects the \( x \)-axis.
+
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+    axis lines = middle,
+    xlabel = \( x \),
+    ylabel = \( y \),
+    xtick = {3.66519, 5.75959},
+    xticklabels = {\(\frac{7\pi}{6}\), \(\frac{11\pi}{6}\)},
+    ytick = \empty,
+    ymin = -3, ymax = 3,
+    xmin = 0, xmax = 2*pi,
+    domain = 0:2*pi,
+    samples = 100,
+    legend pos = south east
+]
+\addplot [blue, thick] {2*sin(deg(x)) + 1};
+\addplot [dotted, thick] {0};
+\legend{\(2\sin(x) + 1\)}
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+This graph clearly shows the points of intersection corresponding to the solutions of our linear trigonometric equation.
+
+% \end{document}
+
+\subsection{Practice Problems}
+\label{subsec:practice_problems_linear_trig}
+
+\textbf{Problem 1:} Solve the trigonometric equation \( 3\cos(x) = 1.5 \).
+
+\textbf{Problem 2:} Find all solutions in the interval \( [0, 2\pi) \) for the equation \( \tan(x) - \sqrt{3} = 0 \).
+
+\textbf{Problem 3:} Determine the general solution for \( \sin(x) + \frac{1}{2} = 0 \).
+
+\subsection{Solutions to Practice Problems}
+\label{subsec:solutions_practice_problems}
+
+\textbf{Solution to Problem 1:} To find the value of \( x \) we divide both sides by 3:
+\[
+\cos(x) = \frac{1.5}{3} = 0.5.
+\]
+The solution to this equation is the angles where the cosine is 0.5. In the interval \( [0, 2\pi) \), these are \( x = \frac{\pi}{3} \) and \( x = \frac{5\pi}{3} \).
+
+\textbf{Solution to Problem 2:} We can start by adding \( \sqrt{3} \) to both sides:
+\[
+\tan(x) = \sqrt{3}.
+\]
+The solution to this equation is the angles where the tangent is \( \sqrt{3} \), which corresponds to \( x = \frac{\pi}{3} \) and \( x = \frac{4\pi}{3} \) within the interval \( [0, 2\pi) \).
+
+\textbf{Solution to Problem 3:} Subtracting \( \frac{1}{2} \) from both sides gives us:
+\[
+\sin(x) = -\frac{1}{2}.
+\]
+The general solution includes all angles where the sine is \( -\frac{1}{2} \). In the interval \( [0, 2\pi) \), the solutions are \( x = \frac{7\pi}{6} + 2k\pi \) and \( x = \frac{11\pi}{6} + 2k\pi \) where \( k \) is any integer.
+
+% \end{document}
+
+
+% HERE
+
+
 % Concluding remarks for the chapter
 \section*{Conclusion}
 \label{sec:trig_conclusion}

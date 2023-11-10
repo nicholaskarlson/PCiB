@@ -12,6 +12,7 @@
 \usepackage{amssymb}
 \usepackage{pgfplots}
 \pgfplotsset{compat=newest}
+\usepgfplotslibrary{fillbetween} 
 
 \newcommand{\inputtoc}[1]{\input{#1}}
 
@@ -408,16 +409,994 @@ Math, in many ways, is a collective endeavor. GitHub can provide a dynamic Commu
 \subsection*{Introduction}
 In this chapter, we start talking about actual pre-calculus topics. Here we will introduce geometry, algebra, and trigonometry, with details provided in later chapters.
 
-\chapter{Topics in Geometry}
-\subsection*{Understanding Angles and Triangles}
+\chapter{Essential Geometry for Calculus}
+\label{chap:geometry_for_calculus}
 
-\section*{Introduction}
-\paragraph{}
-Geometry is important in pre-calculus studies.
 
+Geometry, with its focus on shapes, sizes, and the properties of space, is fundamental to understanding and applying calculus concepts. In this chapter, we explore key geometric principles and their applications in calculus.
+
+
+\section{Coordinate Geometry}
+\label{sec:coordinate_geometry}
+Coordinate geometry, or analytic geometry, combines algebra and geometry. It is crucial for calculus. In this section, we will delve into the fundamental aspects of coordinate geometry, illustrating each concept with diagrams and graphs.
+
+\subsection{The Cartesian Plane}
+\label{subsec:the_cartesian_plane}
+The Cartesian plane is a two-dimensional plane formed by the intersection of a vertical line (y-axis) and a horizontal line (x-axis). Points on this plane are identified by coordinates (x, y).
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    axis lines=middle,
+    xlabel={$x$},
+    ylabel={$y$},
+    xmin=-5, xmax=5,
+    ymin=-5, ymax=5,
+    grid=both,
+    grid style={line width=.1pt, draw=gray!10},
+    major grid style={line width=.2pt,draw=gray!50},
+    axis equal
+]
+\addplot[mark=*,color=blue] coordinates {(2,3)};
+\node at (axis cs:2,3) [anchor=west] {$(2,3)$};
+\end{axis}
+\end{tikzpicture}
+\caption{A point $(2,3)$ on the Cartesian plane}
+\end{figure}
+
+\subsection{Graphing Linear Equations}
+\label{subsec:graphing_linear_equations}
+Linear equations in two variables can be graphed on the Cartesian plane. The graph of a linear equation forms a straight line.
+
+% Example of graphing a linear equation
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    axis lines=middle,
+    xlabel={$x$},
+    ylabel={$y$},
+    xmin=-5, xmax=5,
+    ymin=-5, ymax=5,
+    grid=both,
+    grid style={line width=.1pt, draw=gray!10},
+    major grid style={line width=.2pt,draw=gray!50},
+    axis equal
+]
+\addplot[domain=-5:5, samples=100, color=red]{0.5*x + 1};
+\node at (axis cs:3,2.5) [anchor=west] {$y = 0.5x + 1$};
+\end{axis}
+\end{tikzpicture}
+\caption{Graph of the linear equation $y = 0.5x + 1$}
+\end{figure}
+
+\subsection{Slope of a Line}
+\label{subsec:slope_of_a_line}
+The slope of a line is a measure of its steepness and direction. It is defined as the ratio of the change in y to the change in x between two points on the line.
+
+% Slope illustration
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    axis lines=middle,
+    xlabel={$x$},
+    ylabel={$y$},
+    xmin=-5, xmax=5,
+    ymin=-5, ymax=5,
+    grid=both,
+    grid style={line width=.1pt, draw=gray!10},
+    major grid style={line width=.2pt,draw=gray!50},
+    axis equal
+]
+\addplot[domain=-5:5, samples=100, color=green]{-x + 3};
+\addplot[mark=*,color=blue] coordinates {(-2,5)};
+\addplot[mark=*,color=blue] coordinates {(2,1)};
+\draw[thick, dashed] (axis cs:-2,5) -- (axis cs:2,1);
+\node at (axis cs:-2,5) [anchor=east] {$(-2,5)$};
+\node at (axis cs:2,1) [anchor=west] {$(2,1)$};
+\draw[->,thick] (axis cs:0,3) -- (axis cs:1,3) node[midway, above] {$\Delta x$};
+\draw[->,thick] (axis cs:2,2) -- (axis cs:2,1) node[midway, right] {$\Delta y$};
+\end{axis}
+\end{tikzpicture}
+\caption{Illustration of the slope of a line}
+\end{figure}
+
+\begin{exercise}
+Calculate the slope of the line connecting points $(-2, 5)$ and $(2, 1)$.
+\end{exercise}
+
+% Add more subsections and exercises as required
+
+% --- End of Coordinate Geometry Section ---
+
+
+
+% Example Problems for Coordinate Geometry Section
+
+\section*{Example Problems}
+\label{sec:example_problems_coordinate_geometry}
+To further solidify your understanding of coordinate geometry, here are some example problems with solutions.
+
+\begin{problem}[1]
+Find the coordinates of the midpoint of the line segment joining the points \(A(1, 2)\) and \(B(4, 6)\).
+\end{problem}
+
+\begin{solution}
+The midpoint \(M\) of a line segment with endpoints \(A(x_1, y_1)\) and \(B(x_2, y_2)\) is given by the formula:
+\[ M = \left( \frac{x_1 + x_2}{2}, \frac{y_1 + y_2}{2} \right) \]
+Substituting the given values:
+\[ M = \left( \frac{1 + 4}{2}, \frac{2 + 6}{2} \right) = \left( \frac{5}{2}, 4 \right) \]
+Therefore, the coordinates of the midpoint are \(\left( \frac{5}{2}, 4 \right)\).
+\end{solution}
+
+\begin{problem}[2]
+Determine the slope of the line passing through the points \((3, -2)\) and \((7, 6)\).
+\end{problem}
+
+\begin{solution}
+The slope \(m\) of the line passing through points \((x_1, y_1)\) and \((x_2, y_2)\) is calculated as:
+\[ m = \frac{y_2 - y_1}{x_2 - x_1} \]
+Substituting the given points:
+\[ m = \frac{6 - (-2)}{7 - 3} = \frac{8}{4} = 2 \]
+Hence, the slope of the line is \(2\).
+\end{solution}
+
+\begin{problem}[3]
+Graph the linear equation \(2x - 3y = 6\) on the Cartesian plane.
+\end{problem}
+
+\begin{solution}
+To graph the equation \(2x - 3y = 6\), first solve for \(y\):
+\[ 3y = 2x - 6 \]
+\[ y = \frac{2}{3}x - 2 \]
+Now plot two or more points that satisfy the equation and draw the line through them.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    axis lines=middle,
+    xlabel={$x$},
+    ylabel={$y$},
+    xmin=-5, xmax=5,
+    ymin=-5, ymax=5,
+    grid=both,
+    grid style={line width=.1pt, draw=gray!10},
+    major grid style={line width=.2pt,draw=gray!50},
+    axis equal
+]
+\addplot[domain=-5:5, samples=100, color=blue]{(2/3)*x - 2};
+\node at (axis cs:3,-1) [anchor=west] {$y = \frac{2}{3}x - 2$};
+\end{axis}
+\end{tikzpicture}
+\caption{Graph of the equation \(2x - 3y = 6\)}
+\end{figure}
+\end{solution}
+
+% --- End of Examples
+
+
+\subsection{The Cartesian Plane - Details}
+\label{subsec:the_cartesian_plane_Details}
+The Cartesian plane is a fundamental concept in coordinate geometry, named after the French mathematician René Descartes. It is a two-dimensional plane with two perpendicular axes: the horizontal axis (x-axis) and the vertical axis (y-axis). The intersection of these axes forms the origin, labeled as \(O\).
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    axis lines=center,
+    axis equal,
+    xlabel={$x$},
+    ylabel={$y$},
+    xmin=-5, xmax=5,
+    ymin=-5, ymax=5,
+    grid style={dashed, gray!30},
+    tick label style={font=\small},
+    xlabel style={at={(ticklabel* cs:1)}, anchor=north west},
+    ylabel style={at={(ticklabel* cs:1)}, anchor=south west}
+]
+% Quadrants
+\node at (axis cs: 3,3) {I};
+\node at (axis cs: -3,3) {II};
+\node at (axis cs: -3,-3) {III};
+\node at (axis cs: 3,-3) {IV};
+\end{axis}
+\end{tikzpicture}
+\caption{The Cartesian Plane with Quadrants}
+\end{figure}
+
+Points in the Cartesian plane are denoted by coordinates \((x, y)\), where \(x\) is the horizontal distance from the origin, and \(y\) is the vertical distance. The plane is divided into four quadrants based on the sign of the coordinates:
+
+\begin{itemize}
+\item Quadrant I: \(x > 0, y > 0\)
+\item Quadrant II: \(x < 0, y > 0\)
+\item Quadrant III: \(x < 0, y < 0\)
+\item Quadrant IV: \(x > 0, y < 0\)
+\end{itemize}
+
+\subsubsection{Distance Between Two Points}
+The distance \(d\) between two points \(P_1(x_1, y_1)\) and \(P_2(x_2, y_2)\) in the Cartesian plane can be calculated using the distance formula derived from the Pythagorean theorem:
+\[
+d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}
+\]
+
+\begin{exercise}
+Calculate the distance between the points \(A(1, 2)\) and \(B(4, 6)\).
+\end{exercise}
+
+\begin{solution}
+Using the distance formula:
+\[
+d = \sqrt{(4 - 1)^2 + (6 - 2)^2} = \sqrt{3^2 + 4^2} = \sqrt{9 + 16} = \sqrt{25} = 5
+\]
+\end{solution}
+
+\begin{exercise}
+Identify the quadrant in which the point \((-3, 4)\) is located.
+\end{exercise}
+
+\begin{solution}
+The point \((-3, 4)\) is in Quadrant II because the x-coordinate is negative and the y-coordinate is positive.
+\end{solution}
+
+% Add more examples and exercises as needed.
+
+% --- End of The Cartesian Plane - Details Section ---
+
+
+% Additional Example Problems for The Cartesian Plane - Details Section
+
+\begin{problem}
+Locate and label the point \( C(-2, 3) \) on the Cartesian plane and state which quadrant it lies in.
+\end{problem}
+
+\begin{solution}
+The point \( C(-2, 3) \) lies in Quadrant II as the x-coordinate is negative and the y-coordinate is positive.
+\end{solution}
+
+\begin{problem}
+Find the coordinates of the midpoint of the line segment connecting points \( D(4, -1) \) and \( E(-2, 3) \).
+\end{problem}
+
+\begin{solution}
+The midpoint \( M \) has coordinates given by \( M = \left( \frac{x_1 + x_2}{2}, \frac{y_1 + y_2}{2} \right) \). Therefore, \( M = \left( \frac{4 - 2}{2}, \frac{-1 + 3}{2} \right) = \left( 1, 1 \right) \).
+\end{solution}
+
+\begin{problem}
+Determine the slope of the line passing through points \( F(1, 2) \) and \( G(3, -2) \).
+\end{problem}
+
+\begin{solution}
+The slope \( m \) is given by \( m = \frac{y_2 - y_1}{x_2 - x_1} \). Therefore, \( m = \frac{-2 - 2}{3 - 1} = \frac{-4}{2} = -2 \).
+\end{solution}
+
+\begin{problem}
+Given a line with the equation \( y = 3x + 1 \), identify a point that lies on this line and plot it on the Cartesian plane.
+\end{problem}
+
+\begin{solution}
+Choose any value for \( x \) and solve for \( y \). For example, if \( x = 2 \), then \( y = 3(2) + 1 = 7 \). So, the point \( (2, 7) \) lies on the line.
+\end{solution}
+
+% Add more problems as needed
+
+% --- End of Additional Example Problems Section ---
+
+
+\subsection{Slope and Equation of a Line}
+\label{subsec:slope_and_equation_of_line}
+The concept of the slope and the equation of a line are fundamental in both geometry and algebra. The slope of a line measures its steepness and direction. It is calculated as the ratio of the vertical change to the horizontal change between two points on the line.
+
+\subsubsection{Definition of Slope}
+The slope of a line passing through two points \( (x_1, y_1) \) and \( (x_2, y_2) \) is given by:
+\[
+m = \frac{y_2 - y_1}{x_2 - x_1}
+\]
+
+\subsubsection{Slope-Intercept Form}
+The slope-intercept form of a line's equation is \( y = mx + b \), where \( m \) is the slope and \( b \) is the y-intercept (the y-coordinate of the point where the line crosses the y-axis).
+
+% Example: Line with slope 2 and y-intercept -3
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    axis lines=middle,
+    xlabel={$x$},
+    ylabel={$y$},
+    ymin=-10, ymax=10,
+    xmin=-10, xmax=10,
+    grid style={line width=.1pt, draw=gray!10},
+    major grid style={line width=.2pt,draw=gray!50},
+    axis equal,
+]
+\addplot[domain=-10:10, samples=100, color=blue]{2*x - 3};
+\node at (axis cs:5,7) [anchor=west, color=blue] {$y = 2x - 3$};
+\end{axis}
+\end{tikzpicture}
+\caption{Line with slope \( m = 2 \) and y-intercept \( b = -3 \)}
+\end{figure}
+
+\subsubsection{Point-Slope Form}
+The point-slope form of a line's equation is \( y - y_1 = m(x - x_1) \), where \( m \) is the slope and \( (x_1, y_1) \) is a point on the line.
+
+\subsubsection{Standard Form}
+The standard form of a line's equation is \( Ax + By = C \), where \( A \), \( B \), and \( C \) are constants, and \( A \) and \( B \) are not both zero.
+
+\begin{exercise}
+Write the equation of the line passing through the point \( (3, -2) \) with a slope of \( 4 \) in point-slope and slope-intercept forms.
+\end{exercise}
+
+\begin{solution}
+Using the point-slope form: \( y + 2 = 4(x - 3) \). 
+In slope-intercept form, it becomes \( y = 4x - 14 \).
+\end{solution}
+
+% Add more explanations and exercises as needed
+
+% --- End of Slope and Equation of a Line Section ---
+
+
+% Additional Example Problems for Slope and Equation of a Line Section
+
+\begin{problem}
+Find the slope of the line passing through the points \( A(1, 3) \) and \( B(4, 11) \).
+\end{problem}
+
+\begin{solution}
+The slope \( m \) is given by \( m = \frac{y_2 - y_1}{x_2 - x_1} \). Therefore, \( m = \frac{11 - 3}{4 - 1} = \frac{8}{3} \).
+\end{solution}
+
+\begin{problem}
+Write the equation of a line in slope-intercept form that has a slope of \( -5 \) and passes through the point \( (2, 3) \).
+\end{problem}
+
+\begin{solution}
+Using the point-slope form, the equation is \( y - 3 = -5(x - 2) \). Expanding and rearranging gives \( y = -5x + 13 \) in slope-intercept form.
+\end{solution}
+
+\begin{problem}
+Convert the equation \( 2x - 3y = 6 \) into slope-intercept form and identify the slope and y-intercept.
+\end{problem}
+
+\begin{solution}
+Rearranging the equation gives \( 3y = 2x - 6 \) and then \( y = \frac{2}{3}x - 2 \). The slope is \( \frac{2}{3} \) and the y-intercept is \( -2 \).
+\end{solution}
+
+\begin{problem}
+Determine whether the lines given by the equations \( 4y - 12x = 5 \) and \( 2y - 6x = -3 \) are parallel, perpendicular, or neither.
+\end{problem}
+
+\begin{solution}
+Convert each equation into slope-intercept form: \( y = 3x + \frac{5}{4} \) and \( y = 3x - \frac{3}{2} \). Both lines have the same slope \( 3 \), so they are parallel.
+\end{solution}
+
+% Add more problems as needed
+
+% --- End of Additional Example Problems Section ---
+
+
+\subsection{Graphing Linear Equations and Inequalities}
+\label{subsec:graphing_linear_equations}
+Graphing linear equations and inequalities is a fundamental aspect of coordinate geometry and calculus. Linear equations form straight lines when graphed, and their general form is \( y = mx + b \) where \( m \) is the slope and \( b \) is the y-intercept.
+
+\subsubsection{Graphing Linear Equations}
+\label{subsubsec:graphing_linear_equations}
+To graph a linear equation, we can plot points that satisfy the equation and then connect these points with a straight line.
+
+% Example: Graph of y = 2x + 1
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    axis lines=middle,
+    xlabel={$x$},
+    ylabel={$y$},
+    grid=both,
+    ymin=-10, ymax=10,
+    xmin=-10, xmax=10,
+    grid style={line width=.1pt, draw=gray!10},
+    major grid style={line width=.2pt,draw=gray!50},
+    axis equal,
+]
+\addplot[domain=-10:10, samples=100, color=red]{2*x + 1};
+\node at (axis cs:3,7) [anchor=west, color=red] {$y = 2x + 1$};
+\end{axis}
+\end{tikzpicture}
+\caption{Graph of the linear equation \(y = 2x + 1\)}
+\end{figure}
+
+\subsubsection{Graphing Linear Inequalities}
+\label{subsubsec:graphing_linear_inequalities}
+Graphing linear inequalities involves shading a region of the Cartesian plane. The boundary line is drawn as either solid (for \(\leq\) or \(\geq\)) or dashed (for \(<\) or \(>\)).
+
+% Example: Graph of y < x + 2
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    axis lines=middle,
+    xlabel={$x$},
+    ylabel={$y$},
+    grid=both,
+    ymin=-10, ymax=10,
+    xmin=-10, xmax=10,
+    grid style={line width=.1pt, draw=gray!10},
+    major grid style={line width=.2pt,draw=gray!50},
+    axis equal,
+]
+\addplot[name path=F, domain=-10:10, samples=100, color=blue]{x + 2};
+\path[name path=axis] (axis cs:-10,0) -- (axis cs:10,0);
+\addplot[blue!30] fill between[of=F and axis, soft clip={domain=-10:10}];
+\end{axis}
+\end{tikzpicture}
+\caption{Graph of the linear inequality \(y < x + 2\)}
+\end{figure}
+
+\begin{exercise}
+Graph the linear equation \( y = -\frac{1}{2}x + 3 \) on the Cartesian plane.
+\end{exercise}
+
+\begin{exercise}
+Graph the linear inequality \( y \geq 3x - 2 \) and identify the shaded region.
+\end{exercise}
+
+% Add more examples and exercises as needed
+
+% --- End of Graphing Linear Equations and Inequalities Section ---
+
+
+% Additional Example Problems for Graphing Linear Equations and Inequalities Section
+
+\begin{problem}
+Graph the linear equation \( y = -x + 4 \) and label two points that lie on the line.
+\end{problem}
+
+\begin{solution}
+To graph \( y = -x + 4 \), plot two points that satisfy the equation, such as (0,4) and (4,0), and draw a straight line through them.
+\end{solution}
+
+\begin{problem}
+Graph the inequality \( y > 2x - 3 \). Indicate the region that satisfies the inequality.
+\end{problem}
+
+\begin{solution}
+First, graph the line \( y = 2x - 3 \) with a dashed line since the inequality is strict (\(>\)). Then, shade the region above the line, as it represents \( y > 2x - 3 \).
+\end{solution}
+
+\begin{problem}
+Determine whether the point (3, -2) lies on the graph of the equation \( 2y = 4x - 6 \).
+\end{problem}
+
+\begin{solution}
+Substitute \( x = 3 \) and \( y = -2 \) into the equation. If the equation holds true, the point lies on the graph. 
+\[ 2(-2) = 4(3) - 6 \]
+\[ -4 = 12 - 6 \]
+\[ -4 = 6 \] 
+This is false, so the point (3, -2) does not lie on the graph.
+\end{solution}
+
+\begin{problem}
+Sketch the inequality \( y \leq -\frac{1}{2}x + 1 \) and identify the shaded region.
+\end{problem}
+
+\begin{solution}
+Graph the line \( y = -\frac{1}{2}x + 1 \) with a solid line (since the inequality includes \(\leq\)). Shade the area below the line to represent \( y \leq -\frac{1}{2}x + 1 \).
+\end{solution}
+
+% Add more problems as needed
+
+% --- End of Additional Example Problems Section ---
+
+\subsection{Slope of a Curve}
+\label{subsec:slope_of_a_curve}
+The concept of the slope of a curve at a point is fundamental in calculus. It involves finding the slope of the tangent line to the curve at that point. This concept is a precursor to derivatives, which are essentially the slope of a curve at a given point.
+
+\subsubsection{Tangent to a Curve}
+A tangent to a curve at a given point is a straight line that touches the curve at that point without crossing it. The slope of this tangent line represents the rate of change of the curve at that point.
+
+% Example: Slope of a curve at a point
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    axis lines=middle,
+    xlabel={$x$},
+    ylabel={$y$},
+    ymin=-2, ymax=8,
+    xmin=-2, xmax=5,
+    grid=both,
+    grid style={line width=.1pt, draw=gray!10},
+    major grid style={line width=.2pt,draw=gray!50},
+    axis equal,
+]
+
+% Curve: y=x^2
+\addplot[domain=-2:5, samples=100, color=blue]{x^2};
+\node at (axis cs:2,4) [anchor=south west, color=blue] {$y = x^2$};
+
+% Tangent line at x=2
+\addplot[domain=0:4, samples=100, color=red]{4*x - 4};
+\node at (axis cs:3.5,10) [anchor=south west, color=red] {Tangent at $x=2$};
+
+% Point of tangency
+\addplot[mark=*,color=black] coordinates {(2,4)};
+\node at (axis cs:2,4) [anchor=north west] {$(2,4)$};
+
+\end{axis}
+\end{tikzpicture}
+\caption{Slope of the curve \(y = x^2\) at the point \(x=2\)}
+\end{figure}
+
+In this example, the curve \(y = x^2\) has a tangent line at \(x=2\). The slope of this tangent line can be calculated using the derivative of \(y = x^2\).
+
+\begin{exercise}
+Find the slope of the tangent to the curve \(y = x^2\) at \(x=2\).
+\end{exercise}
+
+\begin{solution}
+The derivative of \(y = x^2\) is \(y' = 2x\). At \(x=2\), the slope is \(y' = 2(2) = 4\). Thus, the slope of the tangent at \(x=2\) is 4.
+\end{solution}
+
+% Add more examples and exercises as needed
+
+% --- End of Slope of a Curve Section ---
+
+
+% Additional Example Problems for Slope of a Curve Section
+
+\begin{problem}
+Consider the curve given by \( y = 3x^2 - 2x + 1 \). Find the slope of the tangent to the curve at \( x = 1 \).
+\end{problem}
+
+\begin{solution}
+First, find the derivative of \( y = 3x^2 - 2x + 1 \) which is \( y' = 6x - 2 \). At \( x = 1 \), the slope is \( y' = 6(1) - 2 = 4 \). Thus, the slope of the tangent at \( x = 1 \) is 4.
+\end{solution}
+
+\begin{problem}
+Determine the slope of the tangent line to the curve \( y = \sqrt{x} \) at the point \( x = 4 \).
+\end{problem}
+
+\begin{solution}
+The derivative of \( y = \sqrt{x} \) is \( y' = \frac{1}{2\sqrt{x}} \). At \( x = 4 \), the slope is \( y' = \frac{1}{2\sqrt{4}} = \frac{1}{4} \). Therefore, the slope of the tangent at \( x = 4 \) is \( \frac{1}{4} \).
+\end{solution}
+
+\begin{problem}
+Find the equation of the tangent line to the curve \( y = x^3 \) at the point where \( x = -2 \).
+\end{problem}
+
+\begin{solution}
+The derivative of \( y = x^3 \) is \( y' = 3x^2 \). The slope at \( x = -2 \) is \( y' = 3(-2)^2 = 12 \). The tangent line has the equation \( y - y_1 = m(x - x_1) \), where \( m = 12 \) and \( x_1 = -2, y_1 = (-2)^3 = -8 \). Thus, the equation is \( y + 8 = 12(x + 2) \).
+\end{solution}
+
+\begin{problem}
+Calculate the slope of the tangent to the curve \( y = \frac{1}{x} \) at \( x = 3 \).
+\end{problem}
+
+\begin{solution}
+The derivative of \( y = \frac{1}{x} \) is \( y' = -\frac{1}{x^2} \). At \( x = 3 \), the slope is \( y' = -\frac{1}{3^2} = -\frac{1}{9} \). Hence, the slope of the tangent at \( x = 3 \) is \( -\frac{1}{9} \).
+\end{solution}
+
+% Add more problems as needed
+
+% --- End of Additional Example Problems Section ---
+
+
+\section{Basic Geometric Figures}
+\label{sec:basic_geometric_figures}
+Geometry, the study of shapes and figures, begins with understanding the basics: points, lines, and planes. These elements form the foundation of more complex geometric concepts.
+
+\subsection{Points}
+A point represents a location in space. It has no size, area, length, or any other dimensional attribute. In diagrams, points are usually marked with a dot.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\fill (2,2) circle (2pt) node[above] {A};
+\end{tikzpicture}
+\caption{A point labeled A}
+\end{figure}
+
+\subsection{Lines}
+A line is a straight one-dimensional figure having no thickness and extending infinitely in both directions. A line segment is a part of a line that is bounded by two distinct end points.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\draw[thick] (0,0) -- (4,0);
+\draw[fill] (0,0) circle (2pt) node[below] {B};
+\draw[fill] (4,0) circle (2pt) node[below] {C};
+\end{tikzpicture}
+\caption{A line segment with end points B and C}
+\end{figure}
+
+\subsection{Planes}
+A plane is a flat, two-dimensional surface that extends infinitely far. Planes are usually represented by a parallelogram in diagrams.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\draw (0,0) -- (4,0) -- (5,2) -- (1,2) -- cycle;
+\end{tikzpicture}
+\caption{Representation of a plane}
+\end{figure}
+
+\subsection{Properties of Basic Figures}
+\subsubsection{Points}
+Points are often used to denote a specific location or a position in space.
+
+\subsubsection{Lines}
+Lines can be characterized by their slope, which is a measure of how steep the line is. Parallel lines have the same slope, while perpendicular lines have slopes that are negative reciprocals of each other.
+
+\subsubsection{Planes}
+Planes can be defined by three non-collinear points. They are used in geometry to discuss figures like triangles, rectangles, and circles.
+
+\begin{exercise}
+Identify whether the following pairs of lines are parallel, perpendicular, or neither:
+\begin{enumerate}[label=\alph*)]
+\item Line 1: \( y = \frac{3}{2}x + 4 \) and Line 2: \( y = -\frac{2}{3}x + 1 \)
+\item Line 3: \( y = 5x - 2 \) and Line 4: \( y = 5x + 3 \)
+\end{enumerate}
+\end{exercise}
+
+\begin{solution}
+\begin{enumerate}[label=\alph*)]
+\item The slopes are \(\frac{3}{2}\) and \(-\frac{2}{3}\) which are negative reciprocals. So, they are perpendicular.
+\item Both lines have a slope of \(5\), so they are parallel.
+\end{enumerate}
+\end{solution}
+
+% Add more content and exercises as needed
+
+% --- End of Basic Geometric Figures Section ---
+
+
+% Additional Example Problems for Basic Geometric Figures Section
+
+\begin{problem}
+Consider three points \( A(1, 2) \), \( B(3, 4) \), and \( C(-1, -2) \). Determine if these points are collinear.
+\end{problem}
+
+\begin{solution}
+To check for collinearity, calculate the slope of line segments \( AB \) and \( BC \). If the slopes are equal, the points are collinear. The slope of \( AB \) is \(\frac{4 - 2}{3 - 1} = 1\), and the slope of \( BC \) is \(\frac{-2 - 4}{-1 - 3} = 1\). Since the slopes are equal, points \( A \), \( B \), and \( C \) are collinear.
+\end{solution}
+
+\begin{problem}
+Find the midpoint of the line segment connecting points \( D(4, -6) \) and \( E(-2, 8) \).
+\end{problem}
+
+\begin{solution}
+The midpoint \( M \) has coordinates \(\left( \frac{x_1 + x_2}{2}, \frac{y_1 + y_2}{2} \right)\). Thus, \( M = \left( \frac{4 - 2}{2}, \frac{-6 + 8}{2} \right) = (1, 1)\).
+\end{solution}
+
+\begin{problem}
+Given a line with the equation \( y = -3x + 7 \), determine the y-intercept and one other point on the line.
+\end{problem}
+
+\begin{solution}
+The y-intercept is the point where \( x = 0 \), which is \( (0, 7) \). For another point, choose any \( x \) value, say \( x = 2 \), and calculate \( y \): \( y = -3(2) + 7 = 1 \). So, another point is \( (2, 1) \).
+\end{solution}
+
+\begin{problem}
+A plane is defined by points \( F(1, 2, 3) \), \( G(4, 5, 6) \), and \( H(-2, -1, 0) \). Write the equation of the plane.
+\end{problem}
+
+\begin{solution}
+To find the equation of the plane, use the formula \( Ax + By + Cz + D = 0 \), where \( A, B, C \) are the components of the normal vector to the plane, and \( D \) is a constant. This requires more advanced techniques involving vectors and cross products and is beyond the scope of basic geometry.
+\end{solution}
+
+% Add more problems as needed
+
+% --- End of Additional Example Problems Section ---
+
+\subsection{Points and Lines - Detail}
+\label{subsec:points_and_lines_detail}
+Understanding points and lines is crucial in geometry. Here, we explore their definitions and how they are represented on the Cartesian plane.
+
+\subsubsection{Points}
+A point is a fundamental concept in geometry. It represents a precise location or place in a two-dimensional space. A point has no size, shape, or real dimension.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\fill (2,2) circle (2pt) node[above] {P};
+\end{tikzpicture}
+\caption{Representation of a point P}
+\end{figure}
+
+\subsubsection{Lines}
+A line is an infinitely long, one-dimensional figure with no thickness. It extends in two opposite directions without end. Lines are often described by a linear equation in various forms such as slope-intercept form, point-slope form, or standard form.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\draw[thin, ->] (-3,0) -- (3,0) node[right] {Line};
+\end{tikzpicture}
+\caption{Representation of a line}
+\end{figure}
+
+\subsubsection{Line Segments}
+A line segment is a part of a line that is bounded by two distinct endpoints. It has a fixed length.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\draw[thick] (0,0) -- (4,0);
+\filldraw [black] (0,0) circle (2pt) node[below] {A};
+\filldraw [black] (4,0) circle (2pt) node[below] {B};
+\end{tikzpicture}
+\caption{A line segment AB}
+\end{figure}
+
+\subsubsection{Rays}
+A ray starts at a point and extends infinitely in one direction. It is represented by a starting point and another point through which it passes.
+
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\draw[thick, ->] (0,0) -- (4,0);
+\filldraw [black] (0,0) circle (2pt) node[below] {C};
+\draw[fill] (2,0) circle (2pt) node[below] {D};
+\end{tikzpicture}
+\caption{A ray CD}
+\end{figure}
+
+% Add explanations on Cartesian Plane representation
+
+\begin{exercise}
+On the Cartesian plane, plot the points A(2, 3) and B(-1, -2). Then, draw the line segment AB.
+\end{exercise}
+
+\begin{exercise}
+Describe how a ray differentiates from a line segment and draw an example of a ray on a Cartesian plane.
+\end{exercise}
+
+% --- End of Points and Lines - Detail Section ---
+
+
+% Additional Example Problems for Points and Lines - Detail Section
+
+\begin{problem}
+Given two points \( P(1, 2) \) and \( Q(4, 6) \), draw the line segment \( PQ \) and calculate its length.
+\end{problem}
+
+\begin{solution}
+The line segment \( PQ \) can be drawn by plotting the points \( P(1, 2) \) and \( Q(4, 6) \) on a Cartesian plane and connecting them with a straight line. The length of the line segment is found using the distance formula: 
+\[ PQ = \sqrt{(4 - 1)^2 + (6 - 2)^2} = \sqrt{9 + 16} = \sqrt{25} = 5 \]
+\end{solution}
+
+\begin{problem}
+On a Cartesian plane, plot the ray that starts at \( R(0, 0) \) and passes through \( S(3, 3) \). Indicate the direction of the ray.
+\end{problem}
+
+\begin{solution}
+Plot the point \( R(0, 0) \) and draw a line passing through \( S(3, 3) \) extending infinitely in the direction away from \( R \). The direction of the ray is towards the upper right quadrant.
+\end{solution}
+
+\begin{problem}
+If the line segment \( AB \) has endpoint \( A(2, 3) \) and midpoint \( M(5, 7) \), find the coordinates of endpoint \( B \).
+\end{problem}
+
+\begin{solution}
+Using the midpoint formula, where \( M \) is the midpoint of \( AB \): \( M = \left( \frac{x_A + x_B}{2}, \frac{y_A + y_B}{2} \right) \), we have \( 5 = \frac{2 + x_B}{2} \) and \( 7 = \frac{3 + y_B}{2} \). Solving for \( x_B \) and \( y_B \), we get \( x_B = 8 \) and \( y_B = 11 \). So, \( B(8, 11) \).
+\end{solution}
+
+\begin{problem}
+Create a diagram showing a point \( T \) and two rays \( TA \) and \( TB \) such that \( \angle ATB \) is a right angle.
+\end{problem}
+
+\begin{solution}
+This problem requires drawing a point \( T \) and two rays \( TA \) and \( TB \) that form a right angle at point \( T \). The rays can be drawn on a Cartesian plane with \( TA \) and \( TB \) perpendicular to each other.
+\end{solution}
+
+% Add more problems as needed
+
+% --- End of Additional Example Problems Section ---
+
+% HERE
+
+
+\subsection{Vectors in Geometry}
+\label{subsec:vectors_in_geometry}
+Introduce the concept of vectors, their representation, and significance in geometry and calculus.
+
+
+\subsection{Angles and Their Types}
+\label{subsec:angles_and_their_types}
+Define angles, discuss different types of angles (acute, obtuse, right, etc.), and their measurement in degrees and radians. Include an expanded section on radians.
+
+
+\subsection{Planes and Space}
+\label{subsec:planes_and_space}
+Introduction to the concept of a plane in geometry and its significance in spatial understanding.
+
+
+\section{Triangles and Congruence}
+\label{sec:triangles_and_congruence}
+Triangles form the basis of much of geometric reasoning. This section delves into different types of triangles and the concept of congruence.
+
+
+\subsection{Types of Triangles}
+\label{subsec:types_of_triangles}
+Discuss different types of triangles based on sides (equilateral, isosceles, scalene) and angles (acute, right, obtuse).
+
+
+\subsection{Congruence and Similarity}
+\label{subsec:congruence_and_similarity}
+Define congruence and similarity in the context of triangles, including criteria like SSS, SAS, ASA, and RHS.
+
+\subsection{Trigonometric Ratios in Right Triangles}
+\label{subsec:trigonometric_ratios}
+Introduce the concept of trigonometric ratios in right triangles and their importance in both geometry and calculus.
+
+
+\section{Right Triangles and the Pythagorean Theorem}
+\label{sec:right_triangles_pythagorean}
+Right triangles form the basis of trigonometry, which is integral to calculus.
+
+
+\subsection{Properties of Right Triangles}
+\label{subsec:properties_right_triangles}
+Discussion on right triangles, including the definitions and properties specific to them.
+
+
+\subsection{The Pythagorean Theorem}
+\label{subsec:pythagorean_theorem}
+The Pythagorean theorem states that in a right triangle, the square of the length of the hypotenuse is equal to the sum of the squares of the other two sides.
+
+
+\subsubsection{Graphical Interpretation of the Pythagorean Theorem}
+\label{subsubsec:graphical_pythagorean}
+Provide a visual interpretation of the Pythagorean theorem, possibly including a TikZ diagram to illustrate the concept.
+
+
+\subsection{Trigonometric Identities}
+\label{subsec:trigonometric_identities}
+Introduce basic trigonometric identities and their geometric interpretations, linking to their use in calculus.
+
+
+\section{Understanding Area}
+\label{sec:understanding_area}
+The concept of area is a foundational aspect of geometry and is pivotal in integral calculus.
+
+
+\subsection{Basic Principles of Area}
+\label{subsec:basic_principles_area}
+Discuss the fundamental principles and units of area measurement.
+
+
+\subsection{Area Under a Curve}
+\label{subsec:area_under_curve}
+Introduce the preliminary idea of the area under a curve, connecting it to integral calculus concepts.
+
+
+\section{Circle Geometry}
+\label{sec:circle_geometry}
+The circle is a fundamental shape in both geometry and calculus. This section covers its properties and equations.
+
+
+\subsection{Properties of Circles}
+\label{subsec:properties_of_circles}
+Discuss the basic properties of circles, including tangents, chords, arc, and sector.
+
+
+\subsection{Equation of a Circle}
+\label{subsec:equation_of_a_circle}
+Derive and explain the standard form and general form of the equation of a circle.
+
+
+\subsection{Parametric Equations of a Circle}
+\label{subsec:parametric_equations_circle}
+Introduce the concept of parametric equations for a circle and their relevance in calculus.
+
+
+\subsection{Area of a Circle and Pi (\(\pi\))}
+\label{subsec:area_circle_pi}
+Explore the relationship between the area of a circle and the mathematical constant \(\pi\). Discuss the formula \(A = \pi r^2\) and its derivation.
+
+
+% Area Formulas for Common 2-D Shapes Section
+\section{Area Formulas for Common 2-D Shapes}
+\label{sec:area_formulas_2d}
+This section will include formulas and explanations for finding the area of common two-dimensional shapes.
+
+
+\subsection{Decomposing Complex Shapes}
+\label{subsec:decomposing_complex_shapes}
+Discuss the method of decomposing complex shapes into simpler ones to find their area. This technique is foundational for understanding the integration of irregular shapes in calculus.
+
+
+\subsection{Triangles}
+\label{subsec:area_triangles}
+Include formulas for the area of different types of triangles (e.g., equilateral, right-angled).
+
+
+\subsection{Rectangles and Squares}
+\label{subsec:area_rectangles_squares}
+Discuss the formulas for the area of rectangles and squares.
+
+
+\subsection{Other Common Shapes}
+\label{subsec:area_other_shapes}
+Include area formulas for other common shapes like parallelograms, trapezoids, and ellipses.
+
+
+% Volume Formulas for Common 3-D Objects Section
+\section{Volume Formulas for Common 3-D Objects}
+\label{sec:volume_formulas_3d}
+Understanding the volume of three-dimensional objects is essential for many calculus applications.
+
+
+\subsection{Cross-Sectional Area}
+\label{subsec:cross_sectional_area}
+Introduce the concept of cross-sectional area and its role in determining the volume of 3-D objects, paving the way for understanding volume integration in calculus.
+
+
+\subsection{Prisms and Cylinders}
+\label{subsec:volume_prisms_cylinders}
+Discuss the formulas for finding the volume of prisms and cylinders.
+
+
+\subsection{Pyramids and Cones}
+\label{subsec:volume_pyramids_cones}
+Include the formulas and methods to calculate the volume of pyramids and cones.
+
+
+\subsection{Spheres}
+\label{subsec:volume_spheres}
+Provide the formula for the volume of a sphere and discuss its derivation.
+
+
+% Applications in Calculus Section
+\section{Applications in Calculus}
+\label{sec:applications_in_calculus}
+This final section highlights how geometric concepts find applications in calculus.
+
+
+\subsection{Limits and Continuity}
+\label{subsec:limits_and_continuity}
+Discuss how geometric understanding aids in comprehending limits and continuity in calculus.
+
+
+\subsection{Integrals and Area}
+\label{subsec:integrals_and_area}
+Explore how integration in calculus is used for finding areas under curves, with a basis in geometric understanding of area.
+
+\subsection{Real-World Examples in Calculus}
+\label{subsec:real_world_examples_calculus}
+Provide real-world examples and case studies demonstrating the use of geometric concepts in various calculus applications.
+
+
+\subsection{Geometric Interpretation of Derivatives and Integrals}
+\label{subsec:geometric_interpretation_derivatives_integrals}
+Explore the geometric interpretation of derivatives (slopes and rates of change) and integrals (area under curves) in calculus.
+
+% General Enhancements for the Chapter
+\section*{Enhancements for the Chapter}
+\label{sec:enhancements_for_chapter}
+% Visual Elements
+\paragraph{Visual Elements}
+Emphasize the inclusion of diagrams, graphs, and visual aids throughout the chapter to enhance understanding of geometric concepts.
+
+
+% Exercises Bridging Geometry and Calculus
+\paragraph{Bridging Exercises}
+Include exercises at the end of each section designed to bridge the gap between geometric concepts and their applications in calculus, reinforcing learning and application skills.
+
+
+% Concluding remarks for the chapter
 \section*{Conclusion}
-\paragraph{}
-This chapter surveys important topics in geometry relevant to the study of calculus. Please fork the LaTeX source code for PCiB (available on GitHub) and create your own book that chooses the facts and exercises most relevant to you! Also, starring the PCiB project on GitHub would be greatly appreciated! Thanks for reading PCiB!
+\label{sec:geom_conclusion}
+This chapter serves as the foundation for understanding the vital role of Geometry in calculus. As you progress through your studies, these concepts will become second nature, providing the tools necessary for analyzing and solving a broad range of problems in higher mathematics.
+
+
+% Ensure that the conclusion is added to the table of contents
+\addcontentsline{toc}{section}{Conclusion}
+
+
+% --- End of Geometry Chapter ---
 
 \chapter{Topics in Algebra}
 \subsection*{Basic Ideas Regarding Numbers}

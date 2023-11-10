@@ -1513,6 +1513,63 @@ Reflection flips the graph of the function over a specific axis.
 
 % HERE
 
+\subsubsection{Translation}
+Translation shifts the graph of the function vertically or horizontally without altering its shape.
+
+\textbf{Vertical Translation:} The function \( f(x) = \sin(x) + D \) represents a vertical shift by \( D \) units. If \( D > 0 \), the graph shifts up; if \( D < 0 \), it shifts down.
+
+\textbf{Horizontal Translation (Phase Shift):} For \( f(x) = \sin(x) \), the function \( g(x) = \sin(x - C) \) shifts the graph to the right by \( C \) units if \( C > 0 \) and to the left if \( C < 0 \).
+
+To visualize these transformations, consider the following graphs created with the TikZ package.
+
+% Include TikZ package in preamble
+% \usepackage{pgfplots}
+% \pgfplotsset{compat=1.17}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    axis lines = middle,
+    xlabel = \( x \),
+    ylabel = \( y \),
+    ymin=-3, ymax=3,
+    xmin=-6.28, xmax=6.28, % 2*pi = 6.28
+    domain=-2*pi:2*pi,
+    samples=100,
+    legend pos=outer north east,
+]
+% Original sine function
+\addplot[blue, thick] {sin(deg(x))};
+\addlegendentry{\( \sin(x) \)}
+
+% Vertically scaled sine function
+\addplot[red, thick, dashed] {2*sin(deg(x))};
+\addlegendentry{\( 2\sin(x) \)}
+
+% Horizontally scaled sine function
+\addplot[green, thick, dotted] {sin(deg(2*x))};
+\addlegendentry{\( \sin(2x) \)}
+
+% Reflected sine function
+\addplot[orange, thick, dashdotted] {-sin(deg(x))};
+\addlegendentry{\( -\sin(x) \)}
+
+% Translated sine function
+\addplot[purple, thick, loosely dashed] {sin(deg(x - pi/3))};
+\addlegendentry{\( \sin(x - \frac{\pi}{3}) \)}
+\end{axis}
+\end{tikzpicture}
+\caption{Graphs showing transformations of the sine function.}
+\label{fig:sine_transformations}
+\end{figure}
+
+As seen in Figure~\ref{fig:sine_transformations}, each transformation alters the original sine function in a unique way, illustrating the concepts of scaling, reflection, and translation. Through understanding these transformations, one can analyze and predict the behavior of more complex trigonometric functions.
+
+% HERE
+
+
+
 % Concluding remarks for the chapter
 \section*{Conclusion}
 \label{sec:trig_conclusion}

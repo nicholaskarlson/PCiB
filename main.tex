@@ -2512,6 +2512,242 @@ These problems encourage students to apply their knowledge of inverse trigonomet
 
 % HERE
 
+% \section{Applications of Trigonometry}
+% \label{sec:applications_trigonometry}
+% Finally, we explore how Trigonometry is used to model real-world phenomena and its specific applications in calculus.
+
+\section{Applications of Trigonometry}
+\label{sec:applications_trigonometry}
+
+Trigonometry is not just a theoretical mathematical discipline; it has numerous practical applications in science, engineering, music, astronomy, and various other fields. In this section, we will explore how trigonometry models real-world phenomena and its specific applications in calculus.
+
+\subsection{Sound Waves}
+\label{subsec:sound_waves}
+Sound waves can be modeled as sine or cosine functions, representing the periodic nature of the vibrations that produce sound. The frequency and amplitude of these waves determine the pitch and volume of the sound, respectively.
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    axis lines = left,
+    xlabel = $t$,
+    ylabel = {$f(t)$},
+]
+% Below the red parabola is defined
+\addplot [
+    domain=0:2*pi,
+    samples=100,
+    color=red,
+]
+{sin(deg(x))};
+\addlegendentry{$f(t) = \sin(t)$}
+\end{axis}
+\end{tikzpicture}
+\caption{Graph of a sound wave modeled by a sine function.}
+\label{fig:sound_wave}
+\end{figure}
+
+\subsection{Electrical Engineering}
+\label{subsec:electrical_engineering}
+In electrical engineering, trigonometry is used to model alternating currents (AC). The voltage in AC circuits varies with time, and trigonometric functions can represent the cyclical variations in voltage and current.
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    axis lines = middle,
+    xlabel = $t$,
+    ylabel = {$V(t)$},
+    ymin=-1.5, ymax=1.5,
+    xmin=0, xmax=2*pi,
+    xtick={0,pi/2,pi,3*pi/2,2*pi},
+    xticklabels={0,$\frac{\pi}{2}$,$\pi$,$\frac{3\pi}{2}$,$2\pi$},
+    ytick={-1,0,1},
+    yticklabels={$-V_0$,$0$,$V_0$},
+    legend pos=north east,
+    ymajorgrids=true,
+    grid style=dashed,
+]
+\addplot [
+    domain=0:2*pi,
+    samples=100,
+    color=blue,
+]
+{cos(deg(x))};
+\addlegendentry{$V(t) = V_0\cos(\omega t)$}
+\end{axis}
+\end{tikzpicture}
+\caption{Voltage in an AC circuit as a function of time modeled by a cosine function.}
+\label{fig:ac_voltage}
+\end{figure}
+
+\subsection{Astronomy}
+\label{subsec:astronomy}
+Astronomers use trigonometry to calculate distances to stars and other celestial objects. The parallax method, which relies on trigonometric ratios, can measure the distance based on the apparent shift of an object when viewed from different positions.
+
+% Example figure for Astronomy could be added here.
+
+\subsection{Calculus Applications}
+\label{subsec:calculus_applications}
+In calculus, trigonometry is essential in solving integrals and derivatives of trigonometric functions. It is also used to solve differential equations that model wave motion, harmonic oscillators, and other dynamic systems.
+
+% Example figure for Calculus Applications could be added here.
+
+Trigonometry is deeply woven into the fabric of calculus. The periodic properties of trigonometric functions make them ideal for describing cyclic phenomena. For instance, the derivative of the sine function is the cosine function, and this relationship is fundamental in solving problems involving motion.
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    axis lines = middle,
+    xlabel = $x$,
+    ylabel = {$\frac{d}{dx}\sin(x)$},
+    ymin=-1.5, ymax=1.5,
+    xmin=0, xmax=2*pi,
+    xtick={0,pi/2,pi,3*pi/2,2*pi},
+    xticklabels={0,$\frac{\pi}{2}$,$\pi$,$\frac{3\pi}{2}$,$2\pi$},
+    ytick={-1,0,1},
+    yticklabels={$-1$,$0$,$1$},
+    legend pos=north east,
+    ymajorgrids=true,
+    grid style=dashed,
+]
+\addplot [
+    domain=0:2*pi,
+    samples=100,
+    color=orange,
+]
+{cos(deg(x))};
+\addlegendentry{$\frac{d}{dx}\sin(x) = \cos(x)$}
+\end{axis}
+\end{tikzpicture}
+\caption{The derivative of the sine function with respect to $x$ is the cosine function.}
+\label{fig:derivative_sine}
+\end{figure}
+
+These applications illustrate the utility of trigonometry as a tool for modeling and understanding the world around us. Its capacity to describe circular motion and oscillatory behavior makes it invaluable in many branches of science and technology.
+
+\subsection{Practice Problems}
+\label{subsec:practice_problems}
+
+To solidify your understanding of the applications of trigonometry in various fields, try to solve the following problems:
+
+\begin{enumerate}
+    \item \textbf{Sound Waves:} A sound wave is modeled by the equation \( f(t) = 3 \sin(2\pi \cdot 440t) \), where \( f(t) \) is the displacement of the wave at time \( t \) and the constant 440 represents the frequency in hertz (Hz). What is the amplitude and period of this sound wave?
+    
+    \item \textbf{Electrical Engineering:} An alternating current (AC) in an electrical circuit is represented by the function \( V(t) = V_0 \sin(\omega t + \phi) \), where \( V_0 = 120 \) V is the maximum voltage, \( \omega = 377 \) rad/s is the angular frequency, and \( \phi = \frac{\pi}{6} \) rad is the phase shift. Determine the instantaneous voltage at \( t = 0.01 \) seconds.
+    
+    \item \textbf{Astronomy:} If a star exhibits a parallax angle of \( 0.05 \) arcseconds as observed from the Earth, and the baseline distance is \( 1 \) astronomical unit (AU), calculate the distance to the star in parsecs. Recall that 1 parsec corresponds to an angle of 1 arcsecond.
+    
+    \item \textbf{Calculus Application:} Find the integral \( \int \sin^2(x) \, dx \). Hint: Use the trigonometric identity \( \sin^2(x) = \frac{1}{2}(1 - \cos(2x)) \) to simplify the integral.
+    
+    \item \textbf{Modeling Motion:} A Ferris wheel with a radius of \( 10 \) meters makes a complete rotation every \( 40 \) seconds. If a passenger gets on at the lowest point at \( t = 0 \), derive the function that models the height of the passenger above the ground over time.
+\end{enumerate}
+
+Each problem incorporates trigonometric functions and requires an understanding of their properties to solve. The astronomy problem involves angular measurements and distances, the sound wave problem explores the wave's properties, the electrical engineering problem relates to AC circuits, and the calculus problem requires knowledge of integrals and trigonometric identities. The modeling motion problem provides an application of periodic functions in mechanical motion.
+
+These problems are designed to be challenging and to encourage students to apply trigonometric principles to a variety of contexts.
+
+% \subsection{Harmonic Motion}
+% \label{subsec:harmonic_motion}
+% An example of harmonic motion is presented, showing the connection between Trigonometry and calculus in physics.
+
+\subsection{Harmonic Motion}
+\label{subsec:harmonic_motion}
+
+Harmonic motion is a type of periodic motion where the restoring force is directly proportional to the displacement and acts in the direction opposite to that of displacement. Simple harmonic motion (SHM) can be described by the following equation, which represents a sinusoidal function:
+
+\[ x(t) = A \cos(\omega t + \phi) \]
+
+where:
+\begin{itemize}
+    \item \( x(t) \) is the displacement from the equilibrium position at time \( t \),
+    \item \( A \) is the amplitude of the motion,
+    \item \( \omega \) is the angular frequency, and
+    \item \( \phi \) is the phase angle.
+\end{itemize}
+
+This model can be visualized using a graph of the cosine function, which depicts the oscillation of an object in SHM.
+
+% TikZ picture of harmonic motion
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+    xlabel={Time (s)},
+    ylabel={Displacement (m)},
+    xmin=0, xmax=10,
+    ymin=-1.5, ymax=1.5,
+    axis lines=center,
+    axis on top=true,
+    domain=0:10,
+    samples=100,
+    ticks=none,
+]
+
+% Plot of cosine function to represent SHM
+\addplot [blue, thick] {cos(deg(x))};
+\node[right] at (axis cs: 10,1) {\( A \)};
+\node[right] at (axis cs: 10,-1) {\( -A \)};
+\node[left] at (axis cs: 0,0) {\( x=0 \)};
+
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+The graph above shows the displacement of an object in simple harmonic motion over time. The maximum displacement on either side of the equilibrium position is known as the amplitude \( A \), and the time it takes to complete one full cycle is called the period \( T \). The relationship between the period and the angular frequency is given by \( T = \frac{2\pi}{\omega} \).
+
+In the context of calculus, we can derive the velocity and acceleration of an object in SHM by taking the first and second derivatives of the displacement function with respect to time:
+
+% Velocity
+\[ v(t) = \frac{dx}{dt} = -A\omega \sin(\omega t + \phi) \]
+
+% Acceleration
+\[ a(t) = \frac{d^2x}{dt^2} = -A\omega^2 \cos(\omega t + \phi) = -\omega^2 x(t) \]
+
+The acceleration \( a(t) \) is always directed towards the equilibrium position, and its magnitude is proportional to the displacement, which is characteristic of simple harmonic motion.
+
+\subsection{Practice Problems on Harmonic Motion}
+Solve the following problems related to simple harmonic motion:
+
+\begin{enumerate}
+    \item An object is undergoing simple harmonic motion with an amplitude of 5 cm and a period of 2 seconds. Find the angular frequency \( \omega \) and write the equation for the displacement \( x(t) \) as a function of time.
+
+    \item Given the displacement function \( x(t) = 3 \sin(2t + \frac{\pi}{4}) \), determine the following:
+    \begin{enumerate}[label=(\alph*)]
+        \item The amplitude of motion.
+        \item The angular frequency and the period of the motion.
+        \item The phase shift.
+        \item The initial displacement at \( t = 0 \).
+    \end{enumerate}
+
+    \item If the displacement of a particle is described by the equation \( x(t) = 4 \cos(5t) \), calculate the velocity and acceleration of the particle at \( t = \pi \).
+
+    \item A particle moves with simple harmonic motion in such a way that its acceleration at any time \( t \) is given by \( a(t) = -16x(t) \). If the maximum displacement is 2 meters, find the displacement equation \( x(t) \) assuming the initial phase is zero.
+
+    \item A mass-spring system has a mass of 0.5 kg and a spring constant \( k = 100 \, \text{N/m} \). Determine:
+    \begin{enumerate}[label=(\alph*)]
+        \item The angular frequency of the system.
+        \item The period of the oscillations.
+        \item The equation of motion if the initial displacement is 0.1 m and initial velocity is zero.
+    \end{enumerate}
+\end{enumerate}
+
+\textbf{Solutions}
+
+Here you can provide the solutions for the above problems, or you may choose to leave them for the students to solve.
+
+% Optionally, provide hints or solutions here
+\begin{enumerate}
+    \item % Solution for problem 1
+    \item % Solution for problem 2
+    \item % Solution for problem 3
+    \item % Solution for problem 4
+    \item % Solution for problem 5
+\end{enumerate}
+
+
+% HERE
+
 
 
 

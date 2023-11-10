@@ -24,9 +24,31 @@
   {\par\medskip\noindent\textbf{Exercise #1} \rmfamily}
   {\medskip}
 
+% \newenvironment{solution}[1][]
+%   {\par\noindent\textbf{Solution #1} \rmfamily}
+%   {\medskip}
+
+
+% Define the problem environment
+% \newcounter{problem}
+% \newenvironment{problem}[1][\theproblem]
+% {\refstepcounter{problem}\par\medskip\noindent\textbf{Problem~#1:} \rmfamily}{\medskip}
+
+% Define the solution environment
+% \newenvironment{solution}[1][]
+% {\par\noindent\textit{Solution:} \rmfamily}{\medskip}
+
+
+% Define the problem environment
+\newcounter{problem}
+\newenvironment{problem}[1][\theproblem]
+{\refstepcounter{problem}\par\medskip\noindent\textbf{Problem~#1:} \rmfamily}{\medskip}
+
+% Define the solution environment
 \newenvironment{solution}[1][]
-  {\par\noindent\textbf{Solution #1} \rmfamily}
-  {\medskip}
+{\par\noindent\textit{Solution:} \rmfamily}{\medskip}
+
+
 
 
 
@@ -1568,7 +1590,333 @@ As seen in Figure~\ref{fig:sine_transformations}, each transformation alters the
 
 % HERE
 
+\subsection{Practice Problems}
+\label{subsec:practice_problems_transformations}
 
+In this section, we provide several problems that allow students to apply their knowledge of transformations of trigonometric functions. Students should sketch the graph of each transformed function and identify key characteristics such as amplitude, period, phase shift, and vertical shift.
+
+\begin{problem}
+Graph the function \( f(x) = 3\sin(2x) \) and describe the amplitude and period of the function.
+\end{problem}
+
+\begin{problem}
+Sketch the function \( g(x) = \cos(x) - 2 \). What is the vertical shift and how does it affect the graph of the standard cosine function?
+\end{problem}
+
+\begin{problem}
+Consider the function \( h(x) = -\frac{1}{2}\sin(\pi x) + 1 \). Graph the function and determine the amplitude, period, and vertical shift.
+\end{problem}
+
+\begin{problem}
+Graph the function \( p(x) = \sin(x + \frac{\pi}{4}) \) and describe the phase shift. How does this affect the starting point of the sine wave?
+\end{problem}
+
+\begin{problem}
+The function \( q(x) = \sin(-x) \) represents a reflection. Sketch the graph and explain how the graph is transformed from the basic sine function.
+\end{problem}
+
+\begin{problem}
+Graph \( r(x) = 2\cos(x - \frac{\pi}{3}) + 1 \) and indicate all transformations from the parent cosine function.
+\end{problem}
+
+For each problem, students should identify the type of transformation applied and use their knowledge of the unit circle and trigonometric properties to construct accurate graphs. These problems reinforce concepts of amplitude, period, phase shift, and vertical shift, which are pivotal in understanding trigonometric functions in calculus.
+
+\subsubsection{Answers to Practice Problems}
+
+\textbf{Note to the instructor:} Solutions are provided for reference to guide students through the problem-solving process.
+
+\begin{solution}
+For \( f(x) = 3\sin(2x) \), the amplitude is 3 and the period is \( \frac{\pi}{1} \), as the function is stretched vertically by a factor of 3 and horizontally compressed by a factor of 2.
+\end{solution}
+
+\begin{solution}
+The function \( g(x) = \cos(x) - 2 \) is shifted downward by 2 units. The amplitude and period remain the same as the standard cosine function.
+\end{solution}
+
+% Add similar solution environments for the remaining problems
+
+% Remember, when adding the solutions to the practice problems, use discretion on whether to provide full solutions or just hints depending on the intended use (homework, study guide, etc.).
+
+
+% \section{Trigonometric Identities}
+% \label{sec:trigonometric_identities}
+% Trigonometric identities are vital tools for simplifying expressions and solving equations in calculus.
+
+\section{Trigonometric Identities}
+\label{sec:trigonometric_identities}
+
+Trigonometric identities are fundamental to manipulating and simplifying trigonometric expressions. They also play a crucial role in solving trigonometric equations, both in trigonometry and calculus. In this section, we will outline some of the most important identities and their applications.
+
+In sum, trigonometric identities are vital tools for simplifying expressions and solving equations in calculus.
+
+\subsection{Pythagorean Identities}
+\label{subsec:pythagorean_identities}
+These identities are derived from the Pythagorean theorem and relate the square of the sine and cosine of an angle to 1.
+
+\begin{align*}
+\sin^2(\theta) + \cos^2(\theta) &= 1 \\
+1 + \tan^2(\theta) &= \sec^2(\theta) \\
+1 + \cot^2(\theta) &= \csc^2(\theta)
+\end{align*}
+
+\subsection{Angle Sum and Difference Identities}
+\label{subsec:angle_sum_difference_identities}
+These identities express the sine, cosine, and tangent of the sum or difference of two angles in terms of the sines and cosines of those angles.
+
+\begin{align*}
+\sin(\alpha \pm \beta) &= \sin(\alpha)\cos(\beta) \pm \cos(\alpha)\sin(\beta) \\
+\cos(\alpha \pm \beta) &= \cos(\alpha)\cos(\beta) \mp \sin(\alpha)\sin(\beta) \\
+\tan(\alpha \pm \beta) &= \frac{\tan(\alpha) \pm \tan(\beta)}{1 \mp \tan(\alpha)\tan(\beta)}
+\end{align*}
+
+\subsection{Double Angle Identities}
+\label{subsec:double_angle_identities}
+These identities give the sine, cosine, and tangent of double angles, which are useful in various calculus applications.
+
+\begin{align*}
+\sin(2\theta) &= 2\sin(\theta)\cos(\theta) \\
+\cos(2\theta) &= \cos^2(\theta) - \sin^2(\theta) = 2\cos^2(\theta) - 1 = 1 - 2\sin^2(\theta) \\
+\tan(2\theta) &= \frac{2\tan(\theta)}{1 - \tan^2(\theta)}
+\end{align*}
+
+\subsection{Half Angle Identities}
+\label{subsec:half_angle_identities}
+These identities are useful when integrating trigonometric functions and in solving trigonometric equations.
+
+\begin{align*}
+\sin^2\left(\frac{\theta}{2}\right) &= \frac{1 - \cos(\theta)}{2} \\
+\cos^2\left(\frac{\theta}{2}\right) &= \frac{1 + \cos(\theta)}{2} \\
+\tan\left(\frac{\theta}{2}\right) &= \frac{\sin(\theta)}{1 + \cos(\theta)} = \frac{1 - \cos(\theta)}{\sin(\theta)}
+\end{align*}
+
+\subsection{Product-to-Sum and Sum-to-Product Identities}
+\label{subsec:product_sum_identities}
+These identities are useful in calculus for integrating products of sines and cosines and for simplifying expressions.
+
+\textit{Product-to-Sum Identities:}
+\begin{align*}
+\sin(\alpha)\sin(\beta) &= \frac{1}{2}[\cos(\alpha - \beta) - \cos(\alpha + \beta)] \\
+\cos(\alpha)\cos(\beta) &= \frac{1}{2}[\cos(\alpha - \beta) + \cos(\alpha + \beta)] \\
+\sin(\alpha)\cos(\beta) &= \frac{1}{2}[\sin(\alpha + \beta) + \sin(\alpha - \beta)]
+\end{align*}
+
+\textit{Sum-to-Product Identities:}
+\begin{align*}
+\sin(\alpha) \pm \sin(\beta) &= 2\sin\left(\frac{\alpha \pm \beta}{2}\right)\cos\left(\frac{\alpha \mp \beta}{2}\right) \\
+\cos(\alpha) + \cos(\beta) &= 2\cos\left(\frac{\alpha + \beta}{2}\right)\cos\left(\frac{\alpha - \beta}{2}\right) \\
+\cos(\alpha) - \cos(\beta) &= -2\sin\left(\frac{\alpha + \beta}{2}\right)\sin\left(\frac{\alpha - \beta}{2}\right)
+\end{align*}
+
+\subsection{Reduction Formulas}
+\label{subsec:reduction_formulas}
+Reduction formulas are a type of recurrence relation that express trigonometric functions of a larger angle in terms of functions of a smaller angle. These are particularly useful in integration and series expansion of trigonometric functions.
+
+% Examples of reduction formulas can be provided here
+
+Each subsection could be further expanded with examples, proofs, and applications of these identities in calculus. Moreover, practice problems could be provided to help students gain proficiency in using these identities to simplify and solve trigonometric equations.
+
+\subsection{Practice Problems}
+\label{subsec:practice_problems_trig_identities}
+
+To apply the trigonometric identities outlined above, try solving the following problems. These will test your understanding and ability to manipulate the identities to simplify expressions and solve equations.
+
+\begin{problem}
+Use the Pythagorean identity to find $\sin(\theta)$ if $\cos(\theta) = \frac{3}{5}$ and $\theta$ is in the first quadrant.
+\end{problem}
+
+\begin{solution}
+Since $\cos(\theta) = \frac{3}{5}$ and $\theta$ is in the first quadrant, where sine is positive,
+\begin{align*}
+\sin(\theta) &= \sqrt{1 - \cos^2(\theta)} \\
+&= \sqrt{1 - \left(\frac{3}{5}\right)^2} \\
+&= \sqrt{1 - \frac{9}{25}} \\
+&= \sqrt{\frac{16}{25}} \\
+&= \frac{4}{5}.
+\end{align*}
+\end{solution}
+
+\begin{problem}
+Prove the double angle identity for sine using the angle sum identity for sine:
+\[
+\sin(2\theta) = ?
+\]
+\end{problem}
+
+\begin{solution}
+Using the angle sum identity for sine, $\sin(\alpha + \beta) = \sin(\alpha)\cos(\beta) + \cos(\alpha)\sin(\beta)$, let $\alpha = \beta = \theta$:
+\begin{align*}
+\sin(2\theta) &= \sin(\theta + \theta) \\
+&= \sin(\theta)\cos(\theta) + \cos(\theta)\sin(\theta) \\
+&= 2\sin(\theta)\cos(\theta).
+\end{align*}
+\end{solution}
+
+\begin{problem}
+Simplify the expression using sum-to-product identities: $\sin(x) - \sin(y)$.
+\end{problem}
+
+\begin{solution}
+Using the sum-to-product identity $\sin(\alpha) - \sin(\beta) = 2\sin\left(\frac{\alpha - \beta}{2}\right)\cos\left(\frac{\alpha + \beta}{2}\right)$,
+\begin{align*}
+\sin(x) - \sin(y) &= 2\sin\left(\frac{x - y}{2}\right)\cos\left(\frac{x + y}{2}\right).
+\end{align*}
+\end{solution}
+
+\begin{problem}
+Find the exact value of $\tan\left(\frac{\pi}{8}\right)$ using the half-angle identity.
+\end{problem}
+
+\begin{solution}
+Using the half-angle identity for tangent, $\tan\left(\frac{\theta}{2}\right) = \frac{1 - \cos(\theta)}{\sin(\theta)}$, let $\theta = \frac{\pi}{4}$:
+\begin{align*}
+\tan\left(\frac{\pi}{8}\right) &= \frac{1 - \cos\left(\frac{\pi}{4}\right)}{\sin\left(\frac{\pi}{4}\right)} \\
+&= \frac{1 - \frac{\sqrt{2}}{2}}{\frac{\sqrt{2}}{2}} \\
+&= \sqrt{2} - 1.
+\end{align*}
+\end{solution}
+
+% These problems can be expanded upon, and more can be added to provide a comprehensive set of exercises covering the different identities. Additionally, figures and diagrams can be included using `tikz` to illustrate the concepts where appropriate.
+
+% \subsection{Pythagorean Identities}
+% \label{subsec:pythagorean_identities}
+% These identities express fundamental relationships between the sine and cosine of the same angle.
+
+\subsection{Pythagorean Identities}
+\label{subsec:pythagorean_identities}
+
+The Pythagorean identities are a direct consequence of the Pythagorean theorem applied to a right triangle on the unit circle. For any angle $\theta$, the following fundamental relationships hold true:
+
+\begin{itemize}
+    \item The primary Pythagorean identity:
+    \[
+    \sin^2(\theta) + \cos^2(\theta) = 1
+    \]
+    \item Derived from the primary identity, the other two Pythagorean identities are:
+    \[
+    1 + \tan^2(\theta) = \sec^2(\theta)
+    \]
+    \[
+    1 + \cot^2(\theta) = \csc^2(\theta)
+    \]
+\end{itemize}
+
+These identities are immensely useful in simplifying trigonometric expressions, solving trigonometric equations, and converting between trigonometric functions. Let's visualize the primary Pythagorean identity on the unit circle:
+
+% Unit Circle Diagram with Pythagorean Identity
+\begin{figure}[ht]
+\centering
+\begin{tikzpicture}[scale=3.5, cap=round, >=latex]
+    % Circle
+    \draw (0,0) circle(1cm);
+    
+    % Coordinate axes
+    \draw[->] (-1.2,0) -- (1.2,0) node[right,fill=white] {$x$};
+    \draw[->] (0,-1.2) -- (0,1.2) node[above,fill=white] {$y$};
+    
+    % Angle theta
+    \draw[->] (0.4,0) arc(0:45:0.4);
+    \draw (0.5,0) node[above right] {$\theta$};
+    
+    % Sides of right triangle
+    \draw (0,0) -- (0.7071,0.7071);
+    \draw (0.7071,0) -- (0.7071,0.7071);
+    \draw (0,0) -- (0.7071,0);
+
+    % Labels
+    \draw (0.35,0.35) node[above right] {$r=1$};
+    \draw (0.7071,0.35) node[right] {$\sin(\theta)$};
+    \draw (0.35,0) node[below] {$\cos(\theta)$};
+    
+    % Points
+    \filldraw[black] (0.7071,0.7071) circle(0.5pt);
+    \filldraw[black] (0.7071,0) circle(0.5pt);
+    \filldraw[black] (0,0.7071) circle(0.5pt);
+    
+    % Dotted lines
+    \draw[dotted] (0.7071,0.7071) -- (0.7071,0) node[below] {$(\cos(\theta), 0)$};
+    \draw[dotted] (0.7071,0.7071) -- (0,0.7071) node[left] {$(0, \sin(\theta))$};
+\end{tikzpicture}
+\caption{Visualization of the primary Pythagorean identity on the unit circle.}
+\label{fig:unitcircle_pythagorean}
+\end{figure}
+
+As the figure demonstrates, for any point on the unit circle at an angle $\theta$ from the positive x-axis, the x-coordinate is $\cos(\theta)$ and the y-coordinate is $\sin(\theta)$. Since the radius of the unit circle is 1, by the Pythagorean theorem, we have that $\cos^2(\theta) + \sin^2(\theta) = 1^2$.
+
+\textbf{Example:} To see these identities in action, consider the angle $\frac{\pi}{4}$. For this angle, we know that $\sin\left(\frac{\pi}{4}\right) = \cos\left(\frac{\pi}{4}\right) = \frac{\sqrt{2}}{2}$. Therefore,
+
+\begin{align*}
+    \sin^2\left(\frac{\pi}{4}\right) + \cos^2\left(\frac{\pi}{4}\right) &= \left(\frac{\sqrt{2}}{2}\right)^2 + \left(\frac{\sqrt{2}}{2}\right)^2 \\
+    &= \frac{2}{4} + \frac{2}{4} \\
+    &= \frac{4}{4} \\
+    &= 1,
+\end{align*}
+
+which confirms the primary Pythagorean identity.
+
+
+\subsection{Practice Problems}
+\label{subsec:pythagorean_practice_problems}
+
+To further solidify your understanding of Pythagorean identities, try solving the following problems:
+
+\begin{enumerate}
+    \item Verify the identity $\tan^2(\theta) + 1 = \sec^2(\theta)$ for $\theta = \frac{\pi}{3}$.
+    \item Prove that $\csc^2(\theta) - \cot^2(\theta) = 1$ using the primary Pythagorean identity.
+    \item Simplify the expression $\sin^2(x) \cdot \sec^2(x)$ using Pythagorean identities.
+    \item Given that $\sin(\alpha) = \frac{3}{5}$ and $\alpha$ is in the first quadrant, find the values of $\cos(\alpha)$, $\tan(\alpha)$, and $\cot(\alpha)$.
+    \item If $\cos(\beta) = \frac{1}{2}$ and $\beta$ is an acute angle, determine the exact values of $\sin(\beta)$, $\tan(\beta)$, and $\sec(\beta)$.
+    \item Show that $\sin(\theta) \cdot \tan(\theta) = \frac{\sin^2(\theta)}{\cos(\theta)}$ and simplify the expression.
+\end{enumerate}
+
+Solutions to Practice Problems:
+
+\textbf{Note to instructor:} The solutions provided below are for your reference and should not be shared with the students until after they have attempted to solve the problems on their own.
+
+\begin{enumerate}
+    \item For $\theta = \frac{\pi}{3}$, $\tan(\theta) = \sqrt{3}$ and $\sec(\theta) = 2$. Then,
+    \[
+    \tan^2\left(\frac{\pi}{3}\right) + 1 = (\sqrt{3})^2 + 1 = 3 + 1 = 4 = \sec^2\left(\frac{\pi}{3}\right).
+    \]
+
+    \item Starting with $\csc^2(\theta) = 1 + \cot^2(\theta)$,
+    \[
+    \csc^2(\theta) - \cot^2(\theta) = (1 + \cot^2(\theta)) - \cot^2(\theta) = 1.
+    \]
+
+    \item Simplifying $\sin^2(x) \cdot \sec^2(x)$:
+    \[
+    \sin^2(x) \cdot \sec^2(x) = \sin^2(x) \cdot \frac{1}{\cos^2(x)} = \tan^2(x).
+    \]
+
+    \item Given $\sin(\alpha) = \frac{3}{5}$:
+    \[
+    \cos(\alpha) = \sqrt{1 - \sin^2(\alpha)} = \sqrt{1 - \left(\frac{3}{5}\right)^2} = \frac{4}{5},
+    \]
+    \[
+    \tan(\alpha) = \frac{\sin(\alpha)}{\cos(\alpha)} = \frac{3/5}{4/5} = \frac{3}{4},
+    \]
+    \[
+    \cot(\alpha) = \frac{1}{\tan(\alpha)} = \frac{4}{3}.
+    \]
+
+    \item If $\cos(\beta) = \frac{1}{2}$:
+    \[
+    \sin(\beta) = \sqrt{1 - \cos^2(\beta)} = \sqrt{1 - \left(\frac{1}{2}\right)^2} = \frac{\sqrt{3}}{2},
+    \]
+    \[
+    \tan(\beta) = \frac{\sin(\beta)}{\cos(\beta)} = \frac{\sqrt{3}/2}{1/2} = \sqrt{3},
+    \]
+    \[
+    \sec(\beta) = \frac{1}{\cos(\beta)} = 2.
+    \]
+
+    \item For $\sin(\theta) \cdot \tan(\theta)$:
+    \[
+    \sin(\theta) \cdot \tan(\theta) = \sin(\theta) \cdot \frac{\sin(\theta)}{\cos(\theta)} = \frac{\sin^2(\theta)}{\cos(\theta)}.
+    \]
+\end{enumerate}
+
+% HERE
 
 % Concluding remarks for the chapter
 \section*{Conclusion}

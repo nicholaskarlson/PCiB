@@ -2,6 +2,7 @@
 \usepackage{graphicx} % For graphics
 \usepackage{hyperref} % For hyperlinks
 % \usepackage{makeidx} % For making an index
+\usepackage{float}
 \usepackage{tikz}
 \usepackage{amsmath}
 \usepackage{enumitem}
@@ -1255,6 +1256,237 @@ Here are some problems to test your understanding of the secant and cosecant fun
 \end{enumerate}
 
 Solutions to these problems will reinforce your understanding of secant and cosecant and prepare you for their use in calculus.
+
+% HERE
+
+\section{Graphs of Trigonometric Functions}
+\label{sec:graphs_trig_functions}
+Understanding the graphs of trigonometric functions is essential for mastering calculus, as they represent periodic behavior.
+
+\section{Graphs of Trigonometric Functions}
+\label{sec:graphs_trig_functions}
+
+The graphs of trigonometric functions are a visual representation of their behavior and are essential for understanding periodic phenomena in calculus. In this section, we'll explore the sine and cosine functions, which form the basis for all other trigonometric functions.
+
+\subsection{Graph of the Sine Function}
+The sine function, denoted by \( y = \sin(x) \), represents the y-coordinate of a point on the unit circle as it rotates through an angle of \( x \) radians. It is periodic with a period of \( 2\pi \) and has a range from -1 to 1.
+
+% Sine graph using TikZ/PGFPlots
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    axis lines=middle,
+    xlabel=\( x \),
+    ylabel=\( y \),
+    xtick={-2*pi, -3*pi/2, -pi, -pi/2, 0, pi/2, pi, 3*pi/2, 2*pi},
+    xticklabels={$-2\pi$,$-\frac{3\pi}{2}$,$-\pi$,$-\frac{\pi}{2}$,0,$\frac{\pi}{2}$,$\pi$,$\frac{3\pi}{2}$,$2\pi$},
+    ytick={-1, 0, 1},
+    ymin=-1.5, ymax=1.5,
+    xmin=-2*pi, xmax=2*pi,
+    domain=-2*pi:2*pi,
+    samples=100,
+    axis line style={<->},
+    tick label style={font=\small}
+]
+\addplot [blue, thick] {sin(deg(x))};
+\node at (axis cs:pi/2,1) [anchor=south] {\( \sin(\frac{\pi}{2}) = 1 \)};
+\node at (axis cs:3*pi/2,-1) [anchor=north] {\( \sin(\frac{3\pi}{2}) = -1 \)};
+\end{axis}
+\end{tikzpicture}
+\caption{Graph of the sine function over two periods.}
+\label{fig:sine_graph}
+\end{figure}
+
+\subsection{Graph of the Cosine Function}
+The cosine function, denoted by \( y = \cos(x) \), represents the x-coordinate of a point on the unit circle as it rotates through an angle of \( x \) radians. Like the sine function, it has a period of \( 2\pi \) and ranges from -1 to 1.
+
+% Cosine graph using TikZ/PGFPlots
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    axis lines=middle,
+    xlabel=\( x \),
+    ylabel=\( y \),
+    xtick={-2*pi, -3*pi/2, -pi, -pi/2, 0, pi/2, pi, 3*pi/2, 2*pi},
+    xticklabels={$-2\pi$,$-\frac{3\pi}{2}$,$-\pi$,$-\frac{\pi}{2}$,0,$\frac{\pi}{2}$,$\pi$,$\frac{3\pi}{2}$,$2\pi$},
+    ytick={-1, 0, 1},
+    ymin=-1.5, ymax=1.5,
+    xmin=-2*pi, xmax=2*pi,
+    domain=-2*pi:2*pi,
+    samples=100,
+    axis line style={<->},
+    tick label style={font=\small}
+]
+\addplot [red, thick] {cos(deg(x))};
+\node at (axis cs:pi,-1) [anchor=east] {\( \cos(\pi) = -1 \)};
+\node at (axis cs:2*pi,1) [anchor=west] {\( \cos(2\pi) = 1 \)};
+\end{axis}
+\end{tikzpicture}
+\caption{Graph of the cosine function over two periods.}
+\label{fig:cosine_graph}
+\end{figure}
+
+Both of these functions exhibit properties that are useful in calculus, including symmetry, periodicity, and amplitude. Sine and cosine functions are the building blocks of more complex trigonometric functions, which can be constructed by shifting, stretching, or compressing these basic graphs.
+
+\subsection{Exercises}
+Practice the concepts we've discussed by working through the following exercises.
+
+\subsubsection*{Graph Identification}
+
+\paragraph{Exercise 1.} Identify the function graphed below. What are the amplitude, period, and phase shift of the function?
+
+% Example plot for the exercise (Placeholder for the actual plot)
+% You can draw a shifted or stretched sine/cosine function as an exercise
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    axis lines=middle,
+    xlabel=\( x \),
+    ylabel=\( y \),
+    xtick=\empty,
+    ytick=\empty,
+    ymin=-2, ymax=2,
+    xmin=-2*pi, xmax=2*pi,
+    domain=-2*pi:2*pi,
+    samples=100,
+    axis line style={<->},
+    width=0.8\textwidth,
+    height=0.4\textwidth,
+    clip=false
+]
+% A shifted sine function as an example
+\addplot [blue, thick] {1.5*sin(deg(x-pi/4))};
+\end{axis}
+\end{tikzpicture}
+\caption{Identify the function and its characteristics.}
+\end{figure}
+
+\paragraph{Answer:} The graph shows \( y = 1.5\sin(x - \frac{\pi}{4}) \). The amplitude is 1.5, the period is \( 2\pi \), and the phase shift is \( \frac{\pi}{4} \) to the right.
+
+\subsubsection*{Function Properties}
+
+\paragraph{Exercise 2.} What is the amplitude and period of the function \( y = 3\cos(2x) \)?
+
+\paragraph{Answer:} The amplitude of the function is 3, and the period is \( \frac{\pi}{1} \), which is \( \pi \) since the coefficient of \( x \) in the cosine function affects the period as \( \frac{2\pi}{\text{coefficient}} \).
+
+\subsubsection*{Calculating Values}
+
+\paragraph{Exercise 3.} Calculate the exact value of \( \sin(\frac{3\pi}{4}) \) and \( \cos(\frac{3\pi}{4}) \).
+
+\paragraph{Answer:} By using the unit circle or Pythagorean identities:
+\[ \sin(\frac{3\pi}{4}) = \sin(\pi - \frac{\pi}{4}) = \sin(\frac{\pi}{4}) = \frac{\sqrt{2}}{2} \]
+\[ \cos(\frac{3\pi}{4}) = \cos(\pi - \frac{\pi}{4}) = -\cos(\frac{\pi}{4}) = -\frac{\sqrt{2}}{2} \]
+
+\subsubsection*{Real-World Application}
+
+\paragraph{Exercise 4.} A Ferris wheel with a diameter of 50 meters makes one complete revolution every 2 minutes. Write a function that represents the height of a passenger car above the ground over time, assuming it starts at the lowest point at \( t=0 \).
+
+\paragraph{Answer:} Let the height function be \( h(t) \). The amplitude is the radius of the Ferris wheel, which is 25 meters. The period is the time for one revolution, which is 2 minutes, or 120 seconds. Using the sine function, we get:
+\[ h(t) = 25\sin\left(\frac{2\pi}{120}t\right) + 25 \]
+This function accounts for the fact that the Ferris wheel starts at the lowest point, so we add 25 to shift the graph up.
+
+\subsubsection*{Challenge Problems}
+
+\paragraph{Exercise 5.} Given the function \( y = 2\sin(x) + \cos(2x) \), find the first derivative using trigonometric identities.
+
+% Solution for the exercise is provided as a placeholder for actual calculation
+\paragraph{Answer:} First, express \( \cos(2x) \) using a double-angle identity:
+\[ y = 2\sin(x) + 1 - 2\sin^2(x) \]
+Then, take the derivative with respect to \( x \):
+\[ y' = 2\cos(x) - 4\sin(x)\cos(x) \]
+
+These exercises encourage students to apply their understanding of the graphs of sine and cosine functions to solve problems and understand real-world applications. Adjust the complexity and nature of the exercises to match the level of your audience.
+
+% \subsection{Periodicity}
+% \label{subsec:periodicity}
+% The concept of period, amplitude, and phase shift is introduced here to understand how trigonometric functions behave over intervals.
+
+\subsection{Periodicity}
+\label{subsec:periodicity}
+
+Trigonometric functions are inherently periodic; they repeat their values in regular intervals along the domain. This periodic nature allows us to predict the behavior of these functions beyond the basic interval of \(0\) to \(2\pi\) for sine and cosine, and \( -\pi/2 \) to \( \pi/2 \) for tangent and cotangent.
+In sum, The concept of period, amplitude, and phase shift is introduced here to understand how trigonometric functions behave over intervals.
+
+\subsubsection*{Defining Periodicity}
+The \textit{period} of a function is the smallest positive interval after which the function's values repeat. For \( \sin(x) \) and \( \cos(x) \), the period is \(2\pi\) because every \(2\pi\) units, the cycle of the sine and cosine curve repeats. For \( \tan(x) \) and \( \cot(x) \), the period is \( \pi \) since their values repeat after every \( \pi \) units along the x-axis.
+
+\subsubsection*{Amplitude}
+The amplitude of a trigonometric function is a measure of its vertical stretch or compression, represented by a coefficient in front of the function. For example, in the function \( y = A\sin(x) \), the amplitude is \( |A| \). This determines the maximum and minimum values of the function or, in other words, how "tall" or "short" the waves of the sine or cosine graph appear.
+
+\subsubsection*{Phase Shift}
+Phase shift refers to the horizontal displacement of the basic function. If a function takes the form \( y = \sin(x - C) \) or \( y = \cos(x - C) \), the phase shift is \( C \), which translates the graph to the right or left along the x-axis.
+
+\subsubsection*{Graphing Trigonometric Functions}
+To graph trigonometric functions that involve amplitude, period, and phase shifts, the following general form can be considered:
+
+\[ y = A \sin(B(x - C)) + D \quad \text{or} \quad y = A \cos(B(x - C)) + D \]
+
+Where:
+\begin{itemize}
+    \item \( A \) represents the amplitude.
+    \item \( B \) affects the period of the function, with the actual period being \( \frac{2\pi}{|B|} \).
+    \item \( C \) represents the phase shift.
+    \item \( D \) represents the vertical shift.
+\end{itemize}
+
+\subsubsection*{Graphical Illustration}
+Let's illustrate a sine function with a period alteration and phase shift.
+
+% Sine graph with period and phase shift
+\begin{figure}[H]
+\centering
+\begin{tikzpicture}
+\begin{axis}[
+    axis lines=middle,
+    xlabel=\( x \),
+    ylabel=\( y \),
+    xtick={-2*pi,-3*pi/2,-pi,-pi/2,0,pi/2,pi,3*pi/2,2*pi},
+    xticklabels={$-2\pi$,$-\frac{3\pi}{2}$,$-\pi$,$-\frac{\pi}{2}$,$0$,$\frac{\pi}{2}$,$\pi$,$\frac{3\pi}{2}$,$2\pi$},
+    ytick={-1,1},
+    ymin=-2, ymax=2,
+    xmin=-2*pi, xmax=2*pi,
+    domain=-2*pi:2*pi,
+    samples=100,
+    axis line style={<->},
+    width=0.8\textwidth,
+    height=0.4\textwidth,
+    clip=false
+]
+% Sine function with period modification and phase shift
+\addplot [red, thick] {sin(deg(2*x - pi/2))};
+\node[pin=45:{$y = \sin(2(x - \frac{\pi}{4}))$}] at (axis cs:pi/4,{sin(deg(2*pi/4-pi/2))}) {};
+\end{axis}
+\end{tikzpicture}
+\caption{Graph of \( y = \sin(2(x - \frac{\pi}{4})) \) showing a period of \( \pi \) and a phase shift of \( \frac{\pi}{4} \).}
+\end{figure}
+
+Understanding these properties enables us to graph complex trigonometric functions and predict their behavior across any range of \( x \) values. This comprehension is vital in calculus where the manipulation of these functions' properties can be necessary for solving integrals and derivatives involving trigonometric functions.
+
+\subsubsection*{Practice Problems}
+To further enhance understanding of periodicity in trigonometric functions, here are several practice problems:
+
+\begin{enumerate}
+    \item Given the function \( f(x) = 3 \sin(2x) \), find the amplitude, period, and whether there is any phase shift.
+    \item Sketch the graph of \( g(x) = \cos(x - \frac{\pi}{3}) \) and identify the phase shift and period.
+    \item For the function \( h(x) = 2 \sin(\frac{x}{2} + \pi) + 1 \), determine the amplitude, period, phase shift, and vertical shift. Then, sketch one period of the function's graph.
+    \item What is the period and phase shift of the function \( j(x) = \tan(3x - \frac{\pi}{4}) \)?
+    \item If \( k(x) = \sin(Bx) \) has a period of \( 3\pi \), find the value of \( B \).
+    \item Sketch the graph of \( m(x) = -2 \cos(4x + \frac{\pi}{2}) - 3 \) and indicate the amplitude, period, phase shift, and vertical shift.
+\end{enumerate}
+
+\textbf{Solutions:}
+
+\begin{enumerate}
+    \item The amplitude of \( f(x) \) is \( |3| = 3 \), the period is \( \frac{2\pi}{|2|} = \pi \), and there is no phase shift.
+    \item The graph of \( g(x) \) would show a cosine curve shifted to the right by \( \frac{\pi}{3} \) units, with a period of \( 2\pi \).
+    \item For \( h(x) \), the amplitude is \( |2| = 2 \), the period is \( \frac{2\pi}{|\frac{1}{2}|} = 4\pi \), the phase shift is \( -\pi \) (shifted \( \pi \) units to the left), and the vertical shift is \( 1 \) unit upwards.
+    \item The function \( j(x) \) has a period of \( \frac{\pi}{|3|} = \frac{\pi}{3} \) and a phase shift of \( \frac{\pi}{4} \) to the right.
+    \item Since the period of \( k(x) \) is \( 3\pi \), \( B = \frac{2\pi}{3\pi} = \frac{2}{3} \).
+    \item The graph of \( m(x) \) would be an inverted cosine curve (due to the "-2" amplitude) stretched by a factor of \( \frac{1}{4} \) (since the period is \( \frac{2\pi}{|4|} = \frac{\pi}{2} \)), shifted to the left by \( -\frac{\pi}{8} \), and shifted downward by 3 units.
+\end{enumerate}
 
 % HERE
 

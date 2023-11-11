@@ -4,7 +4,6 @@
 % \usepackage{makeidx} % For making an index
 \usepackage{float}
 \usepackage{tikz}
-% \usepackage{tikz}
 \usepackage{tkz-euclide} % Add this line to include the tkz-euclide package
 \usetikzlibrary{calc}
 \usepackage{amsmath}
@@ -24,25 +23,9 @@
   \pgfmathparse{1/sin(#1)}%
 }
 
-
 \newenvironment{exercise}[1][]
   {\par\medskip\noindent\textbf{Exercise #1} \rmfamily}
   {\medskip}
-
-% \newenvironment{solution}[1][]
-%   {\par\noindent\textbf{Solution #1} \rmfamily}
-%   {\medskip}
-
-
-% Define the problem environment
-% \newcounter{problem}
-% \newenvironment{problem}[1][\theproblem]
-% {\refstepcounter{problem}\par\medskip\noindent\textbf{Problem~#1:} \rmfamily}{\medskip}
-
-% Define the solution environment
-% \newenvironment{solution}[1][]
-% {\par\noindent\textit{Solution:} \rmfamily}{\medskip}
-
 
 % Define the problem environment
 \newcounter{problem}
@@ -53,6 +36,11 @@
 \newenvironment{solution}[1][]
 {\par\noindent\textit{Solution:} \rmfamily}{\medskip}
 
+% Define the example environment
+\newcounter{example}
+\newenvironment{example}[1][\theexample]
+  {\refstepcounter{example}\par\medskip\noindent\textbf{Example~#1:} \rmfamily}
+  {\medskip}
 
 \begin{document}
 
@@ -71,7 +59,7 @@
         
         % Title and additional info
         \node at (current page.center) [font=\Huge, text width=0.8\textwidth, align=center] 
-            {\textbf{Pre-Calculus in Brief with Python, Colab, GitHub, and \LaTeX  \\ PCiB - Version 0.62}};
+            {\textbf{Pre-Calculus in Brief with Python, Colab, GitHub, and \LaTeX  \\ PCiB - Version 0.63}};
             
         \node[align=center, font=\large] at (current page.center) 
             [yshift=-2.5cm] {\today}; % <- This is the compilation date
@@ -2775,49 +2763,634 @@ Find the values of \( x \) that satisfy \( |x + 1| > 5 \).
 \label{sec:functions_and_properties}
 A deep understanding of functions and their characteristics is essential in calculus.
 
-
 \subsection{Concept of a Function}
 \label{subsec:concept_of_function}
-Define what a function is and discuss different types of functions (e.g., linear, quadratic, polynomial).
+A function is a relation between a set of inputs and a set of permissible outputs, where each input is related to exactly one output. 
 
+\subsubsection{Types of Functions}
+\begin{itemize}
+    \item \textbf{Linear Function:} A function of the form \( f(x) = mx + b \), where \( m \) and \( b \) are constants.
+    \item \textbf{Quadratic Function:} A function represented by \( f(x) = ax^2 + bx + c \), where \( a \), \( b \), and \( c \) are constants.
+    \item \textbf{Polynomial Function:} A function that is the sum of multiple terms, each of which is a product of a constant and a variable raised to a non-negative integer power.
+\end{itemize}
+
+\subsubsection{Domain and Range}
+\begin{itemize}
+    \item \textbf{Domain:} The set of all possible input values for the function.
+    \item \textbf{Range:} The set of all possible output values.
+\end{itemize}
+
+\subsubsection{Function vs. Relation}
+While a relation can relate an input to multiple outputs, a function assigns each input exactly one output.
+
+\subsubsection{Set Notation}
+In discussing functions, set notation is often used to describe the domain and range. For example, if the domain of \( f(x) \) is all real numbers, it is denoted as \( \text{dom}(f) = \mathbb{R} \).
+
+% Graphical Representations
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+    axis lines=middle,
+    xlabel=\(x\),
+    ylabel={\(f(x)\)},
+    xmin=-5, xmax=5,
+    ymin=-5, ymax=5,
+    xtick={-4,-3,...,4},
+    ytick={-4,-3,...,4},
+    clip=false
+]
+\addplot[blue, domain=-5:5, samples=100] {x^2 - 4};
+\node[blue, right] at (axis cs: 2, 2) {\(f(x) = x^2 - 4\)};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+% Exercises
+\begin{exercise}
+What is the domain and range of the function \( g(x) = \sqrt{x} \)?
+\end{exercise}
+
+\begin{exercise}
+Is the relation \( R = \{(1, 2), (1, 3), (2, 3)\} \) a function? Explain your reasoning.
+\end{exercise}
+
+% End of Concept of a Function Section
+
+\subsection*{Practice Problems on the Concept of a Function}
+\addcontentsline{toc}{subsection}{Practice Problems on the Concept of a Function}
+
+\begin{problem}
+Determine the domain and range of the following functions:
+\begin{enumerate}[label=(\alph*)]
+    \item \( f(x) = 2x + 3 \)
+    \item \( g(x) = x^2 - 4 \)
+    \item \( h(x) = \frac{1}{x - 2} \)
+\end{enumerate}
+\end{problem}
+
+\begin{problem}
+Identify whether each of the following relations is a function. Provide reasons for your answer:
+\begin{enumerate}[label=(\alph*)]
+    \item \( \{(1, 2), (2, 3), (3, 4)\} \)
+    \item \( \{(2, 3), (2, 4), (3, 5)\} \)
+    \item \( \{(x, y) | y = x^2\} \)
+\end{enumerate}
+\end{problem}
+
+\begin{problem}
+For each function, describe its type (linear, quadratic, etc.) and sketch its graph:
+\begin{enumerate}[label=(\alph*)]
+    \item \( f(x) = -3x \)
+    \item \( g(x) = x^2 + 2x + 1 \)
+\end{enumerate}
+\end{problem}
+
+\begin{exercise}
+Find the domain and range of the function \( f(x) = \sqrt{x + 4} \).
+\end{exercise}
+
+\begin{exercise}
+Is the set \( \{(x, y) | x^2 + y^2 = 25\} \) a function? Justify your answer.
+\end{exercise}
+
+% End of Practice Problems Section
 
 \subsection{Function Notation and Graphs}
 \label{subsec:function_notation_and_graphs}
-Introduce function notation and how to graph functions, including transformations.
+Function notation is a way to denote functions in a concise manner. It involves the use of the symbol \( f(x) \), where \( f \) represents the function and \( x \) is the variable.
 
+\subsubsection{Graphing Functions}
+Graphing a function involves plotting points whose coordinates satisfy the function and connecting these points to form a curve. The x-axis represents the input values, while the y-axis represents the output values.
+
+\subsubsection{Transformations of Functions}
+Transformations include shifting, stretching, or reflecting the graph of a function. Common transformations are:
+
+\begin{itemize}
+    \item \textbf{Vertical Shifts:} \( f(x) + k \) shifts the function \( k \) units upwards.
+    \item \textbf{Horizontal Shifts:} \( f(x - h) \) shifts the function \( h \) units to the right.
+    \item \textbf{Vertical Stretch/Compression:} \( af(x) \) stretches or compresses the function vertically.
+    \item \textbf{Reflections:} \( -f(x) \) reflects the function across the x-axis.
+\end{itemize}
+
+% Graphical Representation using TikZ and pgfplots
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+    axis lines = middle,
+    xlabel = \(x\),
+    ylabel = {\(f(x)\)},
+    xmin=-10, xmax=10,
+    ymin=-10, ymax=10,
+    grid=both,
+    xtick={-10,-8,...,10},
+    ytick={-10,-8,...,10},
+    clip=false
+]
+\addplot[blue, domain=-10:10, samples=100] {x^2};
+\addplot[red, domain=-10:10, samples=100] {(x-2)^2};
+\node[blue, right] at (axis cs: 2, 20) {\(f(x) = x^2\)};
+\node[red, right] at (axis cs: 5, 20) {\(g(x) = (x - 2)^2\)};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+% Exercises
+\begin{exercise}
+Graph the function \( f(x) = x^2 - 4 \) and describe its transformation compared to \( f(x) = x^2 \).
+\end{exercise}
+
+\begin{exercise}
+Sketch the graph of \( f(x) = -2(x + 3)^2 + 1 \) and explain the transformations applied to \( f(x) = x^2 \).
+\end{exercise}
+
+% End of Function Notation and Graphs Section
+
+\subsection*{Practice Problems on Function Notation and Graphs}
+\addcontentsline{toc}{subsection}{Practice Problems on Function Notation and Graphs}
+
+\begin{problem}
+Graph the following functions and describe any transformations from the basic function:
+\begin{enumerate}[label=(\alph*)]
+    \item \( f(x) = (x + 2)^2 \)
+    \item \( g(x) = x^2 - 3 \)
+    \item \( h(x) = -x^2 + 2 \)
+\end{enumerate}
+\end{problem}
+
+\begin{problem}
+For each function, state its domain and range:
+\begin{enumerate}[label=(\alph*)]
+    \item \( f(x) = 2x + 1 \)
+    \item \( g(x) = \frac{1}{x - 3} \)
+    \item \( h(x) = \sqrt{x + 4} \)
+\end{enumerate}
+\end{problem}
+
+\begin{problem}
+Determine the transformations applied to the basic function \( f(x) = x \) for each of the following:
+\begin{enumerate}[label=(\alph*)]
+    \item \( f(x) = 2x + 3 \)
+    \item \( f(x) = -x - 2 \)
+    \item \( f(x) = \frac{1}{2}x - 1 \)
+\end{enumerate}
+\end{problem}
+
+\begin{exercise}
+Sketch the graph of \( f(x) = 3x + 2 \) and determine its domain and range.
+\end{exercise}
+
+\begin{exercise}
+Graph the function \( f(x) = x^2 + 2x - 3 \) and describe the vertex and axis of symmetry.
+\end{exercise}
+
+% End of Practice Problems Section
 
 \subsection{Composite and Inverse Functions}
 \label{subsec:composite_and_inverse_functions}
-Discuss the composition of functions and the concept of inverse functions.
+The concepts of composite and inverse functions are key in understanding function operations and their applications.
 
+\subsubsection{Composite Functions}
+A composite function is the application of one function to the results of another. The notation \( (f \circ g)(x) \) represents the composite function of \( f \) and \( g \), defined as \( f(g(x)) \).
 
-\subsection{Domain and Range of Functions}
+% Example of Composite Function
+\begin{example}
+If \( f(x) = 2x + 3 \) and \( g(x) = x^2 \), find \( (f \circ g)(x) \) and \( (g \circ f)(x) \).
+\end{example}
+
+\subsubsection{Inverse Functions}
+An inverse function reverses the operation of a function. The notation \( f^{-1}(x) \) denotes the inverse of function \( f \). A function \( f \) has an inverse if and only if it is one-to-one (bijective).
+
+% Example of Finding an Inverse Function
+\begin{example}
+Find the inverse of the function \( f(x) = 3x - 2 \).
+\end{example}
+
+% Exercises
+\begin{exercise}
+Given \( f(x) = x + 1 \) and \( g(x) = 2x \), find \( (f \circ g)(x) \) and \( (g \circ f)(x) \).
+\end{exercise}
+
+\begin{exercise}
+Determine if the function \( f(x) = x^2 \) has an inverse. If it does, find \( f^{-1}(x) \).
+\end{exercise}
+
+% End of Composite and Inverse Functions Section
+
+\subsection*{Practice Problems on Composite and Inverse Functions}
+\addcontentsline{toc}{subsection}{Practice Problems on Composite and Inverse Functions}
+
+\begin{problem}
+Compute the composite functions for the following pairs of functions:
+\begin{enumerate}[label=(\alph*)]
+    \item \( f(x) = x^2 \) and \( g(x) = x + 1 \). Find \( (f \circ g)(x) \) and \( (g \circ f)(x) \).
+    \item \( f(x) = 2x - 3 \) and \( g(x) = \sqrt{x} \). Find \( (f \circ g)(x) \) and \( (g \circ f)(x) \).
+\end{enumerate}
+\end{problem}
+
+\begin{problem}
+Find the inverse of each of the following functions, if it exists:
+\begin{enumerate}[label=(\alph*)]
+    \item \( f(x) = 5x + 2 \)
+    \item \( g(x) = x^2 \) (consider \( x \geq 0 \) for this function)
+\end{enumerate}
+\end{problem}
+
+\begin{problem}
+For the functions \( f(x) = x - 2 \) and \( g(x) = 3x + 1 \), perform the following:
+\begin{enumerate}[label=(\alph*)]
+    \item Find \( (f \circ g)(x) \).
+    \item Find \( (g \circ f)(x) \).
+    \item Determine if \( f \) and \( g \) are inverses of each other.
+\end{enumerate}
+\end{problem}
+
+\begin{exercise}
+Given \( f(x) = \frac{x}{x - 1} \), find \( f^{-1}(x) \).
+\end{exercise}
+
+\begin{exercise}
+If \( h(x) = \sqrt{2x - 3} \), find \( (h \circ h^{-1})(x) \).
+\end{exercise}
+
+% End of Practice Problems Section
+
+\subsection{Domain and Range of Functions - Detail}
 \label{subsec:domain_range_functions}
-Exploring the concepts of domain and range in the context of various types of functions.
+Understanding the domain and range of functions is crucial in the study of mathematics. The domain refers to the set of all possible input values (x-values) for the function, while the range refers to the set of all possible output values (y-values).
 
+\subsubsection{Domain and Range of Different Types of Functions}
+\paragraph{Linear Functions}
+For a linear function \( f(x) = mx + b \), the domain and range are typically all real numbers, \( \mathbb{R} \).
+
+\paragraph{Quadratic Functions}
+For a quadratic function \( f(x) = ax^2 + bx + c \), the domain is \( \mathbb{R} \), but the range depends on the vertex and the direction of the parabola.
+
+\paragraph{Polynomial Functions}
+The domain of polynomial functions is generally \( \mathbb{R} \). The range can vary depending on the degree and coefficients of the polynomial.
+
+\paragraph{Rational Functions}
+For a rational function \( f(x) = \frac{p(x)}{q(x)} \), where \( p(x) \) and \( q(x) \) are polynomials, the domain excludes values where \( q(x) = 0 \). The range can be more complex to determine and often requires analysis of asymptotes and end behavior.
+
+% Graphical Representation using TikZ and pgfplots
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+    axis lines = middle,
+    xlabel = \(x\),
+    ylabel = {\(f(x)\)},
+    domain=-5:5,
+    xmin=-5, xmax=5,
+    ymin=-10, ymax=10,
+    samples=200,
+    xtick={-5,-4,...,5},
+    ytick={-10,-8,...,10},
+    clip=false
+]
+\addplot[blue,thick] {x^2 - 4};
+\node[blue,right] at (axis cs: 2, 2) {\(f(x) = x^2 - 4\)};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+% Exercises
+\begin{exercise}
+Find the domain and range of the function \( g(x) = \frac{1}{x - 3} \).
+\end{exercise}
+
+\begin{exercise}
+Determine the domain and range of the quadratic function \( h(x) = -2x^2 + 4x - 1 \).
+\end{exercise}
+
+% End of Domain and Range of Functions Section
+
+\subsection*{Practice Problems on Domain and Range of Functions}
+\addcontentsline{toc}{subsection}{Practice Problems on Domain and Range of Functions}
+
+\begin{problem}
+Determine the domain and range of the following functions:
+\begin{enumerate}[label=(\alph*)]
+    \item \( f(x) = \sqrt{x + 2} \)
+    \item \( g(x) = \frac{2}{x - 1} \)
+    \item \( h(x) = x^3 - 4x \)
+\end{enumerate}
+\end{problem}
+
+\begin{problem}
+For each function, sketch its graph and identify the domain and range:
+\begin{enumerate}[label=(\alph*)]
+    \item \( f(x) = 3x - 2 \)
+    \item \( g(x) = \frac{1}{x^2} \)
+    \item \( h(x) = |x + 3| \)
+\end{enumerate}
+\end{problem}
+
+\begin{problem}
+Analyze the domain and range for these rational functions:
+\begin{enumerate}[label=(\alph*)]
+    \item \( f(x) = \frac{x + 4}{x^2 - 9} \)
+    \item \( g(x) = \frac{2x}{x^2 - 4x + 4} \)
+\end{enumerate}
+\end{problem}
+
+\begin{exercise}
+Find the domain and range of \( f(x) = \sqrt{9 - x^2} \).
+\end{exercise}
+
+\begin{exercise}
+What is the domain and range of the function \( f(x) = x^2 - 2x + 3 \)?
+\end{exercise}
+
+% End of Practice Problems Section
+
+\subsection*{Solutions to Practice Problems on Domain and Range of Functions}
+
+\subsubsection*{Solutions}
+\begin{enumerate}
+    \item \textbf{Problem 1: Determine the domain and range}
+    \begin{enumerate}[label=(\alph*)]
+        \item \( f(x) = \sqrt{x + 2} \)
+        \begin{solution}
+        Domain: \( x + 2 \geq 0 \) so \( x \geq -2 \). Thus, Domain is \( [-2, \infty) \).\\
+        Range: Since square roots yield non-negative values, Range is \( [0, \infty) \).
+        \end{solution}
+
+        \item \( g(x) = \frac{2}{x - 1} \)
+        \begin{solution}
+        Domain: The denominator cannot be zero, so \( x \neq 1 \). Thus, Domain is \( (-\infty, 1) \cup (1, \infty) \).\\
+        Range: All real numbers except 0 since the fraction can approach any value except 0. Thus, Range is \( (-\infty, 0) \cup (0, \infty) \).
+        \end{solution}
+
+        \item \( h(x) = x^3 - 4x \)
+        \begin{solution}
+        Domain: All real numbers since it's a polynomial. Thus, Domain is \( \mathbb{R} \).\\
+        Range: Also all real numbers since cubic functions continue to increase and decrease without bound. Thus, Range is \( \mathbb{R} \).
+        \end{solution}
+    \end{enumerate}
+
+    \item \textbf{Problem 2: Sketch the graph and identify the domain and range}
+    \begin{enumerate}[label=(\alph*)]
+        % Graphs are not drawn in the solutions due to complexity in describing graphical details in text.
+        \item \( f(x) = 3x - 2 \)
+        \begin{solution}
+        A linear function with no restrictions on \( x \).\\
+        Domain: \( \mathbb{R} \).\\
+        Range: \( \mathbb{R} \).
+        \end{solution}
+
+        \item \( g(x) = \frac{1}{x^2} \)
+        \begin{solution}
+        Domain: \( x \neq 0 \) since the denominator cannot be zero. Thus, Domain is \( (-\infty, 0) \cup (0, \infty) \).\\
+        Range: Output is always positive. Thus, Range is \( (0, \infty) \).
+        \end{solution}
+
+        \item \( h(x) = |x + 3| \)
+        \begin{solution}
+        Domain: \( \mathbb{R} \) since absolute value is defined for all real numbers.\\
+        Range: Absolute value outputs are non-negative. Thus, Range is \( [0, \infty) \).
+        \end{solution}
+    \end{enumerate}
+
+    \item \textbf{Problem 3: Rational functions domain and range}
+    \begin{enumerate}[label=(\alph*)]
+        \item \( f(x) = \frac{x + 4}{x^2 - 9} \)
+        \begin{solution}
+        Domain: Denominator cannot be zero, so \( x \neq \pm 3 \). Thus, Domain is \( (-\infty, -3) \cup (-3, 3) \cup (3, \infty) \).\\
+        Range: Difficult to determine without more advanced techniques. It includes most real numbers except possibly some values based on horizontal asymptotes or other behavior.
+        \end{solution}
+
+        \item \( g(x) = \frac{2x}{x^2 - 4x + 4} \)
+        \begin{solution}
+        Domain: \( x^2 - 4x + 4 \) is a perfect square and always positive except for \( x = 2 \). Thus, Domain is \( (-\infty, 2) \cup (2, \infty) \).\\
+        Range: Similar to the previous problem, difficult to determine without advanced techniques. Excludes values based on horizontal asymptotes or undefined outputs.
+        \end{solution}
+    \end{enumerate}
+
+    \item \textbf{Exercise 4: \( f(x) = \sqrt{9 - x^2} \)}
+    \begin{solution}
+    Domain: Inside the square root must be non-negative, so \( 9 - x^2 \geq 0 \). Thus, Domain is \( [-3, 3] \).\\
+    Range: The square root yields non-negative values, and the maximum value inside the root is 9. Thus, Range is \( [0, 3] \).
+    \end{solution}
+
+    \item \textbf{Exercise 5: \( f(x) = x^2 - 2x + 3 \)}
+    \begin{solution}
+    Domain: A polynomial function has a domain of all real numbers, \( \mathbb{R} \).\\
+    Range: The vertex form shows the minimum value is at \( x = 1 \) giving \( y = 2 \). Thus, Range is \( [2, \infty) \).
+    \end{solution}
+\end{enumerate}
+
+% End of Solutions Section
 
 \section{Polynomials and Rational Functions}
 \label{sec:polynomials_and_rational}
 Polynomials and rational functions are significant in calculus for modeling and approximation. This section includes discussions on their properties, behavior, and graphical representations, with a focus on symmetry and transformations.
 
-
 \subsection{Polynomial Functions}
 \label{subsec:polynomial_functions}
-Discussion on the properties of polynomial functions, their graphs, and behavior. This includes an examination of:
+Polynomial functions are a fundamental class of functions in algebra, characterized by expressions consisting of variables raised to whole number powers and coefficients.
 
+\subsubsection{Polynomial Function Forms and Characteristics}
+A polynomial function of degree \( n \) is of the form:
+\[ f(x) = a_nx^n + a_{n-1}x^{n-1} + \ldots + a_1x + a_0 \]
+where \( a_n, a_{n-1}, \ldots, a_1, a_0 \) are constants, and \( a_n \neq 0 \).
 
+\subsubsection{Graphical Representation of Polynomials}
+The graph of a polynomial function can exhibit various features:
 \begin{itemize}
-    \item Polynomial function forms and general characteristics.
-    \item Graphical representation of polynomials, highlighting key features like intercepts, turning points, and end behavior.
-    \item Symmetry in polynomial functions, focusing on identifying even and odd functions.
-    \item Transformations of polynomial graphs, including vertical and horizontal shifts, and stretching or compressing the graph.
+    \item \textbf{Intercepts:} Points where the graph crosses the x-axis and y-axis.
+    \item \textbf{Turning Points:} Points where the graph changes direction.
+    \item \textbf{End Behavior:} The behavior of the graph as \( x \) approaches \( \pm \infty \).
 \end{itemize}
 
+\subsubsection{Symmetry}
+Polynomial functions can exhibit symmetry:
+\begin{itemize}
+    \item \textbf{Even Functions:} Symmetric about the y-axis, if \( f(-x) = f(x) \) for all \( x \).
+    \item \textbf{Odd Functions:} Symmetric about the origin, if \( f(-x) = -f(x) \) for all \( x \).
+\end{itemize}
+
+\subsubsection{Transformations}
+Transformations include:
+\begin{itemize}
+    \item \textbf{Vertical Shifts:} Moving the graph up or down.
+    \item \textbf{Horizontal Shifts:} Moving the graph left or right.
+    \item \textbf{Stretching/Compressing:} Changing the width or height of the graph.
+\end{itemize}
+
+% Graphical Example using TikZ and pgfplots
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+    axis lines = middle,
+    xlabel = \(x\),
+    ylabel = {\(f(x)\)},
+    domain=-2:2,
+    xmin=-2, xmax=2,
+    ymin=-10, ymax=10,
+    samples=200,
+    xtick={-2,-1,...,2},
+    ytick={-10,-8,...,10},
+    clip=false
+]
+\addplot[blue, thick] {x^3 - 3*x};
+\node[blue, right] at (axis cs: 1.5, 3) {\(f(x) = x^3 - 3x\)};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+% Exercises
+\begin{exercise}
+Sketch the graph of \( f(x) = x^4 - 4x^2 \) and identify its symmetry.
+\end{exercise}
+
+\begin{exercise}
+Describe the transformations applied to \( f(x) = x^2 \) to obtain \( g(x) = (x - 2)^2 + 3 \).
+\end{exercise}
+
+% End of Polynomial Functions Section
+
+\subsection*{Practice Problems on Polynomial Functions}
+\addcontentsline{toc}{subsection}{Practice Problems on Polynomial Functions}
+
+\begin{problem}
+Analyze and graph the following polynomial functions, and identify their key features:
+\begin{enumerate}[label=(\alph*)]
+    \item \( f(x) = x^3 - 6x^2 + 9x \)
+    \item \( g(x) = 2x^4 - 8x^2 \)
+\end{enumerate}
+\end{problem}
+
+\begin{problem}
+Determine whether each function is even, odd, or neither:
+\begin{enumerate}[label=(\alph*)]
+    \item \( f(x) = x^5 - x^3 \)
+    \item \( g(x) = x^4 + 4 \)
+    \item \( h(x) = x^3 + 3x \)
+\end{enumerate}
+\end{problem}
+
+\begin{problem}
+Describe the transformations applied to the basic polynomial \( f(x) = x^2 \) for each of the following functions:
+\begin{enumerate}[label=(\alph*)]
+    \item \( g(x) = (x + 2)^2 - 3 \)
+    \item \( h(x) = -2(x - 1)^2 + 4 \)
+\end{enumerate}
+\end{problem}
+
+\begin{exercise}
+Sketch the graph of the polynomial \( f(x) = x^4 - 4x^2 + 3 \). Identify the x-intercepts, y-intercept, and end behavior.
+\end{exercise}
+
+\begin{exercise}
+For the function \( g(x) = 3x^3 - x \), find the turning points and discuss the symmetry of the graph.
+\end{exercise}
+
+% End of Practice Problems Section
+
+\subsection*{Solutions to Practice Problems on Polynomial Functions}
+
+\subsubsection*{Solutions}
+\begin{enumerate}
+    \item \textbf{Problem 1: Analyze and graph polynomial functions}
+    \begin{enumerate}[label=(\alph*)]
+        \item \( f(x) = x^3 - 6x^2 + 9x \)
+        \begin{solution}
+        Key Features:
+        \begin{itemize}
+            \item x-intercepts: Solve \( x^3 - 6x^2 + 9x = 0 \) to find \( x = 0, 3 \).
+            \item y-intercept: \( f(0) = 0 \).
+            \item End behavior: As \( x \rightarrow \pm \infty, f(x) \rightarrow \pm \infty \).
+            \item Turning points: Use calculus or graphing calculator to identify.
+        \end{itemize}
+        Graph: A cubic curve passing through the origin and bending near \( x = 3 \).
+        \end{solution}
+
+        \item \( g(x) = 2x^4 - 8x^2 \)
+        \begin{solution}
+        Key Features:
+        \begin{itemize}
+            \item x-intercepts: Solve \( 2x^4 - 8x^2 = 0 \) to find \( x = 0, \pm 2 \).
+            \item y-intercept: \( g(0) = 0 \).
+            \item End behavior: As \( x \rightarrow \pm \infty, g(x) \rightarrow \infty \).
+            \item Turning points and symmetry can be identified graphically.
+        \end{itemize}
+        Graph: An even-degree polynomial with a 'W' shape.
+        \end{solution}
+    \end{enumerate}
+
+    \item \textbf{Problem 2: Determine the symmetry of functions}
+    \begin{enumerate}[label=(\alph*)]
+        \item \( f(x) = x^5 - x^3 \)
+        \begin{solution}
+        Testing for odd symmetry: \( f(-x) = (-x)^5 - (-x)^3 = -x^5 + x^3 = -f(x) \).\\
+        Therefore, \( f(x) \) is an odd function.
+        \end{solution}
+
+        \item \( g(x) = x^4 + 4 \)
+        \begin{solution}
+        Testing for even symmetry: \( g(-x) = (-x)^4 + 4 = x^4 + 4 = g(x) \).\\
+        Therefore, \( g(x) \) is an even function.
+        \end{solution}
+
+        \item \( h(x) = x^3 + 3x \)
+        \begin{solution}
+        Testing for odd symmetry: \( h(-x) = (-x)^3 + 3(-x) = -x^3 - 3x = -h(x) \).\\
+        Therefore, \( h(x) \) is an odd function.
+        \end{solution}
+    \end{enumerate}
+
+    \item \textbf{Problem 3: Describe transformations}
+    \begin{enumerate}[label=(\alph*)]
+        \item \( g(x) = (x + 2)^2 - 3 \)
+        \begin{solution}
+        Transformations applied:
+        \begin{itemize}
+            \item Horizontal shift 2 units to the left.
+            \item Vertical shift 3 units downwards.
+        \end{itemize}
+        \end{solution}
+
+        \item \( h(x) = -2(x - 1)^2 + 4 \)
+        \begin{solution}
+        Transformations applied:
+        \begin{itemize}
+            \item Horizontal shift 1 unit to the right.
+            \item Vertical stretch by a factor of 2.
+            \item Reflection across the x-axis.
+            \item Vertical shift 4 units upwards.
+        \end{itemize}
+        \end{solution}
+    \end{enumerate}
+
+    \item \textbf{Exercise 4: Sketch the graph of \( f(x) = x^4 - 4x^2 + 3 \)}
+    \begin{solution}
+    Key Features:
+    \begin{itemize}
+        \item x-intercepts: Solve \( x^4 - 4x^2 + 3 = 0 \) to find \( x = \pm 1, \pm \sqrt{3} \).
+        \item y-intercept: \( f(0) = 3 \).
+        \item End behavior: As \( x \rightarrow \pm \infty, f(x) \rightarrow \infty \).
+        \item The graph is a quartic polynomial with two local minima and one local maximum.
+    \end{itemize}
+    Graph: A 'W' shaped curve with the specified intercepts and end behavior.
+    \end{solution}
+
+    \item \textbf{Exercise 5: For \( g(x) = 3x^3 - x \)}
+    \begin{solution}
+    Key Features:
+    \begin{itemize}
+        \item Turning points: Use calculus or graphing calculator to identify.
+        \item Symmetry: Test for odd symmetry: \( g(-x) = -3x^3 + x = -g(x) \). The function is odd and symmetric about the origin.
+    \end{itemize}
+    Graph: A cubic curve with an S-shape, symmetric about the origin.
+    \end{solution}
+\end{enumerate}
+
+% End of Solutions Section
+
+% HERE-11Nov2023
 
 \subsection{Rational Functions}
 \label{subsec:rational_functions}
 Introduction to rational functions, their characteristics, and graphical behavior. Key topics include:
-
 
 \begin{itemize}
     \item Understanding the form and basic properties of rational functions.
@@ -2826,16 +3399,13 @@ Introduction to rational functions, their characteristics, and graphical behavio
     \item Behavior of rational functions at infinity, focusing on horizontal and oblique asymptotes.
 \end{itemize}
 
-
 \subsection{End Behavior of Polynomials}
 \label{subsec:end_behavior_polynomials}
 Discuss the behavior of polynomial functions as the input approaches infinity or negative infinity, including techniques for determining end behavior from the polynomial's degree and leading coefficient.
 
-
 \subsection{Limits of Rational Functions}
 \label{subsec:limits_rational_functions}
 An introduction to the concept of limits, with a specific focus on rational functions. This section includes:
-
 
 \begin{itemize}
     \item Basic definition and understanding of limits in the context of rational functions.
@@ -2843,14 +3413,13 @@ An introduction to the concept of limits, with a specific focus on rational func
     \item Special cases where limits help in understanding indeterminate forms and asymptotic behavior.
 \end{itemize}
 
-
 \subsection{Complex Numbers}
 \label{subsec:complex_numbers}
 \textit{Complex numbers extend the real number system and are crucial in various mathematical contexts, particularly in solving equations that do not have real solutions. This section includes an introduction to Euler's formula, demonstrating the link between complex numbers and trigonometry.}
 
 
 \subsubsection{Introduction to Complex Numbers}
-\textit{Definition of complex numbers and the concept of the imaginary unit \( i \) where \( i^2 = -1 \). Explanation of the form \( a + bi \) where \( a \) and \( b \) are real numbers.}
+Definition of complex numbers and the concept of the imaginary unit \( i \) where \( i^2 = -1 \). Explanation of the form \( a + bi \) where \( a \) and \( b \) are real numbers.
 
 
 \subsubsection{Complex Numbers - Detail}
@@ -2859,31 +3428,26 @@ Introduce complex numbers, their algebra, and their role in solving polynomial e
 
 
 \subsubsection{Euler's Formula}
-\textit{Introduction to Euler's formula, relating complex exponentials and trigonometric functions. Discussion on the importance of this formula in advanced mathematics and its applications in calculus.}
+Introduction to Euler's formula, relating complex exponentials and trigonometric functions. Discussion on the importance of this formula in advanced mathematics and its applications in calculus.
 
 
 \subsubsection{Algebra of Complex Numbers}
-\textit{Discussing basic operations with complex numbers: addition, subtraction, multiplication, and division. Emphasizing the algebraic rules and properties governing these operations.}
-
+Discussing basic operations with complex numbers: addition, subtraction, multiplication, and division. Emphasizing the algebraic rules and properties governing these operations.
 
 \subsubsection{Complex Conjugates and Absolute Value}
-\textit{Introducing the concept of complex conjugates and their use in simplifying division of complex numbers. Definition and computation of the absolute value (or modulus) of a complex number.}
-
+Introducing the concept of complex conjugates and their use in simplifying division of complex numbers. Definition and computation of the absolute value (or modulus) of a complex number.
 
 \subsubsection{Complex Plane and Graphical Representation}
-\textit{Describing the graphical representation of complex numbers in the complex plane. Drawing parallels with the Cartesian coordinate system and explaining how complex numbers can be visualized as points or vectors in this plane.}
-
+Describing the graphical representation of complex numbers in the complex plane. Drawing parallels with the Cartesian coordinate system and explaining how complex numbers can be visualized as points or vectors in this plane.
 
 \subsubsection{Polar Form of Complex Numbers}
-\textit{Introducing the polar form of complex numbers, explaining how they can be represented using magnitude and angle, and discussing their relevance in calculus and higher mathematics.}
-
+Introducing the polar form of complex numbers, explaining how they can be represented using magnitude and angle, and discussing their relevance in calculus and higher mathematics.
 
 \subsubsection{Roots of Complex Numbers}
-\textit{Exploring the process of finding nth roots of complex numbers. Demonstrating how this process combines algebraic and geometric insights, leading to a deeper understanding of complex numbers.}
-
+Exploring the process of finding nth roots of complex numbers. Demonstrating how this process combines algebraic and geometric insights, leading to a deeper understanding of complex numbers.
 
 \subsubsection{Applications}
-\textit{Highlighting basic applications of complex numbers, such as their role in solving quadratic equations without real roots, and introducing some of their uses in other areas of mathematics and science.}
+Highlighting basic applications of complex numbers, such as their role in solving quadratic equations without real roots, and introducing some of their uses in other areas of mathematics and science.
 
 
 \section{Logarithmic and Exponential Functions}

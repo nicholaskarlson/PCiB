@@ -54,9 +54,6 @@
 {\par\noindent\textit{Solution:} \rmfamily}{\medskip}
 
 
-
-
-
 \begin{document}
 
 % --- Book Cover ---
@@ -74,7 +71,7 @@
         
         % Title and additional info
         \node at (current page.center) [font=\Huge, text width=0.8\textwidth, align=center] 
-            {\textbf{Pre-Calculus in Brief with Python, Colab, GitHub, and \LaTeX  \\ PCiB - Version 0.61}};
+            {\textbf{Pre-Calculus in Brief with Python, Colab, GitHub, and \LaTeX  \\ PCiB - Version 0.62}};
             
         \node[align=center, font=\large] at (current page.center) 
             [yshift=-2.5cm] {\today}; % <- This is the compilation date
@@ -2085,42 +2082,693 @@ This section covers the techniques for solving linear equations. Various example
 
 
 \subsubsection{Single Variable Linear Equations}
-This section discusses methods for solving linear equations with one variable, for example, the principles of balancing equations and isolating the variable.
+This section discusses the methods for solving linear equations with one variable. A linear equation in one variable can be written in the form \( ax + b = 0 \), where \( a \) and \( b \) are constants, and \( x \) is the variable to be solved for.
 
+\paragraph{Balancing Equations}
+The principle of balancing equations involves performing the same operation on both sides of the equation to maintain equality. Common operations include addition, subtraction, multiplication, and division.
 
-\subsubsection{Systems of Linear Equations}
-Methods for solving systems of linear equations include:
-
-
+\paragraph{Isolating the Variable}
+To find the value of the variable, the goal is to isolate it on one side of the equation. This is typically achieved by:
 \begin{itemize}
-    \item \textbf{Substitution Method:} Solving a system by substituting one equation into the other to find the values of the variables.
-    \item \textbf{Elimination Method:} The process of adding or subtracting equations to eliminate one of the variables, leading to a simpler single-variable equation.
+    \item Adding or subtracting the same number from both sides of the equation.
+    \item Multiplying or dividing both sides of the equation by the same number (except zero).
 \end{itemize}
 
+% Example Problems
+\begin{problem}
+Solve the equation \( 3x + 6 = 12 \).
+\end{problem}
+
+\begin{solution}
+Subtract 6 from both sides: \( 3x = 6 \).\\
+Divide both sides by 3: \( x = 2 \).
+\end{solution}
+
+\begin{problem}
+Solve \( 2(x - 3) = 4 \).
+\end{problem}
+
+\begin{solution}
+Expand and simplify: \( 2x - 6 = 4 \).\\
+Add 6 to both sides: \( 2x = 10 \).\\
+Divide both sides by 2: \( x = 5 \).
+\end{solution}
+
+% Exercises
+\begin{exercise}
+Solve the equation \( 5x - 15 = 0 \).
+\end{exercise}
+
+\begin{exercise}
+Find the value of \( x \) in the equation \( 7 - 2x = -9 \).
+\end{exercise}
+
+% End of Single Variable Linear Equations Section
+
+\subsection*{Practice Problems on Single Variable Linear Equations}
+\addcontentsline{toc}{subsection}{Practice Problems on Single Variable Linear Equations}
+
+\begin{problem}
+Solve the following linear equations:
+\begin{enumerate}[label=(\alph*)]
+    \item \( 4x + 8 = 20 \)
+    \item \( 3x - 9 = 0 \)
+    \item \( x + 5 = 2 \)
+    \item \( 6 - 2x = 0 \)
+    \item \( 7x = 49 \)
+\end{enumerate}
+\end{problem}
+
+\begin{problem}
+For each equation, first expand and then solve for \( x \):
+\begin{enumerate}[label=(\alph*)]
+    \item \( 2(3x - 4) = 14 \)
+    \item \( 5(x + 2) - 3 = 22 \)
+    \item \( 4 - 2(2x - 3) = 8 \)
+\end{enumerate}
+\end{problem}
+
+\begin{problem}
+Find the value of \( x \) in the following equations:
+\begin{enumerate}[label=(\alph*)]
+    \item \( 10x + 5 = 3x + 20 \)
+    \item \( 5x - 2 = 2x + 7 \)
+    \item \( \frac{x}{2} + 3 = 7 \)
+    \item \( 3x - \frac{x}{4} = 8 \)
+\end{enumerate}
+\end{problem}
+
+\begin{exercise}
+If \( 4x + 6 = 2x + 14 \), what is the value of \( x \)?
+\end{exercise}
+
+\begin{exercise}
+Solve the equation \( \frac{5x - 3}{2} = 6 \).
+\end{exercise}
+
+% End of Practice Problems Section
+
+\subsubsection{Systems of Linear Equations}
+Solving systems of linear equations is a key skill in algebra. There are primarily two methods for solving these systems:
+
+\paragraph{Substitution Method}
+This method involves solving one of the equations for one variable and then substituting that expression into the other equation. It is particularly useful when one of the equations is already solved for one variable.
+
+% Example using substitution method
+\begin{problem}
+Solve the system using the substitution method:
+\begin{align*}
+    x + y &= 10 \\
+    y &= 3x
+\end{align*}
+\end{problem}
+
+\begin{solution}
+Substitute \( y \) from the second equation into the first equation:\\
+\( x + 3x = 10 \)\\
+\( 4x = 10 \)\\
+\( x = \frac{10}{4} = 2.5 \)\\
+Now substitute \( x \) back into the second equation to find \( y \):\\
+\( y = 3(2.5) = 7.5 \)
+\end{solution}
+
+\paragraph{Elimination Method}
+This method involves adding or subtracting the equations to eliminate one of the variables. It is useful when the coefficients of one of the variables are the same or opposites.
+
+% Example using elimination method
+\begin{problem}
+Solve the system using the elimination method:
+\begin{align*}
+    2x + 3y &= 8 \\
+    4x - 3y &= 12
+\end{align*}
+\end{problem}
+
+\begin{solution}
+Add the two equations to eliminate \( y \):\\
+\( (2x + 3y) + (4x - 3y) = 8 + 12 \)\\
+\( 6x = 20 \)\\
+\( x = \frac{20}{6} \approx 3.33 \)\\
+Now substitute \( x \) into one of the equations to find \( y \).
+\end{solution}
+
+% Exercises
+\begin{exercise}
+Use the substitution method to solve:
+\begin{align*}
+    x - y &= 2 \\
+    2x + y &= 7
+\end{align*}
+\end{exercise}
+
+\begin{exercise}
+Use the elimination method to solve:
+\begin{align*}
+    3x + y &= 6 \\
+    x - 2y &= 3
+\end{align*}
+\end{exercise}
+
+% End of Systems of Linear Equations Section
+
+\subsection*{Practice Problems on Systems of Linear Equations}
+\addcontentsline{toc}{subsection}{Practice Problems on Systems of Linear Equations}
+
+\begin{problem}
+Use the substitution method to solve the following systems of equations:
+\begin{enumerate}[label=(\alph*)]
+    \item 
+    \begin{align*}
+        x + 2y &= 5 \\
+        y &= 2x - 1
+    \end{align*}
+    \item 
+    \begin{align*}
+        3x - y &= 7 \\
+        x + y &= 9
+    \end{align*}
+\end{enumerate}
+\end{problem}
+
+\begin{problem}
+Solve the following systems using the elimination method:
+\begin{enumerate}[label=(\alph*)]
+    \item 
+    \begin{align*}
+        x + y &= 4 \\
+        2x - y &= 1
+    \end{align*}
+    \item 
+    \begin{align*}
+        4x + 5y &= 20 \\
+        -3x + 2y &= -6
+    \end{align*}
+\end{enumerate}
+\end{problem}
+
+\begin{problem}
+Determine the solution for each system of equations:
+\begin{enumerate}[label=(\alph*)]
+    \item 
+    \begin{align*}
+        2x + 3y &= 6 \\
+        x - 2y &= 3
+    \end{align*}
+    \item 
+    \begin{align*}
+        y &= x + 1 \\
+        2x + 3y &= 12
+    \end{align*}
+\end{enumerate}
+\end{problem}
+
+\begin{exercise}
+Find the values of \( x \) and \( y \) for:
+\begin{align*}
+    x - y &= 3 \\
+    3x + 2y &= 12
+\end{align*}
+\end{exercise}
+
+\begin{exercise}
+Solve the following system using any method:
+\begin{align*}
+    x + 2y &= 7 \\
+    2x - y &= 4
+\end{align*}
+\end{exercise}
+
+% End of Practice Problems Section
 
 \subsection{Polynomial Equations}
 \label{subsec:polynomial_equations}
-Overview of polynomial equations, methods of solving them, and the Fundamental Theorem of Algebra.
+Polynomial equations are algebraic expressions that involve variables raised to whole number exponents. Understanding how to solve these equations is a fundamental skill in algebra.
 
+\subsubsection{Characteristics of Polynomial Equations}
+A polynomial equation can be written in the form:
+\[ a_nx^n + a_{n-1}x^{n-1} + \ldots + a_1x + a_0 = 0 \]
+where \( a_n, a_{n-1}, \ldots, a_1, a_0 \) are constants, and \( n \) is a non-negative integer.
+
+\subsubsection{Solving Polynomial Equations}
+Methods for solving polynomial equations include:
+
+\paragraph{Factoring:} Expressing the polynomial as a product of its factors.
+\paragraph{Using the Quadratic Formula:} Applicable to quadratic equations of the form \( ax^2 + bx + c = 0 \).
+\paragraph{Graphical Methods:} Plotting the polynomial to find the points where it intersects the x-axis.
+
+\subsubsection{Fundamental Theorem of Algebra}
+The Fundamental Theorem of Algebra states that every non-constant polynomial equation has at least one complex root. This implies that a polynomial of degree \( n \) will have \( n \) roots (counting multiplicity).
+
+% Examples and Exercises
+\begin{problem}
+Solve the quadratic equation \( x^2 - 5x + 6 = 0 \) by factoring.
+\end{problem}
+
+\begin{solution}
+Factorize the equation: \( (x - 2)(x - 3) = 0 \).\\
+Thus, the solutions are \( x = 2 \) and \( x = 3 \).
+\end{solution}
+
+\begin{problem}
+Use the quadratic formula to solve \( 2x^2 - 4x - 6 = 0 \).
+\end{problem}
+
+\begin{solution}
+Apply the quadratic formula: \( x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} \).\\
+Here, \( a = 2 \), \( b = -4 \), and \( c = -6 \).\\
+Calculate the roots using these values.
+\end{solution}
+
+\begin{exercise}
+Factorize and solve the polynomial \( x^3 - 7x^2 + 14x - 8 = 0 \).
+\end{exercise}
+
+\begin{exercise}
+Plot the graph of \( y = x^2 - 4x + 3 \) and find the roots.
+\end{exercise}
+
+% End of Polynomial Equations Section
+
+\subsection*{Practice Problems on Polynomial Equations}
+\addcontentsline{toc}{subsection}{Practice Problems on Polynomial Equations}
+
+\begin{problem}
+Factorize and solve the following polynomial equations:
+\begin{enumerate}[label=(\alph*)]
+    \item \( x^2 - 9 = 0 \)
+    \item \( x^2 - 6x + 8 = 0 \)
+    \item \( x^3 - x^2 - 4x + 4 = 0 \)
+\end{enumerate}
+\end{problem}
+
+\begin{problem}
+Use the quadratic formula to find the roots of the following equations:
+\begin{enumerate}[label=(\alph*)]
+    \item \( 3x^2 - 2x - 5 = 0 \)
+    \item \( x^2 + 4x + 4 = 0 \)
+\end{enumerate}
+\end{problem}
+
+\begin{problem}
+Given the polynomial \( x^3 - 3x^2 + 4 \), determine:
+\begin{enumerate}[label=(\alph*)]
+    \item The degree of the polynomial.
+    \item The leading coefficient.
+    \item The constant term.
+\end{enumerate}
+\end{problem}
+
+\begin{exercise}
+For the polynomial equation \( 2x^2 - 8x = 0 \), find the values of \( x \).
+\end{exercise}
+
+\begin{exercise}
+Solve \( x^3 + 2x^2 - 5x - 6 = 0 \) by factoring.
+\end{exercise}
+
+% End of Practice Problems Section
 
 \subsection{Rational Equations and Inequalities}
 \label{subsec:rational_equations_inequalities}
-Introduction to solving equations and inequalities involving rational expressions.
+Rational equations and inequalities involve expressions where variables appear in the denominator. Solving these requires careful manipulation to avoid undefined expressions (like division by zero).
 
+\subsubsection{Solving Rational Equations}
+Solving rational equations typically involves finding a common denominator, clearing the fractions, and then solving the resulting equation. Steps include:
+
+\begin{enumerate}
+    \item Identify the least common denominator (LCD) of all fractions in the equation.
+    \item Multiply each term of the equation by the LCD to eliminate the fractions.
+    \item Solve the resulting equation using appropriate algebraic methods.
+\end{enumerate}
+
+\subsubsection{Solving Rational Inequalities}
+Solving rational inequalities involves finding the values of the variable for which the inequality holds true. Steps include:
+
+\begin{enumerate}
+    \item Rewrite the inequality as an equation and find the critical points (where the rational expression is zero or undefined).
+    \item Determine the intervals of the variable by testing points around the critical points.
+    \item Conclude the solution set based on the tests.
+\end{enumerate}
+
+% Example Problems and Exercises
+\begin{problem}
+Solve the rational equation \( \frac{1}{x} + \frac{1}{x-2} = \frac{1}{x-1} \).
+\end{problem}
+
+\begin{solution}
+Find the LCD, clear fractions, and solve the resulting equation.
+\end{solution}
+
+\begin{problem}
+Solve the inequality \( \frac{x-3}{x+2} \leq 0 \).
+\end{problem}
+
+\begin{solution}
+Find the critical points and test intervals to determine where the inequality holds true.
+\end{solution}
+
+\begin{exercise}
+Solve \( \frac{2}{x} - \frac{3}{x+1} = \frac{1}{x-1} \).
+\end{exercise}
+
+\begin{exercise}
+Determine the solution set for \( \frac{x+1}{x-2} > 1 \).
+\end{exercise}
+
+% End of Rational Equations and Inequalities Section
+
+\subsection*{Practice Problems on Rational Equations and Inequalities}
+\addcontentsline{toc}{subsection}{Practice Problems on Rational Equations and Inequalities}
+
+\begin{problem}
+Solve the following rational equations:
+\begin{enumerate}[label=(\alph*)]
+    \item \( \frac{2}{x} + \frac{3}{x+4} = \frac{5}{x-1} \)
+    \item \( \frac{1}{x+2} - \frac{1}{x} = \frac{1}{2} \)
+\end{enumerate}
+\end{problem}
+
+\begin{problem}
+Solve the following rational inequalities:
+\begin{enumerate}[label=(\alph*)]
+    \item \( \frac{x+1}{x-3} \geq 0 \)
+    \item \( \frac{2x}{x-2} < 3 \)
+\end{enumerate}
+\end{problem}
+
+\begin{problem}
+Find the value of \( x \) for which the rational expression \( \frac{x^2 - 4}{x^2 - 5x + 6} \) is undefined.
+\end{problem}
+
+\begin{exercise}
+Solve the equation \( \frac{1}{x+3} + \frac{1}{2x} = \frac{3}{4} \).
+\end{exercise}
+
+\begin{exercise}
+Determine the solution set for the inequality \( \frac{x+2}{x-1} \leq 2 \).
+\end{exercise}
+
+% End of Practice Problems Section
 
 \subsection{Inequalities}
 \label{subsec:inequalities}
-Explain how to solve various inequalities, including linear and quadratic inequalities.
+Inequalities are mathematical expressions involving the symbols \( > \), \( < \), \( \geq \), or \( \leq \). They show the relationship between two values. Solving inequalities often involves finding the set of values that make the inequality true.
 
+\subsubsection{Solving Linear Inequalities}
+Linear inequalities are similar to linear equations but with inequality symbols. The steps to solve them are:
+\begin{enumerate}
+    \item Isolate the variable on one side of the inequality.
+    \item Perform the same operation on both sides of the inequality.
+    \item If you multiply or divide by a negative number, reverse the inequality sign.
+\end{enumerate}
+
+\subsubsection{Solving Quadratic Inequalities}
+Quadratic inequalities involve a quadratic expression. To solve them:
+\begin{enumerate}
+    \item Bring all terms to one side of the inequality to form a quadratic equation.
+    \item Solve the corresponding quadratic equation.
+    \item Determine the intervals where the inequality holds by testing values or using a sign chart.
+\end{enumerate}
+
+% Example Problems
+\begin{problem}
+Solve the inequality \( 3x - 4 > 2 \).
+\end{problem}
+
+\begin{solution}
+Add 4 to both sides: \( 3x > 6 \).\\
+Divide by 3: \( x > 2 \).
+\end{solution}
+
+\begin{problem}
+Solve the quadratic inequality \( x^2 - 5x + 6 \leq 0 \).
+\end{problem}
+
+\begin{solution}
+Factorize the quadratic: \( (x - 2)(x - 3) \leq 0 \).\\
+Determine the intervals and test points.
+\end{solution}
+
+% Graphical Representation using TikZ
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+    axis lines=middle,
+    xlabel=\(x\),
+    ylabel=\(y\),
+    xmin=-1, xmax=4,
+    ymin=-1, ymax=2,
+    xtick={2,3},
+    ytick=\empty,
+    clip=false
+]
+\addplot[name path=f,blue,domain=-1:4] {x^2 - 5*x + 6};
+\path[name path=axis] (axis cs:-1,0) -- (axis cs:4,0);
+\addplot[blue!50] fill between[of=f and axis,soft clip={domain=2:3}];
+\node[blue,right] at (axis cs: 1,2) {\(x^2 - 5x + 6 \leq 0\)};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+% Exercises
+\begin{exercise}
+Solve the inequality \( 2x + 3 \leq 7 \).
+\end{exercise}
+
+\begin{exercise}
+Determine the solution set for \( x^2 - x - 6 > 0 \).
+\end{exercise}
+
+% End of Inequalities Section
+
+\subsection*{Practice Problems on Inequalities}
+\addcontentsline{toc}{subsection}{Practice Problems on Inequalities}
+
+\begin{problem}
+Solve the following linear inequalities:
+\begin{enumerate}[label=(\alph*)]
+    \item \( 5x - 7 > 3 \)
+    \item \( 2 - 3x \leq 8 \)
+    \item \( 4(2x + 1) \geq 3x - 2 \)
+\end{enumerate}
+\end{problem}
+
+\begin{problem}
+Determine the solution set for the following quadratic inequalities:
+\begin{enumerate}[label=(\alph*)]
+    \item \( x^2 - 4x + 3 < 0 \)
+    \item \( x^2 + x - 6 \geq 0 \)
+    \item \( -x^2 + 6x - 5 > 0 \)
+\end{enumerate}
+\end{problem}
+
+\begin{problem}
+For each inequality, graph the solution set on a number line:
+\begin{enumerate}[label=(\alph*)]
+    \item \( x + 5 > 0 \)
+    \item \( x^2 - x - 2 \leq 0 \)
+\end{enumerate}
+\end{problem}
+
+\begin{exercise}
+Solve and graph the solution set for \( 3x + 4 < 2x - 1 \).
+\end{exercise}
+
+\begin{exercise}
+Find the values of \( x \) for which \( x^2 - 5x + 6 \leq 0 \) and represent the solution graphically.
+\end{exercise}
+
+% End of Practice Problems Section
 
 \subsection{Quadratic Equations}
 \label{subsec:quadratic_equations}
-Explore methods for solving quadratic equations, including factoring, completing the square, and the quadratic formula.
+Quadratic equations are polynomial equations of the second degree, typically in the form \( ax^2 + bx + c = 0 \), where \( a \), \( b \), and \( c \) are constants, and \( a \neq 0 \). There are several methods to solve these equations.
 
+\subsubsection{Factoring}
+Factoring involves expressing the quadratic equation as a product of its factors, if possible. The solutions are the values of \( x \) for which each factor equals zero.
+
+\subsubsection{Completing the Square}
+This method involves rearranging the equation and completing the square to solve for \( x \). It is particularly useful when the quadratic equation cannot be factored easily.
+
+\subsubsection{Quadratic Formula}
+The quadratic formula is a universal method that can solve any quadratic equation. It is given by:
+\[ x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} \]
+
+% Example Problems
+\begin{problem}
+Solve the quadratic equation \( x^2 - 5x + 6 = 0 \) by factoring.
+\end{problem}
+
+\begin{problem}
+Use completing the square to solve \( x^2 + 4x - 5 = 0 \).
+\end{problem}
+
+\begin{problem}
+Apply the quadratic formula to solve \( 2x^2 - 3x + 1 = 0 \).
+\end{problem}
+
+% Graphical Representation using TikZ
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+    axis lines=middle,
+    xlabel=\(x\),
+    ylabel=\(y\),
+    domain=-3:3,
+    xmin=-3, xmax=3,
+    ymin=-10, ymax=10,
+    samples=200,
+    xtick={-3,-2,...,3},
+    ytick={-10,-8,...,10},
+    clip=false
+]
+\addplot[blue,thick] {x^2 - 5*x + 6};
+\node[blue,right] at (axis cs: 1, 4) {\(y = x^2 - 5x + 6\)};
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+% Exercises
+\begin{exercise}
+Factorize and solve \( x^2 - x - 6 = 0 \).
+\end{exercise}
+
+\begin{exercise}
+Use the quadratic formula to find the roots of \( 3x^2 + 2x - 1 = 0 \).
+\end{exercise}
+
+% End of Quadratic Equations Section
+
+\subsection*{Practice Problems on Quadratic Equations}
+\addcontentsline{toc}{subsection}{Practice Problems on Quadratic Equations}
+
+\begin{problem}
+Solve the following quadratic equations by factoring:
+\begin{enumerate}[label=(\alph*)]
+    \item \( x^2 - 7x + 10 = 0 \)
+    \item \( x^2 + 9x + 18 = 0 \)
+\end{enumerate}
+\end{problem}
+
+\begin{problem}
+Use the method of completing the square to solve these equations:
+\begin{enumerate}[label=(\alph*)]
+    \item \( x^2 + 6x + 8 = 0 \)
+    \item \( x^2 - 4x - 5 = 0 \)
+\end{enumerate}
+\end{problem}
+
+\begin{problem}
+Apply the quadratic formula to solve:
+\begin{enumerate}[label=(\alph*)]
+    \item \( 2x^2 - 4x - 6 = 0 \)
+    \item \( 3x^2 + x - 2 = 0 \)
+\end{enumerate}
+\end{problem}
+
+\begin{exercise}
+Factorize and solve \( x^2 - 2x - 15 = 0 \).
+\end{exercise}
+
+\begin{exercise}
+Find the roots of the quadratic equation \( x^2 + 12x + 35 = 0 \) using the quadratic formula.
+\end{exercise}
+
+% End of Practice Problems Section
 
 \subsection{Inequalities and Absolute Values}
 \label{subsec:inequalities_absolute_values}
-Discuss solving linear and quadratic inequalities, and the concept of absolute value.
+Inequalities and absolute values are fundamental concepts in algebra. This section explores how to solve these types of problems.
+
+\subsubsection{Solving Linear Inequalities}
+Linear inequalities are solved similarly to linear equations, but the solution is typically a range of values rather than a single number. Key steps include isolating the variable and remembering to reverse the inequality sign when multiplying or dividing by a negative number.
+
+\subsubsection{Solving Quadratic Inequalities}
+Quadratic inequalities can be solved by finding the roots of the corresponding quadratic equation and then testing intervals to determine where the inequality holds true.
+
+\subsubsection{Absolute Value}
+The absolute value of a number is its distance from zero on the number line, regardless of direction. Solving equations with absolute values often involves considering two separate cases, based on the definition of absolute value.
+
+% Example Problems
+\begin{problem}
+Solve the inequality \( 2x - 3 < 5 \).
+\end{problem}
+
+\begin{problem}
+Determine the solution set for the quadratic inequality \( x^2 - 4x + 3 > 0 \).
+\end{problem}
+
+\begin{problem}
+Solve the absolute value equation \( |x + 2| = 5 \).
+\end{problem}
+
+% Graphical Representation using TikZ for Absolute Value
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[
+    axis lines=middle,
+    xlabel=\(x\),
+    ylabel=\(y\),
+    xmin=-10, xmax=10,
+    ymin=-10, ymax=10,
+    clip=false
+]
+\addplot[blue, domain=-10:10, samples=100] {abs(x + 2)};
+\node[blue, right] at (axis cs: 3, 5) {\(|x + 2|\)};
+\draw[dashed] (axis cs:-7,5) -- (axis cs:3,5);
+\end{axis}
+\end{tikzpicture}
+\end{center}
+
+% Exercises
+\begin{exercise}
+Solve the inequality \( -3 \leq 4x + 1 < 11 \).
+\end{exercise}
+
+\begin{exercise}
+Find the values of \( x \) for which \( |3x - 4| \leq 2 \).
+\end{exercise}
+
+% End of Inequalities and Absolute Values Section
+
+\subsection*{Practice Problems on Inequalities and Absolute Values}
+\addcontentsline{toc}{subsection}{Practice Problems on Inequalities and Absolute Values}
+
+\begin{problem}
+Solve the following linear inequalities:
+\begin{enumerate}[label=(\alph*)]
+    \item \( 5x + 7 > 12 \)
+    \item \( 3 - 2x \leq 1 \)
+    \item \( -4x + 5 \geq 9 \)
+\end{enumerate}
+\end{problem}
+
+\begin{problem}
+Determine the solution sets for these quadratic inequalities:
+\begin{enumerate}[label=(\alph*)]
+    \item \( x^2 - x - 6 < 0 \)
+    \item \( 2x^2 + 3x - 2 > 0 \)
+\end{enumerate}
+\end{problem}
+
+\begin{problem}
+Solve the following absolute value equations and inequalities:
+\begin{enumerate}[label=(\alph*)]
+    \item \( |x - 3| = 8 \)
+    \item \( |2x + 4| \leq 6 \)
+    \item \( |x^2 - 4| > 3 \)
+\end{enumerate}
+\end{problem}
+
+\begin{exercise}
+Solve the inequality \( -2 \leq x - 5 < 4 \).
+\end{exercise}
+
+\begin{exercise}
+Find the values of \( x \) that satisfy \( |x + 1| > 5 \).
+\end{exercise}
+
+% End of Practice Problems Section
 
 
 \section{Functions and Their Properties}

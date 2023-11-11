@@ -74,7 +74,7 @@
         
         % Title and additional info
         \node at (current page.center) [font=\Huge, text width=0.8\textwidth, align=center] 
-            {\textbf{Pre-Calculus in Brief with Python, Colab, GitHub, and \LaTeX  \\ PCiB - Version 0.3}};
+            {\textbf{Pre-Calculus in Brief with Python, Colab, GitHub, and \LaTeX  \\ PCiB - Version 0.61}};
             
         \node[align=center, font=\large] at (current page.center) 
             [yshift=-2.5cm] {\today}; % <- This is the compilation date
@@ -1398,16 +1398,1029 @@ This chapter serves as the foundation for understanding the vital role of Geomet
 
 % --- End of Geometry Chapter ---
 
-\chapter{Topics in Algebra}
-\subsection*{Basic Ideas Regarding Numbers}
+﻿\chapter{Fundamental Algebra for Calculus}
+\label{chap:algebra_for_calculus}
+\textit{Algebra forms the language through which we describe and solve a wide range of mathematical problems, including those in calculus. This chapter covers algebra concepts that are particularly relevant for understanding and applying calculus.}
 
-\section*{Introduction}
-\paragraph{}
-Algebra is important in pre-calculus studies.
+
+\subsection{Basic Algebraic Operations}
+\label{subsec:basic_algebraic_operations}
+Basic algebraic operations are the foundation of algebra. They include addition, subtraction, multiplication, and division. Each of these operations follows specific properties crucial in simplifying and solving algebraic expressions.
+
+
+\subsubsection{Addition}
+Addition combines two or more numbers into a single sum. The properties of addition include:
+\begin{itemize}
+    \item Commutative property: \( a + b = b + a \)
+    \item Associative property: \( (a + b) + c = a + (b + c) \)
+    \item Identity property: \( a + 0 = a \)
+\end{itemize}
+
+
+\subsubsection{Subtraction}
+Subtraction finds the difference between two numbers. It is the inverse operation of addition.
+
+
+\subsubsection{Multiplication}
+Multiplication combines a number with itself a specified number of times. Its properties are similar to addition:
+\begin{itemize}
+    \item Commutative property: \( ab = ba \)
+    \item Associative property: \( (ab)c = a(bc) \)
+    \item Identity property: \( a \cdot 1 = a \)
+    \item Distributive property: \( a(b + c) = ab + ac \)
+\end{itemize}
+
+
+\subsubsection{Division}
+Division splits a number into specified equal parts. It is the inverse operation of multiplication.
+
+
+% Examples
+\begin{exercise}
+Calculate \( 3 + 4 \) and \( 4 + 3 \) to demonstrate the commutative property of addition.
+\end{exercise}
+
+
+\begin{exercise}
+Show that \( 2 \times (3 + 5) = 2 \times 3 + 2 \times 5 \) using the distributive property of multiplication.
+\end{exercise}
+
+
+\subsubsection{Properties in Algebraic Expressions}
+These properties are not only applicable to numbers but also to algebraic expressions. For example, for any variables \( x \) and \( y \), \( x + y = y + x \) and \( x(y + z) = xy + xz \).
+
+
+\begin{problem}
+If \( x = 2 \) and \( y = 3 \), verify \( x + y = y + x \).
+\end{problem}
+
+
+\begin{problem}
+Simplify the expression \( 3(x + 4) \) using the distributive property.
+\end{problem}
+
+
+% End of Basic Algebraic Operations Section
+
+
+\subsection*{Practice Problems on Basic Algebraic Operations}
+\addcontentsline{toc}{subsection}{Practice Problems on Basic Algebraic Operations}
+
+
+\begin{problem}
+Solve the following expressions:
+\begin{enumerate}[label=(\alph*)]
+    \item \( 7 + 8 \)
+    \item \( 15 - 4 \)
+    \item \( 3 \times 5 \)
+    \item \( 16 \div 4 \)
+\end{enumerate}
+\end{problem}
+
+
+\begin{problem}
+Using the commutative property of multiplication, show that \( 4 \times 7 = 7 \times 4 \).
+\end{problem}
+
+
+\begin{problem}
+Apply the distributive property to simplify \( 5(2 + 3) \).
+\end{problem}
+
+
+\begin{problem}
+If \( a = 4 \) and \( b = 6 \), calculate the following:
+\begin{enumerate}[label=(\alph*)]
+    \item \( a + b \)
+    \item \( a - b \)
+    \item \( ab \)
+    \item \( \frac{a}{b} \), if \( b \neq 0 \)
+\end{enumerate}
+\end{problem}
+
+
+\begin{problem}
+Verify the associative property of addition with \( a = 1 \), \( b = 2 \), and \( c = 3 \) by showing that \( (a + b) + c = a + (b + c) \).
+\end{problem}
+
+
+\begin{exercise}
+For \( x = 5 \), simplify and calculate \( 2x + 3 \).
+\end{exercise}
+
+
+\begin{exercise}
+Demonstrate the identity property of multiplication by showing that \( 7 \times 1 = 7 \).
+\end{exercise}
+
+
+% End of Practice Problems Section
+
+
+\subsection{Set Notation - Detail}
+\label{subsec:set_notation_detail}
+Set notation is a method of specifying groups of numbers through defined criteria. This section explores the representation of various sets of real numbers on the real line, particularly focusing on intervals with open and closed boundary points.
+
+
+\subsubsection{Types of Intervals}
+\begin{itemize}
+    \item \textbf{Open Interval} \( (a, b) \): It includes all real numbers between \( a \) and \( b \) but not \( a \) and \( b \) themselves.
+    \item \textbf{Closed Interval} \( [a, b] \): It includes all real numbers between \( a \) and \( b \), including \( a \) and \( b \).
+    \item \textbf{Half-Open Interval} \( [a, b) \) or \( (a, b] \): It includes all real numbers between \( a \) and \( b \), including one of the endpoints.
+\end{itemize}
+
+
+\subsubsection{Graphical Representation of Intervals}
+Using the `tikz` package, intervals can be represented on the real line.
+
+
+% Example of an open interval
+\begin{center}
+\begin{tikzpicture}
+    \draw[latex-latex] (-3.5,0) -- (3.5,0); % Real line
+    \draw[ultra thick, blue] (0.5,0) -- (2.5,0); % Interval line
+    \draw[shift={(0.5,0)},color=black] (0pt,3pt) -- (0pt,-3pt) node[below] {a};
+    \draw[shift={(2.5,0)},color=black] (0pt,3pt) -- (0pt,-3pt) node[below] {b};
+    \draw[fill=white,draw=blue] (0.5,0) circle (0.05);
+    \draw[fill=white,draw=blue] (2.5,0) circle (0.05);
+    \node at (1.5,0.3) {\textcolor{blue}{Open Interval \( (a, b) \)}};
+\end{tikzpicture}
+\end{center}
+
+
+% Example of a closed interval
+\begin{center}
+\begin{tikzpicture}
+    \draw[latex-latex] (-3.5,0) -- (3.5,0); % Real line
+    \draw[ultra thick, blue] (-2,0) -- (-0.5,0); % Interval line
+    \draw[shift={(-2,0)},color=black] (0pt,3pt) -- (0pt,-3pt) node[below] {a};
+    \draw[shift={(-0.5,0)},color=black] (0pt,3pt) -- (0pt,-3pt) node[below] {b};
+    \draw[fill=blue,draw=blue] (-2,0) circle (0.05);
+    \draw[fill=blue,draw=blue] (-0.5,0) circle (0.05);
+    \node at (-1.25,0.3) {\textcolor{blue}{Closed Interval \( [a, b] \)}};
+\end{tikzpicture}
+\end{center}
+
+
+\subsubsection{Set Builder Notation}
+Set builder notation is another way to describe sets. For example, the set of all \( x \) such that \( x \) is greater than 2 can be written as \( \{ x \in \mathbb{R} | x > 2 \} \).
+
+
+\begin{exercise}
+Represent the set \( \{ x \in \mathbb{R} | -3 < x \leq 1 \} \) on the real line.
+\end{exercise}
+
+
+\begin{exercise}
+Write the interval \( [2, 5) \) in set builder notation.
+\end{exercise}
+
+
+\begin{solution}
+The interval \( [2, 5) \) can be written as \( \{ x \in \mathbb{R} | 2 \leq x < 5 \} \).
+\end{solution}
+
+
+
+
+\subsection*{Practice Problems on Set Notation and Intervals}
+\addcontentsline{toc}{subsection}{Practice Problems on Set Notation and Intervals}
+
+
+\begin{problem}
+Graphically represent the following intervals on the real line:
+\begin{enumerate}[label=(\alph*)]
+    \item The open interval \( (-2, 3) \)
+    \item The closed interval \( [-1, 2] \)
+    \item The half-open interval \( (0, 4] \)
+\end{enumerate}
+\end{problem}
+
+
+\begin{problem}
+Write in set builder notation and represent graphically on the real line:
+\begin{enumerate}[label=(\alph*)]
+    \item All real numbers greater than or equal to -1.
+    \item All real numbers less than 5.
+    \item All real numbers between -2 and 2, including -2 but not 2.
+\end{enumerate}
+\end{problem}
+
+
+\begin{problem}
+Identify the type of interval and represent it on the real line for the following sets:
+\begin{enumerate}[label=(\alph*)]
+    \item \( \{ x \in \mathbb{R} | -3 \leq x < 1 \} \)
+    \item \( \{ x \in \mathbb{R} | x > -2 \} \)
+    \item \( \{ x \in \mathbb{R} | 0 \leq x \leq 3 \} \)
+\end{enumerate}
+\end{problem}
+
+
+\begin{problem}
+Determine if the number 0.5 is in the set \( \{ x \in \mathbb{R} | x^2 < 1 \} \). Justify your answer.
+\end{problem}
+
+
+\begin{problem}
+For the set \( \{ x \in \mathbb{R} | x^2 - 4x + 3 = 0 \} \), find the values of \( x \) and represent the set on the real line.
+\end{problem}
+
+
+\begin{exercise}
+Express the interval \( x < -3 \) or \( x > 3 \) graphically on the real line.
+\end{exercise}
+
+
+\begin{exercise}
+Represent the interval \( -1 \leq x < 2 \) on the real line and write it in set builder notation.
+\end{exercise}
+
+
+% End of Practice Problems Section
+
+
+\subsection{Types of Real Numbers}
+\label{subsec:types_real_numbers}
+Real numbers encompass various types, each with unique properties. Understanding these types is crucial for grasping the scope of real numbers in algebra.
+
+
+\subsubsection{Natural Numbers}
+Natural numbers, denoted by \( \mathbb{N} \), are the set of all positive integers starting from 1. In set notation, this is represented as \( \mathbb{N} = \{1, 2, 3, \ldots\} \).
+
+
+\subsubsection{Whole Numbers}
+Whole numbers include all natural numbers along with zero. They are denoted by \( \mathbb{W} \) and represented as \( \mathbb{W} = \{0, 1, 2, \ldots\} \).
+
+
+\subsubsection{Integers}
+Integers, denoted by \( \mathbb{Z} \), are the set of all whole numbers and their negative counterparts. They can be represented as \( \mathbb{Z} = \{\ldots, -3, -2, -1, 0, 1, 2, 3, \ldots\} \).
+
+
+\subsubsection{Rational Numbers}
+Rational numbers, denoted by \( \mathbb{Q} \), are numbers that can be expressed as a ratio of two integers \( \frac{a}{b} \) where \( b \neq 0 \). This set includes fractions and terminating or repeating decimals.
+
+
+\subsubsection{Irrational Numbers}
+Irrational numbers cannot be expressed as a simple fraction. This set includes numbers like \( \pi \) and \( \sqrt{2} \). They have non-repeating, non-terminating decimal parts.
+
+
+\subsubsection{Real Number Line Representation}
+Using the `tikz` package, we can represent these subsets on the real number line.
+
+
+% Drawing the real number line
+\begin{center}
+\begin{tikzpicture}
+    \draw[latex-latex] (-3.5,0) -- (3.5,0); % Real number line
+    \foreach \x in {-3, -2, -1, 0, 1, 2, 3} 
+        \draw[shift={(\x,0)},color=black] (0pt,3pt) -- (0pt,-3pt) node[below] {$\x$};
+    \node at (0,1) {Whole Numbers};
+    \node at (0,2) {Integers};
+    \node at (0,3) {Rational Numbers};
+    \node at (2.5,1) {Irrational Numbers};
+    \node at (2.5,2) {Real Numbers};
+\end{tikzpicture}
+\end{center}
+
+
+% Exercises
+\begin{exercise}
+Identify whether the number \( \frac{1}{2} \) is a natural, whole, integer, or rational number.
+\end{exercise}
+
+
+\begin{exercise}
+Is the number \( \sqrt{3} \) a rational or irrational number? Justify your answer.
+\end{exercise}
+
+
+% End of Types of Real Numbers Section
+
+
+\subsection*{Practice Problems on Types of Real Numbers}
+\addcontentsline{toc}{subsection}{Practice Problems on Types of Real Numbers}
+
+
+\begin{problem}
+Classify each of the following numbers as natural, whole, integer, rational, or irrational:
+\begin{enumerate}[label=(\alph*)]
+    \item \( 0 \)
+    \item \( -3 \)
+    \item \( \frac{4}{5} \)
+    \item \( \sqrt{5} \)
+    \item \( 7 \)
+\end{enumerate}
+\end{problem}
+
+
+\begin{problem}
+Determine if the following statements are true or false. Justify your answer:
+\begin{enumerate}[label=(\alph*)]
+    \item Every integer is a rational number.
+    \item Every natural number is also a whole number.
+    \item The number \( \pi \) is a rational number.
+    \item The number \( 0.121212\ldots \) (repeating) is irrational.
+\end{enumerate}
+\end{problem}
+
+
+\begin{problem}
+Provide an example of a number that is:
+\begin{enumerate}[label=(\alph*)]
+    \item A rational number but not an integer.
+    \item An irrational number.
+    \item A whole number but not a natural number.
+    \item An integer but not a whole number.
+\end{enumerate}
+\end{problem}
+
+
+\begin{exercise}
+Is the number \( \frac{1}{\sqrt{2}} \) rational or irrational? Explain your reasoning.
+\end{exercise}
+
+
+\begin{exercise}
+Classify the number \( \sqrt{36} \) as natural, whole, integer, rational, or irrational.
+\end{exercise}
+
+
+% End of Practice Problems Section
+
+
+\subsection{Real Numbers and The Real Line - Detail}
+\label{subsec:real_nums_real_line_detail}
+Real numbers are the set of all numbers that can be found on the number line. This includes both rational and irrational numbers. The real line is a graphical representation of these numbers.
+
+
+\subsubsection{Classification of Real Numbers}
+Real numbers can be classified into various types:
+
+
+\begin{itemize}
+    \item \textbf{Rational Numbers:} Numbers that can be expressed as a fraction \( \frac{a}{b} \), where \( a \) and \( b \) are integers, and \( b \neq 0 \). Examples include \( \frac{1}{2} \), \( \frac{4}{3} \), and \( -\frac{5}{6} \).
+    \item \textbf{Irrational Numbers:} Numbers that cannot be expressed as a simple fraction. They have non-repeating, non-terminating decimal parts. Examples include \( \pi \) and \( \sqrt{2} \).
+\end{itemize}
+
+
+\subsubsection{The Real Line}
+The real line is a line with a specific point chosen as the origin. Every real number corresponds to a unique point on the real line.
+
+
+% Drawing the real line with some points
+\begin{center}
+\begin{tikzpicture}
+    \draw[latex-latex] (-3.5,0) -- (3.5,0); % The real line
+    \foreach \x in {-3, -2, -1, 0, 1, 2, 3} % Points on the line
+        \draw[shift={(\x,0)},color=black] (0pt,3pt) -- (0pt,-3pt);
+    \foreach \x in {-3, -2, -1, 0, 1, 2, 3} 
+        \draw[shift={(\x,0)},color=black] (0pt,0pt) -- (0pt,-3pt) node[below] {$\x$};
+    \draw[fill=black] ({sqrt(2)},0) circle (0.05) node[above] {$\sqrt{2}$};
+    \draw[fill=black] (pi,0) circle (0.05) node[above] {$\pi$};
+\end{tikzpicture}
+\end{center}
+
+
+\subsubsection{Visualizing Rational and Irrational Numbers}
+Rational numbers can be precisely located on the real line, whereas irrational numbers cannot be exactly pinpointed due to their non-repeating, non-terminating nature.
+
+
+\begin{exercise}
+Mark the point \( \frac{3}{2} \) on the real line.
+\end{exercise}
+
+
+\begin{exercise}
+Explain why it is impossible to accurately mark \( \sqrt{3} \) on the real line.
+\end{exercise}
+
+
+\begin{solution}
+Since \( \sqrt{3} \) is an irrational number with a non-repeating, non-terminating decimal, it cannot be accurately represented by a specific point on the real line.
+\end{solution}
+
+
+\subsection*{Practice Problems on Real Numbers and The Real Line}
+\addcontentsline{toc}{subsection}{Practice Problems on Real Numbers and The Real Line}
+
+
+\begin{problem}
+Represent the following sets of numbers on the real line:
+\begin{enumerate}[label=(\alph*)]
+    \item \( \{ x \in \mathbb{R} | x > -2 \} \)
+    \item \( \{ x \in \mathbb{R} | -1 \leq x \leq 1 \} \)
+    \item \( \{ x \in \mathbb{R} | x < \sqrt{2} \} \)
+\end{enumerate}
+\end{problem}
+
+
+\begin{problem}
+Identify whether the following numbers are rational or irrational, and justify your answer:
+\begin{enumerate}[label=(\alph*)]
+    \item \( \frac{5}{7} \)
+    \item \( \pi \)
+    \item \( 0.3333\ldots \) (repeating)
+    \item \( \sqrt{9} \)
+\end{enumerate}
+\end{problem}
+
+
+\begin{problem}
+On a real line, mark the points corresponding to the following numbers:
+\begin{enumerate}[label=(\alph*)]
+    \item \( 0 \)
+    \item \( -3 \)
+    \item \( 2.5 \)
+    \item \( -\sqrt{2} \) (approximate the position)
+\end{enumerate}
+\end{problem}
+
+
+\begin{problem}
+If the distance between the points representing \( x \) and 4 on the real line is 3 units, what could be the possible values of \( x \)?
+\end{problem}
+
+
+\begin{problem}
+Explain why the square root of any prime number is an irrational number.
+\end{problem}
+
+
+\begin{exercise}
+Graphically represent the interval \( (-\infty, -1] \) on the real line.
+\end{exercise}
+
+
+\begin{exercise}
+Determine whether the number \( \frac{22}{7} \) is a rational or irrational number and explain your reasoning.
+\end{exercise}
+
+
+% End of Practice Problems Section
+
+
+\subsection{Arithmetic Operations}
+\label{subsec:arithmetic_operations}
+Arithmetic operations form the basis of algebra. They include addition, subtraction, multiplication, and division. Each operation has unique properties that are crucial for simplifying and solving algebraic expressions.
+
+
+\subsubsection{Addition}
+Addition combines two or more numbers into a single sum. Properties of addition include:
+\begin{itemize}
+    \item \textbf{Commutative Property:} The order of numbers does not change the sum. For any two numbers \( a \) and \( b \), \( a + b = b + a \).
+    \item \textbf{Associative Property:} The grouping of numbers does not change the sum. For any three numbers \( a \), \( b \), and \( c \), \( (a + b) + c = a + (b + c) \).
+    \item \textbf{Identity Property:} Adding zero to any number does not change the number. For any number \( a \), \( a + 0 = a \).
+\end{itemize}
+
+
+\subsubsection{Subtraction}
+Subtraction is the operation of finding the difference between two numbers. It is the inverse of addition. For any two numbers \( a \) and \( b \), \( a - b \) gives the difference.
+
+
+\subsubsection{Multiplication}
+Multiplication is the operation of adding a number to itself a certain number of times. Its properties are:
+\begin{itemize}
+    \item \textbf{Commutative Property:} The order of numbers does not change the product. For any two numbers \( a \) and \( b \), \( ab = ba \).
+    \item \textbf{Associative Property:} The grouping of numbers does not change the product. For any three numbers \( a \), \( b \), and \( c \), \( (ab)c = a(bc) \).
+    \item \textbf{Identity Property:} Multiplying any number by one does not change the number. For any number \( a \), \( a \cdot 1 = a \).
+    \item \textbf{Distributive Property:} Distributes multiplication over addition. For any numbers \( a \), \( b \), and \( c \), \( a(b + c) = ab + ac \).
+\end{itemize}
+
+
+\subsubsection{Division}
+Division is the operation of distributing a number into equal parts. It is the inverse of multiplication. For any two numbers \( a \) and \( b \) (where \( b \neq 0 \)), \( \frac{a}{b} \) gives the quotient.
+
+
+% Examples and Exercises
+\begin{exercise}
+Show that \( 3 + 5 = 5 + 3 \) to demonstrate the commutative property of addition.
+\end{exercise}
+
+
+\begin{exercise}
+Verify \( 2(3 + 4) = 2 \cdot 3 + 2 \cdot 4 \) using the distributive property of multiplication.
+\end{exercise}
+
+
+\begin{problem}
+If \( x = 7 \) and \( y = 3 \), calculate and compare \( x + y \) and \( y + x \).
+\end{problem}
+
+
+\begin{problem}
+Simplify the expression \( 4 \times (x + 5) \) using the distributive property.
+\end{problem}
+
+
+% End of Arithmetic Operations Section
+
+
+\subsection*{Practice Problems on Arithmetic Operations}
+\addcontentsline{toc}{subsection}{Practice Problems on Arithmetic Operations}
+
+
+\begin{problem}
+Solve the following arithmetic expressions:
+\begin{enumerate}[label=(\alph*)]
+    \item \( 9 + 6 \)
+    \item \( 20 - 7 \)
+    \item \( 4 \times 5 \)
+    \item \( 18 \div 2 \)
+\end{enumerate}
+\end{problem}
+
+
+\begin{problem}
+Using the associative property of addition, show that \( (2 + 3) + 4 = 2 + (3 + 4) \).
+\end{problem}
+
+
+\begin{problem}
+Apply the distributive property to simplify and calculate \( 3(5 + 2) \).
+\end{problem}
+
+
+\begin{problem}
+If \( a = 10 \) and \( b = 5 \), calculate the following expressions:
+\begin{enumerate}[label=(\alph*)]
+    \item \( a + b \)
+    \item \( a - b \)
+    \item \( a \times b \)
+    \item \( a \div b \), ensuring \( b \neq 0 \)
+\end{enumerate}
+\end{problem}
+
+
+\begin{problem}
+Demonstrate the commutative property of multiplication with \( a = 6 \) and \( b = 3 \) by showing that \( ab = ba \).
+\end{problem}
+
+
+\begin{exercise}
+For the given values \( x = 3 \) and \( y = 2 \), calculate \( 2x + 3y \).
+\end{exercise}
+
+
+\begin{exercise}
+Show the identity property of multiplication by verifying that \( 9 \times 1 = 9 \).
+\end{exercise}
+
+
+% End of Practice Problems Section
+
+
+\subsection{Exponents and Radicals}
+\label{subsec:exponents_and_radicals}
+Exponents and radicals are fundamental algebra operations with specific rules and properties. Understanding these rules is crucial for simplifying and solving algebraic expressions.
+
+
+\subsubsection{Rules of Exponents}
+The rules of exponents apply to expressions where numbers are raised to a power. The key rules include:
+\begin{itemize}
+    \item \textbf{Product Rule:} \( a^n \times a^m = a^{n+m} \)
+    \item \textbf{Quotient Rule:} \( \frac{a^n}{a^m} = a^{n-m} \), where \( a \neq 0 \)
+    \item \textbf{Power Rule:} \( (a^n)^m = a^{nm} \)
+    \item \textbf{Zero Exponent Rule:} \( a^0 = 1 \), where \( a \neq 0 \)
+    \item \textbf{Negative Exponent Rule:} \( a^{-n} = \frac{1}{a^n} \), where \( a \neq 0 \)
+\end{itemize}
+
+
+\subsubsection{Radicals}
+Radicals involve finding roots of numbers. The most common radical is the square root, but higher roots (such as cube roots) are also used.
+
+
+\begin{itemize}
+    \item \textbf{Simplifying Radicals:} \( \sqrt{a^2} = a \) for any positive real number \( a \).
+    \item \textbf{Multiplication and Division:} \( \sqrt{a} \times \sqrt{b} = \sqrt{ab} \) and \( \frac{\sqrt{a}}{\sqrt{b}} = \sqrt{\frac{a}{b}} \), where \( a \) and \( b \) are positive.
+\end{itemize}
+
+
+% Examples and Exercises
+\begin{exercise}
+Simplify \( 2^3 \times 2^4 \) using the product rule of exponents.
+\end{exercise}
+
+
+\begin{exercise}
+Calculate \( \sqrt{9} \times \sqrt{16} \) and compare it to \( \sqrt{9 \times 16} \).
+\end{exercise}
+
+
+\begin{problem}
+If \( x = 2 \), simplify and calculate \( x^{-3} \) using the negative exponent rule.
+\end{problem}
+
+
+\begin{problem}
+Express \( \frac{1}{x^2} \) as an exponent with a negative power.
+\end{problem}
+
+
+% End of Exponents and Radicals Section
+
+
+\subsection*{Practice Problems on Exponents and Radicals}
+\addcontentsline{toc}{subsection}{Practice Problems on Exponents and Radicals}
+
+
+\begin{problem}
+Simplify the following expressions involving exponents:
+\begin{enumerate}[label=(\alph*)]
+    \item \( 5^3 \times 5^2 \)
+    \item \( \frac{4^5}{4^2} \)
+    \item \( (3^2)^3 \)
+    \item \( 6^0 \)
+    \item \( 2^{-4} \)
+\end{enumerate}
+\end{problem}
+
+
+\begin{problem}
+Calculate and simplify the following radical expressions:
+\begin{enumerate}[label=(\alph*)]
+    \item \( \sqrt{25} \)
+    \item \( \sqrt{8} \times \sqrt{2} \)
+    \item \( \frac{\sqrt{49}}{\sqrt{7}} \)
+    \item \( \sqrt[3]{27} \)
+\end{enumerate}
+\end{problem}
+
+
+\begin{problem}
+Express the following expressions with positive exponents:
+\begin{enumerate}[label=(\alph*)]
+    \item \( x^{-2} \)
+    \item \( \frac{1}{y^{-3}} \)
+\end{enumerate}
+\end{problem}
+
+
+\begin{problem}
+If \( a = 4 \), find the value of \( a^{-1/2} \).
+\end{problem}
+
+
+\begin{exercise}
+For the given value \( x = 2 \), calculate and simplify \( x^3 \times x^2 \).
+\end{exercise}
+
+
+\begin{exercise}
+Simplify the expression \( \sqrt{9} + \sqrt{16} \).
+\end{exercise}
+
+
+% End of Practice Problems Section
+
+
+\section{Equations and Inequalities}
+\label{sec:equations_and_inequalities}
+Understanding how to manipulate and solve equations and inequalities is vital in calculus.
+
+
+\subsection{Linear Equations}
+\label{subsec:linear_equations}
+This section covers the techniques for solving linear equations. Various examples and practice problems will be included to demonstrate these methods and provide students with hands-on experience in solving different types of linear equations.
+
+
+\subsubsection{Single Variable Linear Equations}
+This section discusses methods for solving linear equations with one variable, for example, the principles of balancing equations and isolating the variable.
+
+
+\subsubsection{Systems of Linear Equations}
+Methods for solving systems of linear equations include:
+
+
+\begin{itemize}
+    \item \textbf{Substitution Method:} Solving a system by substituting one equation into the other to find the values of the variables.
+    \item \textbf{Elimination Method:} The process of adding or subtracting equations to eliminate one of the variables, leading to a simpler single-variable equation.
+\end{itemize}
+
+
+\subsection{Polynomial Equations}
+\label{subsec:polynomial_equations}
+Overview of polynomial equations, methods of solving them, and the Fundamental Theorem of Algebra.
+
+
+\subsection{Rational Equations and Inequalities}
+\label{subsec:rational_equations_inequalities}
+Introduction to solving equations and inequalities involving rational expressions.
+
+
+\subsection{Inequalities}
+\label{subsec:inequalities}
+Explain how to solve various inequalities, including linear and quadratic inequalities.
+
+
+\subsection{Quadratic Equations}
+\label{subsec:quadratic_equations}
+Explore methods for solving quadratic equations, including factoring, completing the square, and the quadratic formula.
+
+
+\subsection{Inequalities and Absolute Values}
+\label{subsec:inequalities_absolute_values}
+Discuss solving linear and quadratic inequalities, and the concept of absolute value.
+
+
+\section{Functions and Their Properties}
+\label{sec:functions_and_properties}
+A deep understanding of functions and their characteristics is essential in calculus.
+
+
+\subsection{Concept of a Function}
+\label{subsec:concept_of_function}
+Define what a function is and discuss different types of functions (e.g., linear, quadratic, polynomial).
+
+
+\subsection{Function Notation and Graphs}
+\label{subsec:function_notation_and_graphs}
+Introduce function notation and how to graph functions, including transformations.
+
+
+\subsection{Composite and Inverse Functions}
+\label{subsec:composite_and_inverse_functions}
+Discuss the composition of functions and the concept of inverse functions.
+
+
+\subsection{Domain and Range of Functions}
+\label{subsec:domain_range_functions}
+Exploring the concepts of domain and range in the context of various types of functions.
+
+
+\section{Polynomials and Rational Functions}
+\label{sec:polynomials_and_rational}
+Polynomials and rational functions are significant in calculus for modeling and approximation. This section includes discussions on their properties, behavior, and graphical representations, with a focus on symmetry and transformations.
+
+
+\subsection{Polynomial Functions}
+\label{subsec:polynomial_functions}
+Discussion on the properties of polynomial functions, their graphs, and behavior. This includes an examination of:
+
+
+\begin{itemize}
+    \item Polynomial function forms and general characteristics.
+    \item Graphical representation of polynomials, highlighting key features like intercepts, turning points, and end behavior.
+    \item Symmetry in polynomial functions, focusing on identifying even and odd functions.
+    \item Transformations of polynomial graphs, including vertical and horizontal shifts, and stretching or compressing the graph.
+\end{itemize}
+
+
+\subsection{Rational Functions}
+\label{subsec:rational_functions}
+Introduction to rational functions, their characteristics, and graphical behavior. Key topics include:
+
+
+\begin{itemize}
+    \item Understanding the form and basic properties of rational functions.
+    \item Graphing rational functions, emphasizing asymptotic behavior and intercepts.
+    \item Exploring symmetry and transformations in the context of rational functions.
+    \item Behavior of rational functions at infinity, focusing on horizontal and oblique asymptotes.
+\end{itemize}
+
+
+\subsection{End Behavior of Polynomials}
+\label{subsec:end_behavior_polynomials}
+Discuss the behavior of polynomial functions as the input approaches infinity or negative infinity, including techniques for determining end behavior from the polynomial's degree and leading coefficient.
+
+
+\subsection{Limits of Rational Functions}
+\label{subsec:limits_rational_functions}
+An introduction to the concept of limits, with a specific focus on rational functions. This section includes:
+
+
+\begin{itemize}
+    \item Basic definition and understanding of limits in the context of rational functions.
+    \item Techniques for evaluating limits of rational functions, including factorization and rationalization.
+    \item Special cases where limits help in understanding indeterminate forms and asymptotic behavior.
+\end{itemize}
+
+
+\subsection{Complex Numbers}
+\label{subsec:complex_numbers}
+\textit{Complex numbers extend the real number system and are crucial in various mathematical contexts, particularly in solving equations that do not have real solutions. This section includes an introduction to Euler's formula, demonstrating the link between complex numbers and trigonometry.}
+
+
+\subsubsection{Introduction to Complex Numbers}
+\textit{Definition of complex numbers and the concept of the imaginary unit \( i \) where \( i^2 = -1 \). Explanation of the form \( a + bi \) where \( a \) and \( b \) are real numbers.}
+
+
+\subsubsection{Complex Numbers - Detail}
+\label{subsec:complex_numbers_detail}
+Introduce complex numbers, their algebra, and their role in solving polynomial equations.
+
+
+\subsubsection{Euler's Formula}
+\textit{Introduction to Euler's formula, relating complex exponentials and trigonometric functions. Discussion on the importance of this formula in advanced mathematics and its applications in calculus.}
+
+
+\subsubsection{Algebra of Complex Numbers}
+\textit{Discussing basic operations with complex numbers: addition, subtraction, multiplication, and division. Emphasizing the algebraic rules and properties governing these operations.}
+
+
+\subsubsection{Complex Conjugates and Absolute Value}
+\textit{Introducing the concept of complex conjugates and their use in simplifying division of complex numbers. Definition and computation of the absolute value (or modulus) of a complex number.}
+
+
+\subsubsection{Complex Plane and Graphical Representation}
+\textit{Describing the graphical representation of complex numbers in the complex plane. Drawing parallels with the Cartesian coordinate system and explaining how complex numbers can be visualized as points or vectors in this plane.}
+
+
+\subsubsection{Polar Form of Complex Numbers}
+\textit{Introducing the polar form of complex numbers, explaining how they can be represented using magnitude and angle, and discussing their relevance in calculus and higher mathematics.}
+
+
+\subsubsection{Roots of Complex Numbers}
+\textit{Exploring the process of finding nth roots of complex numbers. Demonstrating how this process combines algebraic and geometric insights, leading to a deeper understanding of complex numbers.}
+
+
+\subsubsection{Applications}
+\textit{Highlighting basic applications of complex numbers, such as their role in solving quadratic equations without real roots, and introducing some of their uses in other areas of mathematics and science.}
+
+
+\section{Logarithmic and Exponential Functions}
+\label{sec:logarithmic_exponential}
+Logarithmic and exponential functions have a crucial role in calculus, particularly in growth and decay models.
+
+
+\subsection{Understanding Exponentials}
+\label{subsec:understanding_exponentials}
+Explore the properties and graphs of exponential functions.
+
+
+\subsection{Introduction to Logarithms}
+\label{subsec:introduction_to_logarithms}
+Discuss logarithmic functions, their properties, and their relationship with exponential functions.
+
+
+\subsection{Applications of Exponential and Logarithmic Functions}
+\label{subsec:applications_exp_log_functions}
+Discuss real-world applications of exponential and logarithmic functions, highlighting their relevance in various fields.
+
+
+\section{Factoring Techniques}
+\label{sec:factoring_techniques}
+Factoring is a fundamental skill in algebra, useful in simplifying expressions and solving equations.
+
+
+\subsection{Common Factoring Methods}
+\label{subsec:common_factoring_methods}
+Discuss methods like factoring by grouping, difference of squares, trinomials, etc.
+
+
+\section{Functions and Graphs}
+\label{sec:functions_and_graphs}
+Understanding the graphical representation of functions is crucial in calculus.
+
+
+\subsection{Coordinates in a Plane}
+\label{subsec:coordinates_in_a_plane}
+Review the Cartesian coordinate system and plotting points in a plane.
+
+
+\subsection{Graphs of Straight Lines}
+\label{subsec:graphs_of_straight_lines}
+Discuss the slope-intercept form, point-slope form, and graphing of linear equations.
+
+
+\subsection{Graphs of Circles}
+\label{subsec:graphs_of_circles}
+Explain the standard form of the circle's equation and how to graph it.
+
+
+\subsection{Graphs of Parabolas}
+\label{subsec:graphs_of_parabolas}
+Introduce the general form of a parabola's equation and discuss its graphical properties.
+
+
+\subsection{Quadratic Functions and the Quadratic Formula}
+\label{subsec:quadratic_functions_formula}
+Deepen the exploration of quadratic functions, their graphs, and applications of the quadratic formula.
+
+
+\subsection{Completing the Square and Conjugate Values}
+\label{subsec:completing_square_conjugate_values}
+Discuss the technique of completing the square and its use in solving quadratic equations and in graph analysis.
+
+
+\section{Advanced Function Types}
+\label{sec:advanced_function_types}
+This section covers a variety of advanced function types that are essential for a deeper understanding of calculus concepts.
+
+
+\subsection{Odd and Even Functions}
+\label{subsec:odd_even_functions}
+Explore Odd and Even functions, their properties, and graphing techniques. This includes:
+
+
+\begin{itemize}
+    \item Definitions and examples of odd and even functions.
+    \item Techniques for determining the symmetry of a function.
+    \item Graphing strategies for odd and even functions.
+\end{itemize}
+
+
+\subsection{Piecewise Functions}
+\label{subsec:piecewise_functions}
+Introduction to piecewise functions, which are commonly encountered in calculus. Topics include:
+
+
+\begin{itemize}
+    \item Understanding the definition and structure of piecewise functions.
+    \item Techniques for graphing piecewise functions, including identifying discontinuities and behavior at defined intervals.
+    \item Applications of piecewise functions in modeling real-world scenarios.
+\end{itemize}
+
+
+\subsection{Radical Functions}
+\label{subsec:radical_functions}
+Explore functions involving roots, their properties, and graphing techniques, with focus on:
+
+
+\begin{itemize}
+    \item Basic forms of radical functions and their transformations.
+    \item Graphical representation and behavior of radical functions.
+    \item Applications and examples of radical functions in various contexts.
+\end{itemize}
+
+
+\subsection{Sequences}
+\label{subsec:sequences}
+Introduction to the concept of sequences, their types, and properties. Coverage includes:
+
+
+\begin{itemize}
+    \item Definitions and examples of various types of sequences (arithmetic, geometric, etc.).
+    \item Understanding sequence notation and formulating general terms.
+    \item Applications of sequences in mathematical and real-world problems.
+\end{itemize}
+
+
+\subsection{Rational Functions}
+\label{subsec:rational_functions_chapter}
+Discuss the characteristics of rational functions, including asymptotic behavior. Key points are:
+
+
+\begin{itemize}
+    \item Detailed exploration of the properties of rational functions.
+    \item Graphical analysis, focusing on asymptotes and other key features.
+    \item Practical applications of rational functions in different areas.
+\end{itemize}
+
+
+\subsection{Logarithmic Functions}
+\label{subsec:logarithmic_functions}
+Cover the properties, graphs, and applications of logarithmic functions, emphasizing:
+
+
+\begin{itemize}
+    \item The relationship between logarithmic and exponential functions.
+    \item Techniques for graphing logarithmic functions.
+    \item Real-world scenarios where logarithmic functions are applicable.
+\end{itemize}
+
+
+\section{Polynomials and Series}
+\label{sec:polynomials_and_series}
+
+
+\subsection{Division of Polynomials}
+\label{subsec:division_of_polynomials}
+Introduce polynomial long division and synthetic division.
+
+
+\subsection{Remainder Theorem}
+\label{subsec:remainder_theorem}
+Explain the Remainder Theorem and its applications in evaluating polynomials.
+
+
+\subsection{Geometric Progressions and Series}
+\label{subsec:geometric_progressions_series}
+Discuss the concept of geometric progressions, their sums, and applications.
+
+
+\subsection{Arithmetic Progressions}
+\label{subsec:arithmetic_progressions}
+Explore arithmetic progressions, their properties, and formulas for finding sums.
+
+
+\section{Mathematical Induction}
+\label{sec:mathematical_induction}
+Mathematical induction is a powerful technique for proving mathematical statements, particularly in sequences and series.
+
+
+\subsection{Principles of Mathematical Induction}
+\label{subsec:principles_mathematical_induction}
+Introduce the concept and process of mathematical induction and provide examples.
+
 
 \section*{Conclusion}
-\paragraph{}
-This chapter surveys important topics in algebra relevant to the study of calculus. Please fork the LaTeX source code for PCiB (available on GitHub) and create your own book that chooses the facts and exercises most relevant to you! Also, starring the PCiB project on GitHub would be greatly appreciated! Thanks for reading PCiB!
+\label{sec:alg_conclusion}
+\textit{This chapter serves as the foundation for understanding the vital role of Algebra in calculus. As you progress through your studies, these concepts will become second nature, providing the tools necessary for analyzing and solving a broad range of problems in higher mathematics.}
+\addcontentsline{toc}{section}{Conclusion}
+
+
+% --- End of Algebra Chapter ---
 
 \chapter{Topics in Trigonometry}
 \subsection*{Understanding the Basic Trig Functions}

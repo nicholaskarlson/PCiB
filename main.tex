@@ -1,7 +1,5 @@
 \documentclass[a4paper,12pt]{book}
 \usepackage{graphicx} % For graphics
-\usepackage{hyperref} % For hyperlinks
-% \usepackage{makeidx} % For making an index
 \usepackage{float}
 \usepackage{tikz}
 \usepackage{tkz-euclide} % Add this line to include the tkz-euclide package
@@ -13,9 +11,10 @@
 \pgfplotsset{compat=newest}
 \usepgfplotslibrary{fillbetween} 
 
-\newcommand{\inputtoc}[1]{\input{#1}}
+% Configure hyperref package to color links blue
+\usepackage[colorlinks=true, linkcolor=blue, citecolor=blue, urlcolor=blue]{hyperref}
 
-% ... (rest of your preamble)
+\newcommand{\inputtoc}[1]{\input{#1}}
 
 % \makeindex % Command to make the index
 
@@ -41,6 +40,13 @@
 \newenvironment{example}[1][\theexample]
   {\refstepcounter{example}\par\medskip\noindent\textbf{Example~#1:} \rmfamily}
   {\medskip}
+  
+% Define theorem, application, definition, method, and discussion environments
+\newtheorem{theorem}{Theorem}
+\newtheorem{application}{Application}
+\newtheorem{definition}{Definition}
+\newtheorem{method}{Method}
+\newtheorem{discussion}{Discussion}
 
 \begin{document}
 
@@ -59,7 +65,7 @@
         
         % Title and additional info
         \node at (current page.center) [font=\Huge, text width=0.8\textwidth, align=center] 
-            {\textbf{Pre-Calculus in Brief with Python, Colab, GitHub, and \LaTeX  \\ PCiB - Version 0.63}};
+            {\textbf{Pre-Calculus in Brief with Python, Colab, GitHub, and \LaTeX  \\ PCiB - Version 0.64}};
             
         \node[align=center, font=\large] at (current page.center) 
             [yshift=-2.5cm] {\today}; % <- This is the compilation date
@@ -6129,6 +6135,158 @@ One of the biggest strengths of GitHub is its collaborative nature. Here are som
 \subsection*{Conclusion: Embarking on Your GitHub Adventure}
 
 Now that you have a basic understanding of GitHub and how it works, you are ready to embark on your GitHub adventure. Explore repositories, contribute to open-source projects, collaborate with others, and build amazing things together. Remember, the GitHub community is vast and supportive, and there is a wealth of knowledge and resources available to help you along the way. Happy coding!
+
+\chapter{Basic Python and Colab Guide}
+\section*{Introduction to Python for Calculus}
+
+Python's versatility in mathematics, science, engineering, and data analysis stems from its simplicity and extensive library ecosystem. This guide will delve into Python packages essential for math, pre-calculus, and calculus, showcasing their utility in Google Colab notebooks.
+
+\subsection*{Setting Up Python and Google Colab}
+
+Google Colab is a free, cloud-based platform enabling Python programming in a browser. It offers free computational resources, ideal for Python learning and experimentation.
+
+Visit \href{https://colab.research.google.com/}{Google Colab} to start. Create a new notebook, and use code cells to write and execute Python code with Shift+Enter.
+
+\subsection*{Important Python Packages for Math}
+
+\subsubsection*{NumPy}
+NumPy, fundamental for scientific computing, offers support for large, multi-dimensional arrays and matrices, along with various mathematical functions.
+
+\subsubsection*{SymPy}
+SymPy, a library for symbolic mathematics, allows algebraic manipulations and equation solving symbolically, perfect for calculus operations like differentiation and integration.
+
+\subsubsection*{Matplotlib}
+Matplotlib, a Python plotting library, creates static, interactive, and animated visualizations, useful for graphing functions and data in calculus.
+
+\subsubsection*{Pandas}
+Pandas provide high-performance, easy-to-use data structures, and data analysis tools, invaluable for handling and analyzing mathematical data.
+
+\subsubsection*{SciPy}
+SciPy extends NumPy by adding a collection of algorithms and high-level commands for data manipulation and visualization.
+
+\subsection*{Examples and Applications}
+
+\subsubsection*{Calculating Derivatives and Integrals with SymPy}
+Illustrate using SymPy to compute derivatives and integrals of functions.
+
+\subsubsection*{Data Visualization with Matplotlib and Pandas}
+Demonstrate graphing functions and datasets, highlighting calculus concepts.
+
+\subsubsection*{Solving Equations with SciPy}
+Show how to solve equations that commonly appear in calculus.
+
+\subsubsection*{Numerical Methods in Python}
+Discuss Python's capabilities in numerical differentiation and integration, useful in calculus.
+
+\subsubsection*{Using Python for Limits and Continuity}
+Examples showcasing how Python can help in understanding limits and continuity in functions.
+
+\subsection*{Interactive Learning with Google Colab}
+Highlight the benefits of using Colab notebooks for interactive calculus learning, including real-time collaboration and easy sharing.
+
+\subsection*{Creating a Colab Notebook for Practice Problems}
+
+In this section, we will guide you through creating a Google Colab notebook to solve calculus practice problems using Python.
+
+\subsubsection*{Setting Up Your Colab Notebook}
+To start solving calculus problems with Python:
+
+\begin{enumerate}
+    \item Open \href{https://colab.research.google.com/}{Google Colab}.
+    \item Choose 'New Notebook' to create a blank notebook.
+    \item Rename the notebook to something descriptive, like 'Calculus Practice'.
+\end{enumerate}
+
+\subsubsection*{Installing Necessary Libraries}
+At the beginning of your notebook, install any necessary Python libraries. For these exercises, ensure NumPy, SymPy, and Matplotlib are available:
+
+\begin{verbatim}
+Remove # if the following packages are not installed:
+# !pip install numpy sympy matplotlib
+\end{verbatim}
+
+\subsubsection*{Solving Exercise 1: Graphing a Linear Function}
+Let's solve the first exercise, which involves graphing a linear function.
+
+\begin{verbatim}
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Define the function
+def f(x):
+    return 3*x - 2
+
+# Generate x values
+x = np.linspace(-10, 10, 400)
+
+# Plot the function
+plt.plot(x, f(x))
+plt.xlabel('x')
+plt.ylabel('f(x)')
+plt.title('Graph of f(x) = 3x - 2')
+plt.grid(True)
+plt.show()
+
+# Slope and y-intercept
+print("Slope: 3")
+print("Y-intercept: -2")
+\end{verbatim}
+
+\subsubsection*{Solving Exercise 2: Identifying Undefined Points in a Function}
+Now, let's address the second exercise, which requires identifying for what values the function \( g(x) = \frac{1}{x} \) is undefined.
+
+\begin{verbatim}
+import sympy as sp
+
+x = sp.symbols('x')
+g = 1/x
+
+# Display the function
+sp.plot(g, (x, -10, 10), title='Graph of g(x) = 1/x',
+        xlabel='x', ylabel='g(x)', ylim=(-10, 10))
+
+# Identifying undefined points
+print("g(x) is undefined for x = 0")
+\end{verbatim}
+
+\subsection*{Accessing the Completed Colab Notebook}
+
+The Colab notebook we've discussed is available for viewing and interaction. You can access it by clicking on the following link: \href{https://colab.research.google.com/drive/1HF-cmwqfIZ803i1i-CFyR7ssWsDt7WvV}{Finished Colab Notebook on Graphing and Analysis}. This link will take you directly to the notebook hosted on Google Colab, where you can view the complete code and run it yourself.
+
+\url{https://colab.research.google.com/drive/1HF-cmwqfIZ803i1i-CFyR7ssWsDt7WvV}
+
+\subsection*{Adding the Notebook to Your GitHub Repository}
+
+If you have downloaded the Colab notebook to your local machine and want to add it to your Git repository, follow these terminal commands on your Ubuntu machine:
+
+\begin{verbatim}
+# Navigate to your local Git repository directory
+cd path/to/your/repo
+
+# Add the Colab notebook file to the repository
+git add name_of_the_notebook.ipynb
+
+# Commit the addition with a descriptive message
+git commit -m "Add Colab notebook for calculus exercises"
+
+# Push the changes to the remote GitHub repository
+git push origin main
+\end{verbatim}
+
+%Replace `path/to/your/repo` with the actual path to your local Git repository and `name_of_the_notebook.ipynb` with the filename of your Colab notebook.
+
+\subsubsection*{Using Colab Notebooks for Problem Solving}
+These examples demonstrate how you can use Google Colab and Python to solve and visualize calculus problems. You can use similar steps to tackle other exercises, explore different functions, and deepen your understanding of calculus concepts.
+
+\subsection*{Conclusion: Interactive Learning with Colab Notebooks}
+
+Google Colab notebooks offer an interactive and accessible way to explore calculus using Python. By integrating theoretical concepts with computational examples, students can gain a deeper understanding of calculus. We encourage you to use these notebooks to solve exercises, visualize mathematical concepts, and explore the vast possibilities that Python and Colab offer.
+
+
+\subsection*{Conclusion: Python and Colab in Calculus}
+
+Python, with its comprehensive libraries, offers a powerful toolset for math exploration. Combined with Google Colab, it provides an accessible, interactive platform for learning and experimentation. Embrace Python and Colab to enhance your understanding of math and to explore mathematical problems creatively and efficiently.
+
 
 \chapter{Basic \LaTeX\ Guide}
 \section*{A Quick Start to Your \LaTeX\ Journey}

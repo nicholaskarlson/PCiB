@@ -1,14 +1,24 @@
 \documentclass[a4paper,12pt]{book}
 \usepackage{graphicx} % For graphics
 \usepackage{float}
+\usepackage{comment}
 \usepackage{tikz}
 \usepackage{tkz-euclide} % Add this line to include the tkz-euclide package
 \usetikzlibrary{calc}
+\usetikzlibrary{matrix}
 \usepackage{amsmath}
 \usepackage{enumitem}
 \usepackage{amssymb}
 \usepackage{pgfplots}
 \pgfplotsset{compat=newest}
+
+% Define custom styles for holdot and soldot
+\tikzset{
+    holdot/.style={color=black,only marks,mark=*},
+    soldot/.style={color=black,fill=white,only marks,mark=*},
+}
+
+
 \usepgfplotslibrary{fillbetween} 
 
 % Configure hyperref package to color links blue
@@ -50,6 +60,7 @@
 
 \begin{document}
 
+
 % --- Book Cover ---
 \begin{titlepage}
     \begin{tikzpicture}[remember picture, overlay]
@@ -65,7 +76,7 @@
         
         % Title and additional info
         \node at (current page.center) [font=\Huge, text width=0.8\textwidth, align=center] 
-            {\textbf{Pre-Calculus in Brief with Python, Colab, GitHub, and \LaTeX  \\ PCiB - Version 0.64}};
+            {\textbf{Pre-Calculus in Brief with Python, Colab, GitHub, and \LaTeX  \\ PCiB - Version 0.65}};
             
         \node[align=center, font=\large] at (current page.center) 
             [yshift=-2.5cm] {\today}; % <- This is the compilation date
@@ -1186,12 +1197,173 @@ This problem requires drawing a point \( T \) and two rays \( TA \) and \( TB \)
 
 % --- End of Additional Example Problems Section ---
 
-% HERE
-
-
 \subsection{Vectors in Geometry}
 \label{subsec:vectors_in_geometry}
-Introduce the concept of vectors, their representation, and significance in geometry and calculus.
+
+In geometry and calculus, vectors are essential mathematical objects that have both magnitude and direction. They are used to represent various physical quantities such as displacement, velocity, and force. Vectors are represented as arrows in a coordinate system, where the length of the arrow represents the magnitude of the vector, and the direction of the arrow represents the direction of the vector.
+
+\subsection{Vector Representation}
+
+A vector in a two-dimensional space can be represented as:
+
+\[
+\vec{v} = \begin{bmatrix}
+v_x \\
+v_y
+\end{bmatrix}
+\]
+
+Here, $\vec{v}$ is the vector, $v_x$ is its horizontal component, and $v_y$ is its vertical component. The magnitude of the vector can be calculated using the Pythagorean theorem:
+
+\[
+|\vec{v}| = \sqrt{v_x^2 + v_y^2}
+\]
+
+In three-dimensional space, a vector can be represented as:
+
+\[
+\vec{v} = \begin{bmatrix}
+v_x \\
+v_y \\
+v_z
+\end{bmatrix}
+\]
+
+The magnitude of a three-dimensional vector is calculated similarly:
+
+\[
+|\vec{v}| = \sqrt{v_x^2 + v_y^2 + v_z^2}
+\]
+
+\subsection{Vector Operations}
+
+Vectors can be added and subtracted component-wise. For example, to add two vectors $\vec{v}$ and $\vec{w}$:
+
+\[
+\vec{v} + \vec{w} = \begin{bmatrix}
+v_x + w_x \\
+v_y + w_y
+\end{bmatrix}
+\]
+
+The dot product of two vectors $\vec{v}$ and $\vec{w}$ is given by:
+
+\[
+\vec{v} \cdot \vec{w} = v_x \cdot w_x + v_y \cdot w_y
+\]
+
+And the cross product of two vectors $\vec{v}$ and $\vec{w}$ in three-dimensional space is:
+
+\[
+\vec{v} \times \vec{w} = \begin{bmatrix}
+v_y \cdot w_z - v_z \cdot w_y \\
+v_z \cdot w_x - v_x \cdot w_z \\
+v_x \cdot w_y - v_y \cdot w_x
+\end{bmatrix}
+\]
+
+\subsection{Visual Representation}
+
+Let's visualize a vector $\vec{v}$ in two dimensions using TikZ:
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \draw[->, thick] (0,0) -- (3,2) node[midway, above] {$\vec{v}$};
+        \draw[dashed] (0,0) -- (3,0);
+        \draw[dashed] (3,0) -- (3,2);
+        \node[below] at (1.5,0) {$v_x$};
+        \node[right] at (3,1) {$v_y$};
+    \end{tikzpicture}
+    \caption{Representation of vector $\vec{v}$ in two dimensions.}
+    \label{fig:vector_representation}
+\end{figure}
+
+In Figure~\ref{fig:vector_representation}, we have a vector $\vec{v}$ with horizontal component $v_x$ and vertical component $v_y$.
+
+\subsection{Significance in Geometry and Calculus}
+
+Vectors play a crucial role in various mathematical and scientific fields. In geometry, they are used to describe lines, planes, and angles. In calculus, vectors are used to define derivatives and integrals of vector-valued functions. They are also fundamental in physics for modeling physical quantities and analyzing motion.
+
+Understanding vectors is essential for tackling problems in fields like mechanics, electromagnetism, and computer graphics, where vector operations and geometric concepts are prevalent.
+
+In the upcoming sections, we will explore vector algebra, vector calculus, and their applications in greater detail.
+
+\subsection{Matrices in Geometry}
+\label{subsec:matrices_in_geometry}
+
+Matrices are fundamental mathematical objects that play a crucial role in various fields, including geometry and calculus. In this section, we will introduce the concept of matrices, their representation, and their significance in geometry and calculus.
+
+\subsection{Matrix Representation}
+
+A matrix is a rectangular array of numbers or symbols arranged in rows and columns. In general, a matrix $A$ is represented as:
+
+\[
+A = \begin{bmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\
+a_{21} & a_{22} & \cdots & a_{2n} \\
+\vdots & \vdots & \ddots & \vdots \\
+a_{m1} & a_{m2} & \cdots & a_{mn}
+\end{bmatrix}
+\]
+
+Here, $a_{ij}$ represents the element in the $i$-th row and $j$-th column of the matrix. The size of the matrix is determined by the number of rows ($m$) and columns ($n$).
+
+\subsection{Matrix Operations}
+
+Matrices support various operations, including addition, subtraction, and scalar multiplication. Matrix addition and subtraction are performed element-wise. For example, given two matrices $A$ and $B$ of the same size:
+
+\[
+C = A + B = \begin{bmatrix}
+a_{11}+b_{11} & a_{12}+b_{12} & \cdots & a_{1n}+b_{1n} \\
+a_{21}+b_{21} & a_{22}+b_{22} & \cdots & a_{2n}+b_{2n} \\
+\vdots & \vdots & \ddots & \vdots \\
+a_{m1}+b_{m1} & a_{m2}+b_{m2} & \cdots & a_{mn}+b_{mn}
+\end{bmatrix}
+\]
+
+Scalar multiplication involves multiplying each element of the matrix by a scalar value. For example, if $c$ is a scalar:
+
+\[
+D = cA = \begin{bmatrix}
+ca_{11} & ca_{12} & \cdots & ca_{1n} \\
+ca_{21} & ca_{22} & \cdots & ca_{2n} \\
+\vdots & \vdots & \ddots & \vdots \\
+ca_{m1} & ca_{m2} & \cdots & ca_{mn}
+\end{bmatrix}
+\]
+
+\subsection{Visual Representation}
+
+Let's visualize a matrix using TikZ:
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \matrix (m) [matrix of math nodes, nodes in empty cells,
+            left delimiter={[},right delimiter={]}]
+        {
+            a_{11} & a_{12} & a_{13} \\
+            a_{21} & a_{22} & a_{23} \\
+        };
+        \draw[color=blue] (m-1-1.north west) -- (m-1-3.north east)
+              -- (m-2-3.south east) -- (m-2-1.south west) -- cycle;
+    \end{tikzpicture}
+    \caption{Representation of a matrix $2 \times 3$.}
+    \label{fig:matrix_representation}
+\end{figure}
+
+In Figure~\ref{fig:matrix_representation}, we have a matrix with two rows and three columns.
+
+\subsection{Significance in Geometry and Calculus}
+
+Matrices are used extensively in geometry and calculus to represent and manipulate geometric transformations. For example, in 2D and 3D transformations, matrices are used to perform translations, rotations, scaling, and shearing operations.
+
+In calculus, matrices are employed in the study of multivariable functions and linear transformations. They are used to represent systems of linear equations, and matrix calculus plays a crucial role in optimization and differential equations.
+
+Understanding matrices is essential for solving complex problems in computer graphics, engineering, physics, and many other fields where linear algebraic operations are prevalent.
+
+In an upcoming chapter, we will further explore matrix algebra and matrix algebra applications in greater detail.
 
 
 \subsection{Angles and Their Types}
@@ -3639,6 +3811,87 @@ Introduce the concept and process of mathematical induction and provide examples
 
 
 % --- End of Algebra Chapter ---
+
+
+\chapter{Topics Related to Matrix Algebra}
+
+In this chapter, we will explore the significance of matrices in both geometry and calculus. Matrices are versatile mathematical tools with applications in various fields. We will delve into their role in representing geometric transformations, their use in calculus, and their real-world applications.
+
+\section{Geometry and Matrices}
+
+Matrices play a crucial role in representing and manipulating geometric transformations in both 2D and 3D spaces. We will discuss common geometric transformations and their matrix representations, including translation, rotation, scaling, and shearing.
+
+\subsection{Translation}
+
+Translation matrices move points in space and are essential for shifting objects in geometric transformations.
+
+\subsection{Rotation}
+
+Rotation matrices change the orientation of objects and are used to rotate shapes in 2D and 3D spaces.
+
+\subsection{Scaling}
+
+Scaling matrices enlarge or shrink objects and are fundamental in resizing geometric figures.
+
+\subsection{Shearing}
+
+Shearing matrices skew objects, allowing us to deform shapes in various ways.
+
+\section{Calculus and Matrices}
+
+In calculus, matrices are employed in various ways, particularly in the study of multivariable functions and linear transformations. We will explore their applications in systems of linear equations, matrix calculus, and linear transformations.
+
+\subsection{Systems of Linear Equations}
+
+Matrices are used to represent systems of linear equations, which can be solved using techniques like Gaussian elimination. We will examine the augmented matrix form of a system.
+
+\subsection{Matrix Calculus}
+
+Matrix calculus involves the differentiation of matrices and is essential for optimization problems and differential equations involving matrix-valued functions.
+
+\subsection{Linear Transformations}
+
+Matrices represent linear transformations in multivariable calculus. We will discuss how Jacobian matrices are used to linearize multivariable functions.
+
+\subsection{Matrix Inversion}
+
+Matrix inversion is a fundamental operation that allows us to find the inverse of a matrix. We will explore the conditions for matrix invertibility and methods for finding the inverse.
+
+\subsection{Determinants}
+
+Determinants of matrices provide valuable information about their properties. We will discuss how to compute determinants and their significance in linear transformations.
+
+\section{Applications in Real-World Fields}
+
+Matrices find applications in various real-world fields, making them indispensable tools in mathematics. We will explore their significance in:
+
+\begin{itemize}
+    \item Computer Graphics
+    \item Engineering
+    \item Physics
+    \item Data Science
+    \item Economics
+\end{itemize}
+
+These applications demonstrate the wide-ranging impact of matrices in different domains.
+
+\section{Matrices in Machine Learning}
+
+Matrices are fundamental in machine learning, where they are used to represent data and model relationships between variables. We will explore how matrices are employed in:
+
+\begin{itemize}
+    \item Data Representation
+    \item Linear Regression
+    \item Principal Component Analysis (PCA)
+    \item Neural Networks
+\end{itemize}
+
+Understanding matrices is essential for grasping the core concepts of machine learning algorithms.
+
+In summary, matrices are powerful mathematical constructs that find applications in geometry, calculus, machine learning, and diverse fields. 
+
+
+
 
 \chapter{Topics in Trigonometry}
 \subsection*{Understanding the Basic Trig Functions}
@@ -6387,3 +6640,4 @@ Congratulations! You have taken your first steps into the world of \LaTeX. With 
 % \printindex
 
 \end{document}
+

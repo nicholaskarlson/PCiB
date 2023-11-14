@@ -1565,8 +1565,6 @@ In this section, we provided solutions and explanations for the practice exercis
 
 In this section, we defined angles, discussed various types of angles, and explored their measurement in degrees and radians. Radians were highlighted for their importance in mathematics and science, particularly in trigonometry and calculus. Understanding angles and their measurement units is essential for various mathematical and scientific applications.
 
-% HERE
-
 \subsection{Planes and Space}
 \label{subsec:planes_and_space}
 
@@ -1667,17 +1665,231 @@ Therefore, the equation of the plane is \( z = 3 \).
 \end{solution}
 
 
+% HERE
+
 \section{Triangles and Congruence}
 \label{sec:triangles_and_congruence}
-Triangles form the basis of much of geometric reasoning. This section delves into different types of triangles and the concept of congruence.
 
+Triangles are fundamental geometric shapes that play a crucial role in various mathematical and practical contexts. In this section, we explore different types of triangles, discuss the concept of congruence, and highlight the significance of triangles in geometry.
 
 \subsection{Types of Triangles}
+
+Triangles can be classified into several types based on their sides and angles:
+
+Based on Sides
+\begin{comment}
+\begin{enumerate}
+    \item \textbf{Equilateral Triangle:} All three sides are of equal length. Each angle measures $60^\circ$. (See Figure \ref{fig:equilateral_triangle})
+    
+    \begin{figure}[H]
+        \centering
+        \begin{tikzpicture}
+            \coordinate (A) at (0,0);
+            \coordinate (B) at (2,0);
+            \coordinate (C) at (1,{sqrt(3)});
+            
+            \draw (A) -- (B) -- (C) -- cycle;
+            
+            \node[below] at (A) {$A$};
+            \node[below] at (B) {$B$};
+            \node[above] at (C) {$C$};
+            
+            \draw (A) -- node[above left] {$a$} (C);
+            \draw (B) -- node[above right] {$a$} (C);
+            \draw (A) -- node[below] {$a$} (B);
+            
+            \draw pic[draw,angle radius=0.4cm,"$60^\circ$",angle eccentricity=1.5] {angle=B--A--C};
+        \end{tikzpicture}
+        \caption{Equilateral Triangle}
+        \label{fig:equilateral_triangle}
+    \end{figure}
+    
+    \item \textbf{Isosceles Triangle:} Two sides are of equal length, and the angles opposite those sides are congruent. The third side may have a different length. (See Figure \ref{fig:isosceles_triangle})
+    
+    \begin{figure}[H]
+        \centering
+        \begin{tikzpicture}
+            \coordinate (A) at (0,0);
+            \coordinate (B) at (2,0);
+            \coordinate (C) at (1,1.5);
+            
+            \draw (A) -- (B) -- (C) -- cycle;
+            
+            \node[below] at (A) {$A$};
+            \node[below] at (B) {$B$};
+            \node[above] at (C) {$C$};
+            
+            \draw (A) -- node[above left] {$a$} (C);
+            \draw (B) -- node[above right] {$a$} (C);
+            \draw (A) -- node[below] {$b$} (B);
+            
+            \draw pic[draw,angle radius=0.4cm,"$\alpha$",angle eccentricity=1.5] {angle=B--A--C};
+            \draw pic[draw,angle radius=0.4cm,"$\alpha$",angle eccentricity=1.5] {angle=C--B--A};
+        \end{tikzpicture}
+        \caption{Isosceles Triangle}
+        \label{fig:isosceles_triangle}
+    \end{figure}
+    
+    \item \textbf{Scalene Triangle:} All three sides have different lengths, and all three angles are distinct. (See Figure \ref{fig:scalene_triangle})
+    
+    \begin{figure}[H]
+        \centering
+        \begin{tikzpicture}
+            \coordinate (A) at (0,0);
+            \coordinate (B) at (2,0);
+            \coordinate (C) at (1,1.2);
+            
+            \draw (A) -- (B) -- (C) -- cycle;
+            
+            \node[below] at (A) {$A$};
+            \node[below] at (B) {$B$};
+            \node[above] at (C) {$C$};
+            
+            \draw (A) -- node[above left] {$a$} (C);
+            \draw (B) -- node[above right] {$b$} (C);
+            \draw (A) -- node[below] {$c$} (B);
+            
+            \draw pic[draw,angle radius=0.4cm,"$\alpha$",angle eccentricity=1.5] {angle=B--A--C};
+            \draw pic[draw,angle radius=0.4cm,"$\beta$",angle eccentricity=1.5] {angle=C--B--A};
+            \draw pic[draw,angle radius=0.4cm,"$\gamma$",angle eccentricity=1.5] {angle=A--C--B};
+        </tikzpicture}
+        \caption{Scalene Triangle}
+        \label{fig:scalene_triangle}
+    \end{figure}
+\end{enumerate}
+
+\end{comment}
+Based on Angles
+
+\begin{comment}
+\begin{enumerate}
+    \item \textbf{Acute Triangle:} All three angles are acute (less than $90^\circ$). (See Figure \ref{fig:acute_triangle})
+    
+    \begin{figure}[H]
+        \centering
+        \begin{tikzpicture}
+            \coordinate (A) at (0,0);
+            \coordinate (B) at (2,0);
+            \coordinate (C) at (1,1.5);
+            
+            \draw (A) -- (B) -- (C) -- cycle;
+            
+            \node[below] at (A) {$A$};
+            \node[below] at (B) {$B$};
+            \node[above] at (C) {$C$};
+            
+            \draw (A) -- node[above left] {$a$} (C);
+            \draw (B) -- node[above right] {$b$} (C);
+            \draw (A) -- node[below] {$c$} (B);
+            
+            \draw pic[draw,angle radius=0.4cm,"$\alpha$",angle eccentricity=1.5] {angle=B--A--C};
+            \draw pic[draw,angle radius=0.4cm,"$\beta$",angle eccentricity=1.5] {angle=C--B--A};
+            \draw pic[draw,angle radius=0.4cm,"$\gamma$",angle eccentricity=1.5] {angle=A--C--B};
+        \end{tikzpicture}
+        \caption{Acute Triangle}
+        \label{fig:acute_triangle}
+    \end{figure}
+    
+    \item \textbf{Obtuse Triangle:} One angle is obtuse (greater than $90^\circ$). (See Figure \ref{fig:obtuse_triangle})
+    
+    \begin{figure}[H]
+        \centering
+        \begin{tikzpicture}
+            \coordinate (A) at (0,0);
+            \coordinate (B) at (2,0);
+            \coordinate (C) at (1,1.2);
+            
+            \draw (A) -- (B) -- (C) -- cycle;
+            
+            \node[below] at (A) {$A$};
+            \node[below] at (B) {$B$};
+            \node[above] at (C) {$C$};
+            
+            \draw (A) -- node[above left] {$a$} (C);
+            \draw (B) -- node[above right] {$b$} (C);
+            \draw (A) -- node[below] {$c$} (B);
+            
+            \draw pic[draw,angle radius=0.4cm,"$\alpha$",angle eccentricity=1.5] {angle=B--A--C};
+            \draw pic[draw,angle radius=0.4cm,"$\beta$",angle eccentricity=1.5] {angle=C--B--A};
+            \draw pic[draw,angle radius=0.4cm,"$\gamma$",angle eccentricity=1.5] {angle=A--C--B};
+        </tikzpicture}
+        \caption{Obtuse Triangle}
+        \label{fig:obtuse_triangle}
+    \end{figure}
+    
+    \item \textbf{Right Triangle:} One angle is a right angle ($90^\circ$). (See Figure \ref{fig:right_triangle})
+    
+    \begin{figure}[H]
+        \centering
+        \begin{tikzpicture}
+            \coordinate (A) at (0,0);
+            \coordinate (B) at (2,0);
+            \coordinate (C) at (0,1.5);
+            
+            \draw (A) -- (B) -- (C) -- cycle;
+            
+            \node[below] at (A) {$A$};
+            \node[below] at (B) {$B$};
+            \node[left] at (C) {$C$};
+            
+            \draw (A) -- node[above left] {$a$} (C);
+            \draw (B) -- node[above right] {$b$} (C);
+            \draw (A) -- node[below] {$c$} (B);
+            
+            \draw pic[draw,angle radius=0.4cm,"$\alpha$",angle eccentricity=1.5] {angle=B--A--C};
+            \draw pic[draw,angle radius=0.4cm,"$\beta$",angle eccentricity=1.5] {angle=C--B--A};
+            \draw pic[draw,angle radius=0.4cm,"$90^\circ$",angle eccentricity=1.5] {angle=A--C--B};
+        \end{tikzpicture}
+        \caption{Right Triangle}
+        \label{fig:right_triangle}
+    \end{figure}
+\end{enumerate}
+\end{comment}
+\subsection{Congruence of Triangles}
+
+Congruence is a fundamental concept in geometry that deals with the equality of shapes and sizes. Two triangles are considered congruent if their corresponding sides and angles are equal. Several congruence criteria can be used to determine the congruence of triangles, including Side-Angle-Side (SAS), Side-Side-Side (SSS), Angle-Side-Angle (ASA), and more.
+
+SAS Congruence Criterion
+
+Two triangles are congruent if two sides and the included angle of one triangle are equal to the corresponding two sides and the included angle of the other triangle.
+
+SSS Congruence Criterion
+
+Two triangles are congruent if all three sides of one triangle are equal to the corresponding three sides of the other triangle.
+
+ASA Congruence Criterion
+
+Two triangles are congruent if two angles and the included side of one triangle are equal to the corresponding two angles and the included side of the other triangle.
+
+\subsection{Applications of Triangles}
+
+Triangles have practical applications in various fields, including architecture, engineering, and trigonometry. Here are some examples:
+
+Architecture and Construction
+
+Architects use triangular principles to design stable structures. Triangles are often found in the construction of roofs and trusses, which distribute weight evenly and prevent collapsing.
+
+Engineering
+
+In engineering, triangles are essential for analyzing forces and constructing stable frameworks. The study of statics and structural analysis relies heavily on triangular calculations.
+
+Trigonometry
+
+Trigonometry, the study of the relationships between angles and sides of triangles, is a crucial branch of mathematics used in fields like navigation, physics, and computer graphics.
+
+In the upcoming sections, we will delve deeper into congruence criteria, triangle inequalities, and practical applications of triangles in various fields.
+
+Conclusion
+
+Triangles are fundamental geometric shapes with diverse properties and applications. Understanding the types of triangles and the concept of congruence is essential for solving geometric problems and real-world applications.
+
+
+\subsection{Types of Triangles Again}
 \label{subsec:types_of_triangles}
 Discuss different types of triangles based on sides (equilateral, isosceles, scalene) and angles (acute, right, obtuse).
 
 
-\subsection{Congruence and Similarity}
+\subsection{Congruence and Similarity Again}
 \label{subsec:congruence_and_similarity}
 Define congruence and similarity in the context of triangles, including criteria like SSS, SAS, ASA, and RHS.
 

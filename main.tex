@@ -6,6 +6,8 @@
 \usepackage{tkz-euclide} % Add this line to include the tkz-euclide package
 \usetikzlibrary{calc}
 \usetikzlibrary{matrix}
+\usetikzlibrary{angles,quotes} % For drawing and labeling angles
+\usepackage{siunitx}
 \usepackage{amsmath}
 \usepackage{enumitem}
 \usepackage{amssymb}
@@ -17,7 +19,6 @@
     holdot/.style={color=black,only marks,mark=*},
     soldot/.style={color=black,fill=white,only marks,mark=*},
 }
-
 
 \usepgfplotslibrary{fillbetween} 
 
@@ -59,7 +60,6 @@
 \newtheorem{discussion}{Discussion}
 
 \begin{document}
-
 
 % --- Book Cover ---
 \begin{titlepage}
@@ -513,8 +513,6 @@ Calculate the slope of the line connecting points $(-2, 5)$ and $(2, 1)$.
 
 % --- End of Coordinate Geometry Section ---
 
-
-
 % Example Problems for Coordinate Geometry Section
 
 \section*{Example Problems}
@@ -646,7 +644,6 @@ The point \((-3, 4)\) is in Quadrant II because the x-coordinate is negative and
 % Add more examples and exercises as needed.
 
 % --- End of The Cartesian Plane - Details Section ---
-
 
 % Additional Example Problems for The Cartesian Plane - Details Section
 
@@ -1365,11 +1362,210 @@ Understanding matrices is essential for solving complex problems in computer gra
 
 In an upcoming chapter, we will further explore matrix algebra and matrix algebra applications in greater detail.
 
-
 \subsection{Angles and Their Types}
 \label{subsec:angles_and_their_types}
-Define angles, discuss different types of angles (acute, obtuse, right, etc.), and their measurement in degrees and radians. Include an expanded section on radians.
 
+In this section, we will define angles, discuss different types of angles, and their measurement in degrees and radians. We will also provide an expanded section on radians.
+
+\subsection{Angles}
+
+An angle is a geometric figure formed by two rays with a common endpoint called the vertex. Angles are often measured in degrees or radians and play a fundamental role in geometry and trigonometry.
+
+\begin{figure}[H]
+    \centering
+    \begin{tikzpicture}
+        \coordinate (O) at (0,0);
+        \coordinate (A) at (1.5,0);
+        \coordinate (B) at (1.2,1);
+        \draw[->] (O) -- (A);
+        \draw[->] (O) -- (B);
+        \draw pic[draw,angle radius=1.2cm,"$\theta$",angle eccentricity=1.5] {angle=A--O--B};
+    \end{tikzpicture}
+    \caption{An angle $\theta$ formed by two rays.}
+    \label{fig:angle_definition}
+\end{figure}
+
+\subsection{Types of Angles}
+
+There are several types of angles based on their measurement:
+
+\begin{itemize}
+    \item \textbf{Acute Angle:} An acute angle is an angle whose measure is less than 90 degrees.
+    
+    \item \textbf{Obtuse Angle:} An obtuse angle is an angle whose measure is greater than 90 degrees but less than 180 degrees.
+    
+    \item \textbf{Right Angle:} A right angle is an angle whose measure is exactly 90 degrees. It is often denoted as $\ang{90}$.
+    
+    \item \textbf{Straight Angle:} A straight angle is an angle whose measure is exactly 180 degrees. It forms a straight line.
+    
+    \item \textbf{Reflex Angle:} A reflex angle is an angle whose measure is greater than 180 degrees but less than 360 degrees.
+\end{itemize}
+
+
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}
+        \coordinate (O) at (0,0);
+        \coordinate (A) at (1.5,0);
+        \coordinate (B) at (1.2,1);
+        
+        % Acute Angle
+        \draw[->] (O) -- (A);
+        \draw[->] (O) -- (B);
+        \draw pic[draw,angle radius=1.2cm,"$\alpha$",angle eccentricity=1.5] {angle=A--O--B};
+        
+        % Obtuse Angle
+        \coordinate (C) at (-1.5,0);
+        \draw[->] (O) -- (C);
+        \draw pic[draw,angle radius=1.2cm,"$\beta$",angle eccentricity=1.5] {angle=C--O--A};
+        
+        % Right Angle
+        \coordinate (D) at (0,-1.5);
+        \draw[->] (O) -- (D);
+        \draw pic[draw,angle radius=1.2cm,"$\gamma$",angle eccentricity=1.5] {angle=A--O--D};
+        
+        % Straight Angle
+        \coordinate (E) at (0,1.5);
+        \draw[->] (O) -- (E);
+        \draw pic[draw,angle radius=1.2cm,"$\delta$",angle eccentricity=1.5] {angle=A--O--E};
+        
+        % Reflex Angle
+        \coordinate (F) at (-1.2,-1.2);
+        \draw[->] (O) -- (F);
+        \draw pic[draw,angle radius=1.2cm,"$\epsilon$",angle eccentricity=1.5] {angle=A--O--F};
+    \end{tikzpicture}
+    \caption{Types of angles: acute ($\alpha$), obtuse ($\beta$), right ($\gamma$), straight ($\delta$), and reflex ($\epsilon$).}
+    \label{fig:angle_types}
+\end{figure}
+
+
+
+
+
+\subsection{Measurement of Angles}
+
+\paragraph{Degrees:} Degrees are a common unit of angle measurement. A full circle is divided into 360 degrees, and each degree is further divided into 60 minutes and each minute into 60 seconds.
+
+\paragraph{Radians:} Radians are an alternative unit of angle measurement used in many mathematical and scientific applications. A full circle is equivalent to $2\pi$ radians.
+
+\subsection{Expanded Section: Radians}
+
+Radians are a fundamental unit for measuring angles in mathematics and physics. They offer advantages in trigonometric calculations and calculus. One radian is defined as the angle subtended at the center of a circle by an arc whose length is equal to the radius of the circle. In other words, if the arc length is equal to the radius, the angle in radians is 1 radian.
+
+
+
+
+
+\begin{figure}[htbp]
+    \centering
+    \begin{tikzpicture}
+        \coordinate (O) at (0,0);
+        \coordinate (A) at (1.5,0);
+        \coordinate (B) at ({1.5*cos(45)},{1.5*sin(45)});
+        \draw (O) circle (1.5cm);
+        \draw (O) -- (A);
+        \draw (O) -- (B);
+        
+        % Angle for 1 radian
+        \draw pic[draw,angle radius=1cm,"$1$ rad",angle eccentricity=1.3] {angle=A--O--B};
+
+        % Angle for pi radians (half circle)
+        \coordinate (C) at (-1.5,0);
+        \draw pic[draw,angle radius=0.7cm,"$\pi$ rad",angle eccentricity=1.3] {angle=C--O--A};
+    \end{tikzpicture}
+    \caption{One radian ($1$ rad) and $\pi$ radians ($\pi$ rad) in a circle.}
+    \label{fig:radians_definition}
+\end{figure}
+
+
+
+In a full circle, there are $2\pi$ radians. Converting between degrees and radians is done using the formula: $\text{degrees} = \text{radians} \times \left(\frac{180}{\pi}\right)$.
+
+\paragraph{Advantages of Radians:}
+
+\begin{itemize}
+    \item Radians simplify trigonometric calculations, especially when dealing with calculus, as they directly relate to the arc length.
+    
+    \item In calculus, many trigonometric derivatives and integrals are simpler when angles are measured in radians.
+\end{itemize}
+
+\subsubsection*{Practice Exercises}
+
+1. Calculate the measure of the angle in radians when given the arc length and radius of a circle.
+
+2. Convert angles between degrees and radians.
+
+3. Determine the type of angle (acute, obtuse, right, etc.) given its measure.
+
+4. Solve trigonometric equations involving angles measured in radians.
+
+\subsubsection*{Angles and Their Types - Answer Key}
+\label{subsec:angles_and_their_types_answers}
+
+In this section, we provide solutions and explanations for the practice exercises related to angles and their types.
+
+\begin{enumerate}
+    \item \textbf{Calculate the measure of the angle in radians when given the arc length and radius of a circle.}
+    
+    \textbf{Solution:} To calculate the measure of the angle in radians ($\theta$) when given the arc length ($s$) and radius ($r$) of a circle, we can use the formula:
+    
+    \[
+    \theta = \frac{s}{r}
+    \]
+    
+    \textbf{Explanation:} This formula relates the angle in radians to the arc length and radius. By dividing the arc length by the radius, we obtain the angle in radians. Radians measure the fraction of the circumference covered by the arc.
+    
+    \item \textbf{Convert angles between degrees and radians.}
+    
+    \textbf{Solution:} To convert angles between degrees and radians, we can use the following conversion formulas:
+    
+    \textbf{Degrees to Radians:} To convert an angle from degrees ($\theta_{\text{deg}}$) to radians ($\theta_{\text{rad}}$), use the formula:
+    
+    \[
+    \theta_{\text{rad}} = \frac{\theta_{\text{deg}}}{180^\circ} \pi
+    \]
+    
+    \textbf{Radians to Degrees:} To convert an angle from radians ($\theta_{\text{rad}}$) to degrees ($\theta_{\text{deg}}$), use the formula:
+    
+    \[
+    \theta_{\text{deg}} = \frac{\theta_{\text{rad}}}{\pi} \cdot 180^\circ
+    \]
+    
+    \textbf{Explanation:} These conversion formulas allow us to switch between the two common units of angle measurement. To convert degrees to radians, divide by 180 and multiply by $\pi$, and to convert radians to degrees, divide by $\pi$ and multiply by 180.
+    
+    \item \textbf{Determine the type of angle (acute, obtuse, right, etc.) given its measure.}
+    
+    \textbf{Solution:} To determine the type of angle based on its measure, use the following classifications:
+    
+    \begin{itemize}
+        \item \textbf{Acute Angle:} An angle with a measure less than 90 degrees.
+        
+        \item \textbf{Obtuse Angle:} An angle with a measure greater than 90 degrees but less than 180 degrees.
+        
+        \item \textbf{Right Angle:} An angle with a measure of exactly 90 degrees.
+        
+        \item \textbf{Straight Angle:} An angle with a measure of exactly 180 degrees.
+        
+        \item \textbf{Reflex Angle:} An angle with a measure greater than 180 degrees but less than 360 degrees.
+    \end{itemize}
+    
+    \textbf{Explanation:} These classifications are based on the measure of the angle. Simply compare the given angle measure to these categories to determine its type.
+    
+    \item \textbf{Solve trigonometric equations involving angles measured in radians.}
+    
+    \textbf{Solution:} To solve trigonometric equations involving angles measured in radians, apply trigonometric identities and properties as needed. Solve for the unknown angle.
+    
+    \textbf{Explanation:} Trigonometric equations often involve angles measured in radians. Use trigonometric identities and properties to manipulate equations and isolate the unknown angle. Solve for the angle by applying inverse trigonometric functions, if necessary.
+    
+\end{enumerate}
+
+In this section, we provided solutions and explanations for the practice exercises related to angles and their types. These exercises covered angle measurement, conversion between degrees and radians, angle classification, and solving trigonometric equations involving radians.
+
+\subsubsection*{Summary}
+
+In this section, we defined angles, discussed various types of angles, and explored their measurement in degrees and radians. Radians were highlighted for their importance in mathematics and science, particularly in trigonometry and calculus. Understanding angles and their measurement units is essential for various mathematical and scientific applications.
+
+% HERE
 
 \subsection{Planes and Space}
 \label{subsec:planes_and_space}
@@ -3562,9 +3758,6 @@ For the function \( g(x) = 3x^3 - x \), find the turning points and discuss the 
     \end{solution}
 \end{enumerate}
 
-% End of Solutions Section
-
-% HERE-11Nov2023
 
 \subsection{Rational Functions}
 \label{subsec:rational_functions}
@@ -4712,9 +4905,6 @@ In sum, the reciprocal functions of cosine and sine are less commonly used but e
 
 These graphs demonstrate the behavior of the secant and cosecant functions and their asymptotic nature at points where their respective sine and cosine functions are zero. Understanding these graphs is essential for solving trigonometric equations and in calculus, particularly when dealing with integrals that require trigonometric identities or substitutions involving these functions.
 
-
-% HERE
-
 \subsection{Practice Problems}
 \label{subsec:practice_problems_sec_csc}
 
@@ -4746,7 +4936,6 @@ Here are some problems to test your understanding of the secant and cosecant fun
 
 Solutions to these problems will reinforce your understanding of secant and cosecant and prepare you for their use in calculus.
 
-% HERE
 
 \section{Graphs of Trigonometric Functions}
 \label{sec:graphs_trig_functions}
@@ -4977,7 +5166,6 @@ To further enhance understanding of periodicity in trigonometric functions, here
     \item The graph of \( m(x) \) would be an inverted cosine curve (due to the "-2" amplitude) stretched by a factor of \( \frac{1}{4} \) (since the period is \( \frac{2\pi}{|4|} = \frac{\pi}{2} \)), shifted to the left by \( -\frac{\pi}{8} \), and shifted downward by 3 units.
 \end{enumerate}
 
-% HERE
 
 \subsection{Transformations}
 \label{subsec:transformations}
@@ -5000,7 +5188,6 @@ Reflection flips the graph of the function over a specific axis.
 
 \textbf{Reflection over the Y-axis:} For \( f(x) = \sin(x) \), the function \( h(x) = \sin(-x) = -\sin(x) \) (since sine is an odd function) reflects \( f \) over the y-axis.
 
-% HERE
 
 \subsubsection{Translation}
 Translation shifts the graph of the function vertically or horizontally without altering its shape.
@@ -5055,7 +5242,6 @@ To visualize these transformations, consider the following graphs created with t
 
 As seen in Figure~\ref{fig:sine_transformations}, each transformation alters the original sine function in a unique way, illustrating the concepts of scaling, reflection, and translation. Through understanding these transformations, one can analyze and predict the behavior of more complex trigonometric functions.
 
-% HERE
 
 \subsection{Practice Problems}
 \label{subsec:practice_problems_transformations}
@@ -5383,7 +5569,7 @@ Solutions to Practice Problems:
     \]
 \end{enumerate}
 
-% HERE
+
 
 % \subsection{Sum and Difference Formulas}
 % \label{subsec:sum_difference_formulas}
@@ -5601,7 +5787,7 @@ After reviewing the double-angle and half-angle formulas and observing their gra
 
 % These problems can be included in the LaTeX document after the discussion of double-angle and half-angle formulas, offering a practical way for students to apply what they've learned. Remember to adjust the problems or solutions according to the level of your students and the specific focus of your course.
 
-% HERE
+
 
 % \section{Solving Trigonometric Equations}
 % \label{sec:solving_trig_equations}
@@ -5759,7 +5945,7 @@ The solutions for \( x \) in the interval \( [0, 2\pi) \) are \( x = \frac{\pi}{
 
 % End of practice problems section
 
-% HERE
+
 
 % \subsection{Linear Trigonometric Equations}
 % \label{subsec:linear_trig_equations}
@@ -5848,7 +6034,7 @@ The general solution includes all angles where the sine is \( -\frac{1}{2} \). I
 % \end{document}
 
 
-% HERE
+
 
 % \subsection{Inverse Trigonometric Functions}
 % \label{subsec:inverse_trig_functions}
@@ -5976,7 +6162,7 @@ Since $\arctan(1) = \frac{\pi}{4}$, we have $\arctan(y) = \frac{\pi}{4}$, which 
 
 These problems encourage students to apply their knowledge of inverse trigonometric functions to find angles corresponding to given trigonometric values and to solve equations involving these functions. The solutions are presented immediately after each problem for self-checking.
 
-% HERE
+
 
 % \section{Applications of Trigonometry}
 % \label{sec:applications_trigonometry}
@@ -6212,7 +6398,7 @@ Here you can provide the solutions for the above problems, or you may choose to 
 \end{enumerate}
 
 
-% HERE
+
 
 % \subsection{Trigonometric Substitution}
 % \label{subsec:trig_substitution}

@@ -7123,6 +7123,135 @@ You can also include images and tables in your \LaTeX\ documents:
 
 Congratulations! You have taken your first steps into the world of \LaTeX. With practice, you will discover that \LaTeX\ is a powerful tool for creating professional-quality documents, from simple articles to complex books. Embrace the learning curve, explore the vast array of packages available, and join the community of \LaTeX\ users who are ready to help you on your journey. Happy typesetting!
 
+
+
+
+
+\chapter*{Appendix: TI-30XS Calculator Tutorial}
+\addcontentsline{toc}{chapter}{Appendix: TI-30XS Calculator Tutorial}
+\markboth{APPENDIX}{}
+
+This appendix provides material related to the TI-30XS calculator, a tool commonly used in mathematical computations and widely allowed in standardized tests.
+
+\section*{Getting Started with the TI-30XS}
+\addcontentsline{toc}{section}{Getting Started with the TI-30XS}
+\markright{GETTING STARTED WITH THE TI-30XS}
+
+The TI-30XS is a versatile scientific calculator with various functionalities suitable for middle school, high school, and college-level mathematics. 
+
+\subsection*{Basic Operations}
+\begin{itemize}
+    \item \textbf{Turning the Calculator On and Off:} To turn the calculator on, press the \texttt{ON} button. To turn it off, press \texttt{2nd} followed by \texttt{OFF}.
+    \item \textbf{Basic Arithmetic:} Use the numeric keypad for basic arithmetic operations like addition (+), subtraction (-), multiplication ($\times$), and division ($\div$).
+    \item \textbf{Using Memory Functions:} The TI-30XS allows you to store and recall values (please see the calculator's manual).
+\end{itemize}
+
+\subsection*{Advanced Functions}
+\begin{itemize}
+    \item \textbf{Trigonometric Functions:} Calculate trigonometric functions (sin, cos, tan) and their inverses.
+    \item \textbf{Statistical Calculations:} Perform statistical calculations such as mean, sample standard deviation, and population standard deviation.
+\end{itemize}
+
+\section*{Using the TI-30XS in Mathematics}
+\addcontentsline{toc}{section}{Using the TI-30XS in Mathematics}
+\markright{USING THE TI-30XS IN MATHEMATICS}
+
+The TI-30XS is highly useful in various areas of mathematics and statistics.
+
+\subsection*{Algebra and Geometry}
+\begin{itemize}
+    \item \textbf{Solving Equations:} Use the calculator to solve linear and quadratic equations.
+    \item \textbf{Geometry Calculations:} Calculate areas, perimeters, and volumes of geometric shapes.
+\end{itemize}
+
+\subsection*{Statistics}
+\begin{itemize}
+    \item \textbf{Statistical Analysis:} Use statistical functions for data analysis and probability calculations.
+\end{itemize}
+
+
+
+% Expanding TI-30XS Calculator Tutorial with Probability and Statistics Examples and Solutions
+
+\section*{Probability and Statistics Examples and Solutions}
+\addcontentsline{toc}{section}{Probability and Statistics Examples and Solutions}
+\markright{PROBABILITY AND STATISTICS EXAMPLES AND SOLUTIONS}
+
+This section focuses on examples and solutions in probability and statistics.
+
+\subsection*{Example 1: Simple Probability}
+\textbf{Problem:} What is the probability of rolling a 5 on a standard six-sided die?
+
+\textbf{Solution using TI-30XS:}
+\begin{enumerate}
+    \item Recognize that there is 1 favorable outcome (rolling a 5) and 6 total possible outcomes.
+    \item Calculate the probability: \( P(5) = \frac{1}{6} \).
+    \item Enter \(1 \div 6\) on the calculator and press \texttt{ENTER}.
+    \item The calculator displays approximately \(0.1667\), the probability of rolling a 5.
+\end{enumerate}
+
+\subsection*{Example 2: Mean and Standard Deviation}
+\textbf{Problem:} Find the mean and standard deviation of the data set \(4, 7, 8, 5, 10\).
+
+\textbf{Solution using TI-30XS:}
+\begin{enumerate}
+    \item Enter each number in the data set using the \texttt{STAT} mode (please see the manual for details, there are good examples in the manual that will help).
+    \item After entering all the numbers, use the statistical functions to find the mean (\(\overline{x}\)) and sample standard deviation (\(s\)).
+    \item The calculator displays the mean as \(6.8\) and the sample standard deviation as approximately \(2.39\).
+\end{enumerate}
+
+\begin{align*}
+\text{Mean} (\overline{x}) &: 6.80 \\
+\text{Sample Standard Deviation (s)} &: 2.39 \\
+\text{Population Standard Deviation} (\sigma) &: 2.14
+\end{align*}
+
+The dataset \(4, 7, 8, 5, 10\) has two standard deviation measures due to the difference between sample and population standard deviation calculations. The sample standard deviation (\(s\)) is used when the data points are a sample of a larger population. It is calculated using the formula:
+\[ s = \sqrt{\frac{1}{n-1} \sum_{i=1}^{n} (x_i - \overline{x})^2} \]
+
+On the other hand, the population standard deviation (\(\sigma\)) is used when the data points represent an entire population. It is calculated using the formula:
+\[ \sigma = \sqrt{\frac{1}{n} \sum_{i=1}^{n} (x_i - \overline{x})^2} \]
+
+In both formulas, \( n \) is the number of data points, \( x_i \) are the data points, and \( \overline{x} \) is the mean of the data points.
+
+\subsection*{Example 3: Binomial Probability}
+\textbf{Problem:} Calculate the probability of getting exactly 3 heads in 5 flips of a fair coin.
+
+\textbf{Solution using TI-30XS:}
+\begin{enumerate}
+    \item Recognize that this is a binomial probability problem where \(n = 5\) (number of trials), \(k = 3\) (number of successes), and \(p = 0.5\) (probability of success on a single trial).
+    \item Use the binomial probability formula: \(P(X = 3) = \binom{5}{3} (0.5)^3 (1-0.5)^{5-3}\).
+    \item Enter the formula into the calculator using the combination function and probability calculations.
+    \item The calculator displays the probability, which is approximately \(0.3125\).
+
+
+    \item Identify the problem as a binomial probability where \(n = 5\) (number of trials), \(k = 3\) (number of successes), and \(p = 0.5\) (probability of success on a single trial).
+    \item Use the binomial probability formula: \(P(X = k) = \binom{n}{k} p^k (1-p)^{n-k}\).
+    \item On the calculator, use the PRB key to access probability functions. Choose the nCr function to compute \(\binom{5}{3}\).
+    \item Enter \(5\) nCr \(3\) on the calculator, which computes the binomial coefficient.
+    \item Multiply the result by \(0.5^3\) and \((1-0.5)^{5-3}\) to complete the binomial probability calculation.
+    \item The calculator displays the probability, which is \(0.3125\).
+
+\end{enumerate}
+
+
+
+
+
+\section*{Final Thoughts on Probability and Statistics}
+\addcontentsline{toc}{section}{Final Thoughts on Probability and Statistics}
+\markright{FINAL THOUGHTS ON PROBABILITY AND STATISTICS}
+
+These examples showcase how the TI-30XS calculator can be effectively utilized for solving probability and statistics problems
+
+\section*{Conclusion}
+\addcontentsline{toc}{section}{Conclusion}
+\markright{CONCLUSION}
+
+The TI-30XS calculator is an invaluable tool for students and professionals alike, providing a wide range of functionalities to tackle various mathematical problems. Mastery of this calculator can significantly enhance one's efficiency and accuracy in mathematical computations.
+
+
+
 % --- Bibliography ---
 \addcontentsline{toc}{chapter}{Bibliography}
 \bibliographystyle{alpha}

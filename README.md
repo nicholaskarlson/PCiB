@@ -1,6 +1,6 @@
 # Pre-Calculus in Brief (PCiB) with GitHub and LaTeX
 
-**Version**: 0.65
+**Version**: 0.67
 
 ## About
 
